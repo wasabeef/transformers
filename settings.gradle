@@ -1,0 +1,2 @@
+rootProject.name='Image Transformations'
+include ':sample'
