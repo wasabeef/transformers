@@ -1,3 +1,6 @@
+# Mac OS
+.DS_store
+
 # Built application files
 *.apk
 *.ap_
@@ -41,6 +44,11 @@ captures/
 .idea/dictionaries
 .idea/libraries
 .idea/caches
+.idea/misc.xml
+.idea/modules.xml
+.idea/navEditor.xml
+.idea/markdown*
+projectFilesBackup/
 
 # Keystore files
 # Uncomment the following line if you do not want to check your keystore files in.
@@ -51,15 +59,3 @@ captures/
 
 # Google Services (e.g. APIs or Firebase)
 google-services.json
-
-# Freeline
-freeline.py
-freeline/
-freeline_project_description.json
-
-# fastlane
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots
-fastlane/test_output
-fastlane/readme.md
