@@ -6,11 +6,5 @@ end_of_line = lf
 indent_style = space
 insert_final_newline = false
 max_line_length = 100
-
-[*.{kts, kt}]
-indent_size = 2
-tab_width = 2
-
-[*.xml]
 indent_size = 2
 tab_width = 2
