@@ -1,6 +1,5 @@
 package jp.wasabeef.transformations.core
 
-import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
@@ -39,12 +38,13 @@ class CropCircleWithBorder constructor(
     destination.density = source.density
     destination.setHasAlpha(true)
 
-    val paint = Paint()
-    paint.color = borderColor
-    paint.style = Paint.Style.STROKE
-    paint.strokeWidth = borderSize.toFloat()
-    paint.isAntiAlias = true
-
+    val paint = Paint().apply {
+      color = borderColor
+      style = Paint.Style.STROKE
+      strokeWidth = borderSize.toFloat()
+      isAntiAlias = true
+      isFilterBitmap = true
+    }
     val canvas = Canvas(destination)
     canvas.drawCircle(
       size / 2f,

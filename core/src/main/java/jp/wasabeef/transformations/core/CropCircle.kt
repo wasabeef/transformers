@@ -1,6 +1,5 @@
 package jp.wasabeef.transformations.core
 
-import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapShader
 import android.graphics.Canvas
@@ -39,8 +38,6 @@ class CropCircle : Transformation() {
     val width = (source.width - size) / 2
     val height = (source.height - size) / 2
 
-    val canvas = Canvas(destination)
-    val paint = Paint()
     val shader = BitmapShader(source, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
     if (width != 0 || height != 0) {
       // source isn't square, move viewport to center
@@ -48,11 +45,15 @@ class CropCircle : Transformation() {
       matrix.setTranslate(-width.toFloat(), -height.toFloat())
       shader.setLocalMatrix(matrix)
     }
-    paint.shader = shader
-    paint.isAntiAlias = true
-
-    val r: Float = size / 2f
-    canvas.drawCircle(r, r, r, paint)
+    val paint = Paint().apply {
+      isAntiAlias = true
+      isFilterBitmap = true
+      setShader(shader)
+    }
+    val canvas = Canvas(destination).apply {
+      val r: Float = size / 2f
+      drawCircle(r, r, r, paint)
+    }
     canvas.setBitmap(null)
 
     return destination

@@ -38,10 +38,14 @@ class RSGaussianBlur constructor(
 
   override fun transform(source: Bitmap, destination: Bitmap): Bitmap {
 
-    val canvas = Canvas(destination)
-    canvas.scale(1 / sampling.toFloat(), 1 / sampling.toFloat())
-    val paint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG)
-    canvas.drawBitmap(source, 0f, 0f, paint)
+    val paint = Paint().apply {
+      isAntiAlias = true
+      isFilterBitmap = true
+    }
+    val canvas = Canvas(destination).apply {
+      scale(1 / sampling.toFloat(), 1 / sampling.toFloat())
+      drawBitmap(source, 0f, 0f, paint)
+    }
     canvas.setBitmap(null)
 
     var rs: RenderScript? = null

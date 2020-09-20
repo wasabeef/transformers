@@ -1,6 +1,5 @@
 package jp.wasabeef.transformations.core
 
-import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapShader
 import android.graphics.Canvas
@@ -39,10 +38,12 @@ class RoundedCorners constructor(
     destination.density = source.density
     destination.setHasAlpha(true)
 
+    val paint = Paint().apply {
+      isAntiAlias = true
+      isFilterBitmap = true
+      shader = BitmapShader(source, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
+    }
     val canvas = Canvas(destination)
-    val paint = Paint()
-    paint.isAntiAlias = true
-    paint.shader = BitmapShader(source, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
     drawRoundRect(canvas, paint, source.width.toFloat(), source.height.toFloat())
     canvas.setBitmap(null)
 

@@ -2,6 +2,7 @@ package jp.wasabeef.transformations.core
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Paint
 import android.graphics.Rect
 import android.util.Size
 import jp.wasabeef.transformations.types.GravityHorizontal
@@ -271,10 +272,15 @@ class Crop : Transformation {
     destination.density = source.density
     destination.setHasAlpha(true)
 
-    val sourceRect = Rect(start, top, start + width, top + height)
-    val targetRect = Rect(0, 0, width, height)
-    val canvas = Canvas(destination)
-    canvas.drawBitmap(source, sourceRect, targetRect, null)
+    val paint = Paint().apply {
+      isAntiAlias = true
+      isFilterBitmap = true
+    }
+    val canvas = Canvas(destination).apply {
+      val sourceRect = Rect(start, top, start + width, top + height)
+      val targetRect = Rect(0, 0, width, height)
+      drawBitmap(source, sourceRect, targetRect, paint)
+    }
     canvas.setBitmap(null)
 
     return destination

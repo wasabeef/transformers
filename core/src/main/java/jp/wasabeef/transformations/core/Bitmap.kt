@@ -20,6 +20,3 @@ import android.graphics.Bitmap
 
 fun bitmapConfig(bitmap: Bitmap): Bitmap.Config =
   if (bitmap.config != null) bitmap.config else Bitmap.Config.ARGB_8888
-
-fun createBitmap(base: Bitmap): Bitmap =
-  Bitmap.createBitmap(base.width, base.height, bitmapConfig(base))

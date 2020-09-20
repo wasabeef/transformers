@@ -6,7 +6,6 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
-import android.graphics.drawable.Drawable
 import androidx.annotation.DrawableRes
 
 /**
@@ -30,9 +29,6 @@ class Mask constructor(
   @DrawableRes private val maskId: Int
 ) : Transformation() {
 
-  private val paint = Paint().apply {
-    xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
-  }
 
   override fun transform(
     source: Bitmap,
@@ -42,11 +38,17 @@ class Mask constructor(
     destination.density = source.density
     destination.setHasAlpha(true)
 
-    val mask: Drawable = getMaskDrawable(context.applicationContext, maskId)!!
+    val paint = Paint().apply {
+      xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
+      isAntiAlias = true
+      isFilterBitmap = true
+    }
 
     val canvas = Canvas(destination)
-    mask.setBounds(0, 0, source.width, source.height)
-    mask.draw(canvas)
+    getMaskDrawable(context.applicationContext, maskId)?.run {
+      setBounds(0, 0, source.width, source.height)
+      draw(canvas)
+    }
     canvas.drawBitmap(
       source,
       0f,
@@ -70,8 +72,8 @@ class Mask constructor(
   }
 
   override fun hashCode(): Int {
-    var result = maskId
-    result = 31 * result + paint.hashCode()
+    var result = context.hashCode()
+    result = 31 * result + maskId
     return result
   }
 

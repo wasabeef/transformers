@@ -1,6 +1,5 @@
 package jp.wasabeef.transformations.core
 
-import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.ColorMatrix
@@ -32,12 +31,17 @@ class Grayscale : Transformation() {
 
     destination.density = source.density
 
-    val canvas = Canvas(destination)
-    val saturation = ColorMatrix()
-    saturation.setSaturation(0f)
-    val paint = Paint()
+    val saturation = ColorMatrix().apply {
+      setSaturation(0f)
+    }
+    val paint = Paint().apply {
+      isAntiAlias = true
+      isFilterBitmap = true
+    }
     paint.colorFilter = ColorMatrixColorFilter(saturation)
-    canvas.drawBitmap(source, 0f, 0f, paint)
+    val canvas = Canvas(destination).apply {
+      drawBitmap(source, 0f, 0f, paint)
+    }
     canvas.setBitmap(null)
 
     return destination

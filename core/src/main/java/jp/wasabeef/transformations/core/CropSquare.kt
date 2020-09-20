@@ -1,6 +1,5 @@
 package jp.wasabeef.transformations.core
 
-import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Matrix
@@ -44,7 +43,6 @@ class CropSquare : Transformation() {
     val scale: Float
     val dx: Float
     val dy: Float
-    val matrix = Matrix()
     if (source.width * size > size * source.height) {
       scale = size.toFloat() / source.height.toFloat()
       dx = (size - source.width * scale) * 0.5f
@@ -55,11 +53,17 @@ class CropSquare : Transformation() {
       dy = (size - source.height * scale) * 0.5f
     }
 
-    matrix.setScale(scale, scale)
-    matrix.postTranslate(dx + 0.5f, dy + 0.5f)
-
-    val canvas = Canvas(destination)
-    canvas.drawBitmap(source, matrix, Paint(Paint.DITHER_FLAG or Paint.FILTER_BITMAP_FLAG))
+    val matrix = Matrix().apply {
+      setScale(scale, scale)
+      postTranslate(dx + 0.5f, dy + 0.5f)
+    }
+    val paint = Paint().apply {
+      isAntiAlias = true
+      isFilterBitmap = true
+    }
+    val canvas = Canvas(destination).apply {
+      drawBitmap(source, matrix, paint)
+    }
     canvas.setBitmap(null)
 
     return destination
