@@ -22,6 +22,7 @@
     </activity>
     <activity android:name=".GlideActivity"/>
     <activity android:name=".PicassoActivity"/>
+    <activity android:name=".CoilActivity"/>
   </application>
 
 </manifest>

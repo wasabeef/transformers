@@ -16,5 +16,8 @@ class MainActivity : AppCompatActivity() {
     picasso.setOnClickListener {
       startActivity(Intent(this, PicassoActivity::class.java))
     }
+    coil.setOnClickListener {
+      startActivity(Intent(this, CoilActivity::class.java))
+    }
   }
 }

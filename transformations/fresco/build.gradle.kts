@@ -9,8 +9,8 @@ android {
   defaultConfig {
     minSdkVersion(BuildConfig.minSdk)
     targetSdkVersion(BuildConfig.targetSdk)
-    versionCode(BuildConfig.appVersionCode)
-    versionName(BuildConfig.appVersionName)
+
+    buildConfigField("String", "Version", "\"${BuildConfig.appVersionName}\"")
 
     testInstrumentationRunner = BuildConfig.testRunner
     consumerProguardFile("consumer-rules.pro")
