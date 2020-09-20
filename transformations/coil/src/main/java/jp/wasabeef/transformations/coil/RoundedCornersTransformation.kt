@@ -4,9 +4,9 @@ import android.graphics.Bitmap
 import coil.bitmap.BitmapPool
 import coil.size.Size
 import coil.transform.Transformation
+import jp.wasabeef.transformations.core.RoundedCorners
 import jp.wasabeef.transformations.core.bitmapConfig
 import jp.wasabeef.transformations.types.CornerType
-import jp.wasabeef.transformations.types.RoundedCorners
 
 /**
  * Copyright (C) 2020 Wasabeef

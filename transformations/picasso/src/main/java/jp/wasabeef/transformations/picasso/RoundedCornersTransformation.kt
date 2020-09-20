@@ -2,9 +2,9 @@ package jp.wasabeef.transformations.picasso
 
 import android.graphics.Bitmap
 import com.squareup.picasso.Transformation
+import jp.wasabeef.transformations.core.RoundedCorners
 import jp.wasabeef.transformations.core.bitmapConfig
 import jp.wasabeef.transformations.types.CornerType
-import jp.wasabeef.transformations.types.RoundedCorners
 
 /**
  * Copyright (C) 2020 Wasabeef
