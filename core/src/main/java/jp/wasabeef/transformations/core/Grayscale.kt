@@ -37,8 +37,8 @@ class Grayscale : Transformation() {
     val paint = Paint().apply {
       isAntiAlias = true
       isFilterBitmap = true
+      colorFilter = ColorMatrixColorFilter(saturation)
     }
-    paint.colorFilter = ColorMatrixColorFilter(saturation)
     val canvas = Canvas(destination).apply {
       drawBitmap(source, 0f, 0f, paint)
     }

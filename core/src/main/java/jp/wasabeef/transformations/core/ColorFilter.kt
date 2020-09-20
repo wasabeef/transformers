@@ -33,9 +33,10 @@ class ColorFilter constructor(@ColorInt private val color: Int) : Transformation
     destination.density = source.density
 
     val paint = Paint().apply {
+      isAntiAlias = true
       isFilterBitmap = true
+      colorFilter = PorterDuffColorFilter(this@ColorFilter.color, PorterDuff.Mode.SRC_ATOP)
     }
-    paint.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
     val canvas = Canvas(destination).apply {
       drawBitmap(source, 0f, 0f, paint)
     }
