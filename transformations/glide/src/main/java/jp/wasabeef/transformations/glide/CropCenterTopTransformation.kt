@@ -4,11 +4,11 @@ import android.content.Context
 import android.graphics.Bitmap
 import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
+import java.security.MessageDigest
 import jp.wasabeef.transformations.core.Crop
 import jp.wasabeef.transformations.core.bitmapConfig
 import jp.wasabeef.transformations.types.GravityHorizontal
 import jp.wasabeef.transformations.types.GravityVertical
-import java.security.MessageDigest
 
 /**
  * Copyright (C) 2020 Wasabeef

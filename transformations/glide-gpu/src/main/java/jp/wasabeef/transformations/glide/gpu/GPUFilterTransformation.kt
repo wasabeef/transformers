@@ -19,11 +19,11 @@ import android.content.Context
 import android.graphics.Bitmap
 import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
+import java.security.MessageDigest
 import jp.co.cyberagent.android.gpuimage.GPUImage
 import jp.co.cyberagent.android.gpuimage.filter.GPUImageFilter
 import jp.wasabeef.transformations.glide.BitmapTransformation
 import jp.wasabeef.transformations.glide.gpu.BuildConfig.Version
-import java.security.MessageDigest
 
 abstract class GPUFilterTransformation(private val filter: GPUImageFilter) :
   BitmapTransformation() {
@@ -31,7 +31,7 @@ abstract class GPUFilterTransformation(private val filter: GPUImageFilter) :
   val version: String = Version
 
   protected val id: String
-    get() = "${this::class.java.name}-${version}"
+    get() = "${this::class.java.name}-$version"
 
   override fun transform(
     context: Context,

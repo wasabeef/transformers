@@ -65,7 +65,7 @@ import jp.wasabeef.transformations.coil.gpu.ToonFilterTransformation
 import jp.wasabeef.transformations.coil.gpu.VignetteFilterTransformation
 import jp.wasabeef.transformations.coil.gpu.WhiteBalanceFilterTransformation
 import jp.wasabeef.transformations.coil.gpu.ZoomBlurFilterTransformation
-import jp.wasabeef.transformations.core.CornerType
+import jp.wasabeef.transformations.types.CornerType
 import jp.wasabeef.transformations.types.GravityHorizontal
 import jp.wasabeef.transformations.types.GravityVertical
 
@@ -344,14 +344,12 @@ class CoilAdapter(
         )
       }
 
-
       else -> {
         // no op
       }
     }
     holder.title.text = dataSet[position].name
   }
-
 
   class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var image: ImageView = itemView.findViewById(R.id.image)

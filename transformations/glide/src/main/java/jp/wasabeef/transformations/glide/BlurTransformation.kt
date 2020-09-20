@@ -5,10 +5,10 @@ import android.graphics.Bitmap
 import android.renderscript.RSRuntimeException
 import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
+import java.security.MessageDigest
 import jp.wasabeef.transformations.core.RSGaussianBlur
 import jp.wasabeef.transformations.core.StackBlur
 import jp.wasabeef.transformations.core.bitmapConfig
-import java.security.MessageDigest
 
 /**
  * Copyright (C) 2020 Wasabeef

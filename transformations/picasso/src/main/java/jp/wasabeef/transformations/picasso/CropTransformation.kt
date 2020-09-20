@@ -75,7 +75,9 @@ class CropTransformation : Transformation {
 
   @JvmOverloads
   constructor(
-    width: Int, height: Int, aspectRatio: Float,
+    width: Int,
+    height: Int,
+    aspectRatio: Float,
     gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
     gravityVertical: GravityVertical = GravityVertical.CENTER
   ) {
@@ -89,7 +91,9 @@ class CropTransformation : Transformation {
 
   @JvmOverloads
   constructor(
-    widthRatio: Float, heightRatio: Float, aspectRatio: Float,
+    widthRatio: Float,
+    heightRatio: Float,
+    aspectRatio: Float,
     gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
     gravityVertical: GravityVertical = GravityVertical.CENTER
   ) {
@@ -103,7 +107,8 @@ class CropTransformation : Transformation {
 
   @JvmOverloads
   constructor(
-    aspectRatio: Float, gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
+    aspectRatio: Float,
+    gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
     gravityVertical: GravityVertical = GravityVertical.CENTER
   ) {
     crop = Crop(aspectRatio, gravityHorizontal, gravityVertical)

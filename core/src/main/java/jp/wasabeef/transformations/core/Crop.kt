@@ -91,7 +91,9 @@ class Crop : Transformation {
    * @param height in pixels
    */
   constructor(
-    width: Int, height: Int, gravityHorizontal: GravityHorizontal,
+    width: Int,
+    height: Int,
+    gravityHorizontal: GravityHorizontal,
     gravityVertical: GravityVertical
   ) {
     this.width = width
@@ -161,8 +163,11 @@ class Crop : Transformation {
    * @param gravityVertical   position of the cropped area within the larger source image
    */
   constructor(
-    width: Int, height: Int, aspectRatio: Float,
-    gravityHorizontal: GravityHorizontal, gravityVertical: GravityVertical
+    width: Int,
+    height: Int,
+    aspectRatio: Float,
+    gravityHorizontal: GravityHorizontal,
+    gravityVertical: GravityVertical
   ) {
     this.width = width
     this.height = height
@@ -197,8 +202,11 @@ class Crop : Transformation {
    * @param gravityVertical   position of the cropped area within the larger source image
    */
   constructor(
-    widthRatio: Float, heightRatio: Float, aspectRatio: Float,
-    gravityHorizontal: GravityHorizontal, gravityVertical: GravityVertical
+    widthRatio: Float,
+    heightRatio: Float,
+    aspectRatio: Float,
+    gravityHorizontal: GravityHorizontal,
+    gravityVertical: GravityVertical
   ) {
     this.widthRatio = widthRatio
     this.heightRatio = heightRatio
@@ -217,7 +225,8 @@ class Crop : Transformation {
    * @param gravityVertical   position of the cropped area within the larger source image
    */
   constructor(
-    aspectRatio: Float, gravityHorizontal: GravityHorizontal,
+    aspectRatio: Float,
+    gravityHorizontal: GravityHorizontal,
     gravityVertical: GravityVertical
   ) {
     this.aspectRatio = aspectRatio

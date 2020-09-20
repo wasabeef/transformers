@@ -5,9 +5,9 @@ import android.graphics.Bitmap
 import androidx.annotation.ColorInt
 import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
+import java.security.MessageDigest
 import jp.wasabeef.transformations.core.ColorFilter
 import jp.wasabeef.transformations.core.bitmapConfig
-import java.security.MessageDigest
 
 /**
  * Copyright (C) 2020 Wasabeef

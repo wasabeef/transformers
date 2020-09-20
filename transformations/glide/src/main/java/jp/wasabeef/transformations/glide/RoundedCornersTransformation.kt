@@ -4,10 +4,10 @@ import android.content.Context
 import android.graphics.Bitmap
 import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
-import jp.wasabeef.transformations.core.CornerType
-import jp.wasabeef.transformations.core.RoundedCorners
-import jp.wasabeef.transformations.core.bitmapConfig
 import java.security.MessageDigest
+import jp.wasabeef.transformations.core.bitmapConfig
+import jp.wasabeef.transformations.types.CornerType
+import jp.wasabeef.transformations.types.RoundedCorners
 
 /**
  * Copyright (C) 2020 Wasabeef

@@ -3,6 +3,7 @@ plugins {
   kotlin("android")
   id("kotlin-android-extensions")
   id("kotlin-kapt")
+  ktlint
 }
 
 android {

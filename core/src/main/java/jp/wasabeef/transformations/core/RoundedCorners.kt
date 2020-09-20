@@ -58,7 +58,8 @@ class RoundedCorners constructor(
         RectF(
           margin.toFloat(),
           margin.toFloat(), right, bottom
-        ), radius.toFloat(), radius.toFloat(), paint
+        ),
+        radius.toFloat(), radius.toFloat(), paint
       )
       CornerType.TOP_LEFT -> drawTopLeftRoundRect(canvas, paint, right, bottom)
       CornerType.TOP_RIGHT -> drawTopRightRoundRect(canvas, paint, right, bottom)
@@ -92,14 +93,16 @@ class RoundedCorners constructor(
       RectF(
         margin.toFloat(), margin.toFloat(),
         (margin + diameter).toFloat(), (margin + diameter).toFloat()
-      ), radius.toFloat(),
+      ),
+      radius.toFloat(),
       radius.toFloat(), paint
     )
     canvas.drawRect(
       RectF(
         margin.toFloat(), (margin + radius).toFloat(),
         (margin + radius).toFloat(), bottom
-      ), paint
+      ),
+      paint
     )
     canvas.drawRect(RectF((margin + radius).toFloat(), margin.toFloat(), right, bottom), paint)
   }
@@ -109,7 +112,8 @@ class RoundedCorners constructor(
       RectF(
         right - diameter, margin.toFloat(), right,
         (margin + diameter).toFloat()
-      ), radius.toFloat(),
+      ),
+      radius.toFloat(),
       radius.toFloat(), paint
     )
     canvas.drawRect(RectF(margin.toFloat(), margin.toFloat(), right - radius, bottom), paint)
@@ -121,7 +125,8 @@ class RoundedCorners constructor(
       RectF(
         margin.toFloat(), bottom - diameter,
         (margin + diameter).toFloat(), bottom
-      ), radius.toFloat(),
+      ),
+      radius.toFloat(),
       radius.toFloat(), paint
     )
     canvas.drawRect(
@@ -130,7 +135,8 @@ class RoundedCorners constructor(
         margin.toFloat(),
         (margin + diameter).toFloat(),
         bottom - radius
-      ), paint
+      ),
+      paint
     )
     canvas.drawRect(RectF((margin + radius).toFloat(), margin.toFloat(), right, bottom), paint)
   }
@@ -149,7 +155,8 @@ class RoundedCorners constructor(
       RectF(
         margin.toFloat(), margin.toFloat(), right,
         (margin + diameter).toFloat()
-      ), radius.toFloat(), radius.toFloat(),
+      ),
+      radius.toFloat(), radius.toFloat(),
       paint
     )
     canvas.drawRect(RectF(margin.toFloat(), (margin + radius).toFloat(), right, bottom), paint)
@@ -168,7 +175,8 @@ class RoundedCorners constructor(
       RectF(
         margin.toFloat(), margin.toFloat(),
         (margin + diameter).toFloat(), bottom
-      ), radius.toFloat(), radius.toFloat(),
+      ),
+      radius.toFloat(), radius.toFloat(),
       paint
     )
     canvas.drawRect(RectF((margin + radius).toFloat(), margin.toFloat(), right, bottom), paint)
@@ -211,7 +219,8 @@ class RoundedCorners constructor(
       RectF(
         margin.toFloat(), margin.toFloat(),
         (margin + diameter).toFloat(), bottom
-      ), radius.toFloat(), radius.toFloat(),
+      ),
+      radius.toFloat(), radius.toFloat(),
       paint
     )
     canvas.drawRoundRect(
@@ -234,7 +243,8 @@ class RoundedCorners constructor(
       RectF(
         margin.toFloat(), margin.toFloat(), right,
         (margin + diameter).toFloat()
-      ), radius.toFloat(), radius.toFloat(),
+      ),
+      radius.toFloat(), radius.toFloat(),
       paint
     )
     canvas.drawRoundRect(
@@ -250,21 +260,25 @@ class RoundedCorners constructor(
   }
 
   private fun drawOtherBottomRightRoundRect(
-    canvas: Canvas, paint: Paint, right: Float,
+    canvas: Canvas,
+    paint: Paint,
+    right: Float,
     bottom: Float
   ) {
     canvas.drawRoundRect(
       RectF(
         margin.toFloat(), margin.toFloat(), right,
         (margin + diameter).toFloat()
-      ), radius.toFloat(), radius.toFloat(),
+      ),
+      radius.toFloat(), radius.toFloat(),
       paint
     )
     canvas.drawRoundRect(
       RectF(
         margin.toFloat(), margin.toFloat(),
         (margin + diameter).toFloat(), bottom
-      ), radius.toFloat(), radius.toFloat(),
+      ),
+      radius.toFloat(), radius.toFloat(),
       paint
     )
     canvas.drawRect(
@@ -274,14 +288,17 @@ class RoundedCorners constructor(
   }
 
   private fun drawDiagonalFromTopLeftRoundRect(
-    canvas: Canvas, paint: Paint, right: Float,
+    canvas: Canvas,
+    paint: Paint,
+    right: Float,
     bottom: Float
   ) {
     canvas.drawRoundRect(
       RectF(
         margin.toFloat(), margin.toFloat(),
         (margin + diameter).toFloat(), (margin + diameter).toFloat()
-      ), radius.toFloat(),
+      ),
+      radius.toFloat(),
       radius.toFloat(), paint
     )
     canvas.drawRoundRect(
@@ -299,21 +316,25 @@ class RoundedCorners constructor(
   }
 
   private fun drawDiagonalFromTopRightRoundRect(
-    canvas: Canvas, paint: Paint, right: Float,
+    canvas: Canvas,
+    paint: Paint,
+    right: Float,
     bottom: Float
   ) {
     canvas.drawRoundRect(
       RectF(
         right - diameter, margin.toFloat(), right,
         (margin + diameter).toFloat()
-      ), radius.toFloat(),
+      ),
+      radius.toFloat(),
       radius.toFloat(), paint
     )
     canvas.drawRoundRect(
       RectF(
         margin.toFloat(), bottom - diameter,
         (margin + diameter).toFloat(), bottom
-      ), radius.toFloat(),
+      ),
+      radius.toFloat(),
       radius.toFloat(), paint
     )
     canvas.drawRect(

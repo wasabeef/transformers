@@ -1,16 +1,17 @@
-package jp.wasabeef.transformations.core
-
-import android.graphics.Bitmap
+package jp.wasabeef.transformations.types
 
 /**
- * Copyright (C) 2020 Wasabeef
- * <p>
+ * Copyright (C) 2020 Wasabeef, molexx
+ *
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * <p>
+ *
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
+ *
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -18,5 +19,8 @@ import android.graphics.Bitmap
  * limitations under the License.
  */
 
-fun bitmapConfig(bitmap: Bitmap): Bitmap.Config =
-  if (bitmap.config != null) bitmap.config else Bitmap.Config.ARGB_8888
+enum class GravityVertical {
+  TOP,
+  CENTER,
+  BOTTOM
+}

@@ -29,7 +29,6 @@ class Mask constructor(
   @DrawableRes private val maskId: Int
 ) : Transformation() {
 
-
   override fun transform(
     source: Bitmap,
     destination: Bitmap

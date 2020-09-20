@@ -30,12 +30,16 @@ import java.security.MessageDigest
 
 abstract class BitmapTransformation : Transformation<Bitmap> {
   override fun transform(
-    context: Context, resource: Resource<Bitmap?>,
-    outWidth: Int, outHeight: Int
+    context: Context,
+    resource: Resource<Bitmap?>,
+    outWidth: Int,
+    outHeight: Int
   ): Resource<Bitmap?> {
     require(Util.isValidDimensions(outWidth, outHeight)) {
-      ("Cannot apply transformation on width: " + outWidth + " or height: " + outHeight
-        + " less than or equal to zero and not Target.SIZE_ORIGINAL")
+      (
+        "Cannot apply transformation on width: " + outWidth + " or height: " + outHeight +
+          " less than or equal to zero and not Target.SIZE_ORIGINAL"
+        )
     }
     val bitmapPool = Glide.get(context).bitmapPool
     val toTransform = resource.get()
@@ -53,8 +57,11 @@ abstract class BitmapTransformation : Transformation<Bitmap> {
   }
 
   protected abstract fun transform(
-    context: Context, pool: BitmapPool,
-    source: Bitmap, outWidth: Int, outHeight: Int
+    context: Context,
+    pool: BitmapPool,
+    source: Bitmap,
+    outWidth: Int,
+    outHeight: Int
   ): Bitmap
 
   abstract override fun updateDiskCacheKey(messageDigest: MessageDigest)

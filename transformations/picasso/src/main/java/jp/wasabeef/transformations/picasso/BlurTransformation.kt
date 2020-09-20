@@ -31,7 +31,6 @@ class BlurTransformation @JvmOverloads constructor(
   private val rs: Boolean = true
 ) : Transformation {
 
-
   private val stackBlur = StackBlur(radius, sampling)
   private val rsGaussianBlur = RSGaussianBlur(context, radius, sampling)
 
@@ -53,7 +52,6 @@ class BlurTransformation @JvmOverloads constructor(
     source.recycle()
     return output
   }
-
 
   override fun key(): String = stackBlur.key() + rsGaussianBlur.key()
 

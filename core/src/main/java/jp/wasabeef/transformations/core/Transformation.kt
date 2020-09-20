@@ -1,8 +1,6 @@
 package jp.wasabeef.transformations.core
 
-import android.content.Context
 import android.graphics.Bitmap
-import androidx.annotation.NonNull
 
 /**
  * Copyright (C) 2020 Wasabeef
@@ -24,7 +22,7 @@ abstract class Transformation {
   val version: String = BuildConfig.Version
 
   protected val id: String
-    get() = "${this::class.java.name}-${version}"
+    get() = "${this::class.java.name}-$version"
 
   abstract fun transform(
     source: Bitmap,

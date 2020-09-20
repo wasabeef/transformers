@@ -24,9 +24,3 @@ enum class GravityHorizontal {
   CENTER,
   END
 }
-
-enum class GravityVertical {
-  TOP,
-  CENTER,
-  BOTTOM
-}

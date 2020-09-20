@@ -32,7 +32,7 @@ abstract class GPUFilterTransformation(
   val version: String = Version
 
   protected val id: String
-    get() = "${this::class.java.name}-${version}"
+    get() = "${this::class.java.name}-$version"
 
   override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
     val gpuImage = GPUImage(context)

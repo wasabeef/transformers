@@ -39,7 +39,6 @@ import jp.wasabeef.transformations.PicassoAdapter.Type.Toon
 import jp.wasabeef.transformations.PicassoAdapter.Type.Vignette
 import jp.wasabeef.transformations.PicassoAdapter.Type.WhiteBalance
 import jp.wasabeef.transformations.PicassoAdapter.Type.ZoomBlur
-import jp.wasabeef.transformations.core.CornerType
 import jp.wasabeef.transformations.picasso.BlurTransformation
 import jp.wasabeef.transformations.picasso.CenterCropTransformation
 import jp.wasabeef.transformations.picasso.ColorFilterTransformation
@@ -67,6 +66,7 @@ import jp.wasabeef.transformations.picasso.gpu.ToneCurveFilterTransformation
 import jp.wasabeef.transformations.picasso.gpu.VignetteFilterTransformation
 import jp.wasabeef.transformations.picasso.gpu.WhiteBalanceFilterTransformation
 import jp.wasabeef.transformations.picasso.gpu.ZoomBlurFilterTransformation
+import jp.wasabeef.transformations.types.CornerType
 import jp.wasabeef.transformations.types.GravityHorizontal
 import jp.wasabeef.transformations.types.GravityVertical
 
@@ -162,266 +162,298 @@ class PicassoAdapter(
           ).into(holder.image)
       }
 
-      CropTop -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(CropCenterTopTransformation())
-        .into(holder.image)
+      CropTop ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(CropCenterTopTransformation())
+          .into(holder.image)
 
-      CropCenter -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(CenterCropTransformation())
-        .into(holder.image)
+      CropCenter ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(CenterCropTransformation())
+          .into(holder.image)
 
-      CropCenterRatio16x9 -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(
-          CropTransformation(
-            16f / 9f
-          )
-        )
-        .into(holder.image)
-
-      CropCenterRatio4x3 -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(
-          CropTransformation(4f / 3f)
-        ).into(holder.image)
-
-      CropTopRatio16x9 -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(
-          CropTransformation(
-            16f / 9f,
-            GravityHorizontal.START,
-            GravityVertical.TOP
-          )
-        )
-        .into(holder.image)
-
-      CropBottomRatio4x3 -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(
-          CropTransformation(4f / 3f, GravityHorizontal.START, GravityVertical.BOTTOM)
-        ).into(holder.image)
-
-      CropBottom -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(CropCenterBottomTransformation())
-        .into(holder.image)
-
-      CropSquare -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(CropSquareTransformation())
-        .into(holder.image)
-
-      CropCircle -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(
-          mutableListOf(
-            CropCenterTransformation(),
-            CropCircleTransformation()
-          )
-
-        )
-        .into(holder.image)
-
-      CropCircleWithBorder -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(
-          mutableListOf(
-            CropCenterTransformation(),
-            CropCircleWithBorderTransformation(4.dp, Color.rgb(0, 191, 255))
-          )
-        )
-        .into(holder.image)
-
-      ColorFilter -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(ColorFilterTransformation(Color.argb(90, 51, 204, 255)))
-        .into(holder.image)
-
-      Grayscale -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(GrayscaleTransformation())
-        .into(holder.image)
-
-      RoundedCorners -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(
-          mutableListOf(
-            CropCenterTransformation(),
-            RoundedCornersTransformation(radius = 120)
-          )
-        )
-        .into(holder.image)
-
-      RoundedCornersTopLeft -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(
-          mutableListOf(
-            CropCenterTransformation(),
-            RoundedCornersTransformation(
-              radius = 120,
-              cornerType = CornerType.DIAGONAL_FROM_TOP_LEFT
+      CropCenterRatio16x9 ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(
+            CropTransformation(
+              16f / 9f
             )
           )
-        )
-        .into(holder.image)
+          .into(holder.image)
 
-      Type.RSGaussianBlurLight -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(BlurTransformation(context, 15, sampling = 1)).into(holder.image)
-      Type.RSGaussianBlurDeep -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(
-          BlurTransformation(context, 25, sampling = 4)
-        ).into(holder.image)
-      Type.StackBlurLight -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(BlurTransformation(context, 25, sampling = 1, rs = false))
-        .into(holder.image)
-      Type.StackBlurDeep -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(BlurTransformation(context, 25, sampling = 8, rs = false))
-        .into(holder.image)
+      CropCenterRatio4x3 ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(
+            CropTransformation(4f / 3f)
+          ).into(holder.image)
 
-      Toon -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(
-          jp.wasabeef.transformations.picasso.gpu.ToonFilterTransformation(
-            context,
-            0.2f,
-            10.0f
+      CropTopRatio16x9 ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(
+            CropTransformation(
+              16f / 9f,
+              GravityHorizontal.START,
+              GravityVertical.TOP
+            )
           )
-        )
-        .into(holder.image)
+          .into(holder.image)
 
-      Sepia -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(SepiaFilterTransformation(context))
-        .into(holder.image)
+      CropBottomRatio4x3 ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(
+            CropTransformation(4f / 3f, GravityHorizontal.START, GravityVertical.BOTTOM)
+          ).into(holder.image)
 
-      Contrast -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(ContrastFilterTransformation(context, 2.0f))
-        .into(holder.image)
+      CropBottom ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(CropCenterBottomTransformation())
+          .into(holder.image)
 
-      Invert -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(InvertFilterTransformation(context))
-        .into(holder.image)
+      CropSquare ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(CropSquareTransformation())
+          .into(holder.image)
 
-      Pixel -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(PixelationFilterTransformation(context, 20f))
-        .into(holder.image)
+      CropCircle ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(
+            mutableListOf(
+              CropCenterTransformation(),
+              CropCircleTransformation()
+            )
 
-      Sketch -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(SketchFilterTransformation(context))
-        .into(holder.image)
-
-      Swirl -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(SwirlFilterTransformation(context, 0.5f, 1.0f, PointF(0.5f, 0.5f)))
-        .into(holder.image)
-
-      Brightness -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(BrightnessFilterTransformation(context, 0.4f))
-        .into(holder.image)
-
-      Kuawahara -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(KuwaharaFilterTransformation(context, 25))
-        .into(holder.image)
-
-      Vignette -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(
-          VignetteFilterTransformation(
-            context,
-            PointF(0.5f, 0.5f),
-            floatArrayOf(0.0f, 0.0f, 0.0f), 0f, 0.75f
           )
-        )
-        .into(holder.image)
+          .into(holder.image)
 
-      ZoomBlur -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(
-          ZoomBlurFilterTransformation(
-            context,
-            PointF(0.5f, 0.5f),
-            2.0f
+      CropCircleWithBorder ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(
+            mutableListOf(
+              CropCenterTransformation(),
+              CropCircleWithBorderTransformation(4.dp, Color.rgb(0, 191, 255))
+            )
           )
-        )
-        .into(holder.image)
+          .into(holder.image)
 
-      WhiteBalance -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(
-          WhiteBalanceFilterTransformation(
-            context,
-            3000f, 1f
+      ColorFilter ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(ColorFilterTransformation(Color.argb(90, 51, 204, 255)))
+          .into(holder.image)
+
+      Grayscale ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(GrayscaleTransformation())
+          .into(holder.image)
+
+      RoundedCorners ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(
+            mutableListOf(
+              CropCenterTransformation(),
+              RoundedCornersTransformation(radius = 120)
+            )
           )
-        )
-        .into(holder.image)
+          .into(holder.image)
 
-      Type.Halftone -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(
-          HalftoneFilterTransformation(context)
-        )
-        .into(holder.image)
+      RoundedCornersTopLeft ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(
+            mutableListOf(
+              CropCenterTransformation(),
+              RoundedCornersTransformation(
+                radius = 120,
+                cornerType = CornerType.DIAGONAL_FROM_TOP_LEFT
+              )
+            )
+          )
+          .into(holder.image)
 
-      Type.Sharpness -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(
-          SharpenFilterTransformation(context, 2.0f)
-        )
-        .into(holder.image)
+      Type.RSGaussianBlurLight ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(BlurTransformation(context, 15, sampling = 1)).into(holder.image)
+      Type.RSGaussianBlurDeep ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(
+            BlurTransformation(context, 25, sampling = 4)
+          ).into(holder.image)
+      Type.StackBlurLight ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(BlurTransformation(context, 25, sampling = 1, rs = false))
+          .into(holder.image)
+      Type.StackBlurDeep ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(BlurTransformation(context, 25, sampling = 8, rs = false))
+          .into(holder.image)
 
-      ToneCurve -> Picasso.get()
-        .load(IMAGE_URL)
-        .fit().centerInside().rotate(90f)
-        .transform(
-          ToneCurveFilterTransformation(context, R.raw.tone_cuver_sample)
-        )
-        .into(holder.image)
+      Toon ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(
+            jp.wasabeef.transformations.picasso.gpu.ToonFilterTransformation(
+              context,
+              0.2f,
+              10.0f
+            )
+          )
+          .into(holder.image)
 
+      Sepia ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(SepiaFilterTransformation(context))
+          .into(holder.image)
+
+      Contrast ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(ContrastFilterTransformation(context, 2.0f))
+          .into(holder.image)
+
+      Invert ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(InvertFilterTransformation(context))
+          .into(holder.image)
+
+      Pixel ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(PixelationFilterTransformation(context, 20f))
+          .into(holder.image)
+
+      Sketch ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(SketchFilterTransformation(context))
+          .into(holder.image)
+
+      Swirl ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(SwirlFilterTransformation(context, 0.5f, 1.0f, PointF(0.5f, 0.5f)))
+          .into(holder.image)
+
+      Brightness ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(BrightnessFilterTransformation(context, 0.4f))
+          .into(holder.image)
+
+      Kuawahara ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(KuwaharaFilterTransformation(context, 25))
+          .into(holder.image)
+
+      Vignette ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(
+            VignetteFilterTransformation(
+              context,
+              PointF(0.5f, 0.5f),
+              floatArrayOf(0.0f, 0.0f, 0.0f), 0f, 0.75f
+            )
+          )
+          .into(holder.image)
+
+      ZoomBlur ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(
+            ZoomBlurFilterTransformation(
+              context,
+              PointF(0.5f, 0.5f),
+              2.0f
+            )
+          )
+          .into(holder.image)
+
+      WhiteBalance ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(
+            WhiteBalanceFilterTransformation(
+              context,
+              3000f, 1f
+            )
+          )
+          .into(holder.image)
+
+      Type.Halftone ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(
+            HalftoneFilterTransformation(context)
+          )
+          .into(holder.image)
+
+      Type.Sharpness ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(
+            SharpenFilterTransformation(context, 2.0f)
+          )
+          .into(holder.image)
+
+      ToneCurve ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(
+            ToneCurveFilterTransformation(context, R.raw.tone_cuver_sample)
+          )
+          .into(holder.image)
 
       else -> {
         // no op

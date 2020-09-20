@@ -24,7 +24,8 @@ import kotlin.math.min
  */
 
 class StackBlur constructor(
-  private val radius: Int, private val sampling: Int
+  private val radius: Int,
+  private val sampling: Int
 ) : Transformation() {
 
   override fun transform(source: Bitmap, destination: Bitmap): Bitmap {

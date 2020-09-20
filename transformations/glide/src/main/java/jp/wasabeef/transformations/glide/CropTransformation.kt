@@ -4,11 +4,11 @@ import android.content.Context
 import android.graphics.Bitmap
 import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
+import java.security.MessageDigest
 import jp.wasabeef.transformations.core.Crop
 import jp.wasabeef.transformations.core.bitmapConfig
 import jp.wasabeef.transformations.types.GravityHorizontal
 import jp.wasabeef.transformations.types.GravityVertical
-import java.security.MessageDigest
 
 /**
  * Copyright (C) 2020 Wasabeef
@@ -78,7 +78,9 @@ class CropTransformation : BitmapTransformation {
 
   @JvmOverloads
   constructor(
-    width: Int, height: Int, aspectRatio: Float,
+    width: Int,
+    height: Int,
+    aspectRatio: Float,
     gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
     gravityVertical: GravityVertical = GravityVertical.CENTER
   ) {
@@ -92,7 +94,9 @@ class CropTransformation : BitmapTransformation {
 
   @JvmOverloads
   constructor(
-    widthRatio: Float, heightRatio: Float, aspectRatio: Float,
+    widthRatio: Float,
+    heightRatio: Float,
+    aspectRatio: Float,
     gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
     gravityVertical: GravityVertical = GravityVertical.CENTER
   ) {
@@ -106,7 +110,8 @@ class CropTransformation : BitmapTransformation {
 
   @JvmOverloads
   constructor(
-    aspectRatio: Float, gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
+    aspectRatio: Float,
+    gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
     gravityVertical: GravityVertical = GravityVertical.CENTER
   ) {
     crop = Crop(aspectRatio, gravityHorizontal, gravityVertical)

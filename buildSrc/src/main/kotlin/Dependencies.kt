@@ -22,6 +22,10 @@ object Projects {
   const val fresco = ":transformations:fresco"
 }
 
+object Ktlint {
+  const val plugin = "com.pinterest:ktlint:0.39.0"
+}
+
 object Libraries {
   const val kotlinVersion = "1.3.72"
   const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"

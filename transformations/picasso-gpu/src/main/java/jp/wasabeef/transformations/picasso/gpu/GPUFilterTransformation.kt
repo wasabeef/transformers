@@ -31,7 +31,7 @@ abstract class GPUFilterTransformation(
   val version: String = Version
 
   protected val id: String
-    get() = "${this::class.java.name}-${version}"
+    get() = "${this::class.java.name}-$version"
 
   override fun transform(
     source: Bitmap
