@@ -18,6 +18,7 @@ object Projects {
   const val picasso = ":transformations:picasso"
   const val picassoGpu = ":transformations:picasso-gpu"
   const val coil = ":transformations:coil"
+  const val coilGpu = ":transformations:coil-gpu"
   const val fresco = ":transformations:fresco"
 }
 

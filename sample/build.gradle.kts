@@ -44,6 +44,7 @@ dependencies {
   implementation(project(Projects.picasso))
   implementation(project(Projects.picassoGpu))
   implementation(project(Projects.coil))
+  implementation(project(Projects.coilGpu))
   implementation(project(Projects.fresco))
 
   implementation(Libraries.kotlin)
