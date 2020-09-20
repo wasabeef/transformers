@@ -13,6 +13,8 @@ android {
     versionCode(BuildConfig.appVersionCode)
     versionName(BuildConfig.appVersionName)
 
+    buildConfigField("String", "Version", "\"${BuildConfig.appVersionName}\"")
+
     testInstrumentationRunner = BuildConfig.testRunner
     consumerProguardFile("consumer-rules.pro")
   }
@@ -28,10 +30,9 @@ android {
 }
 
 dependencies {
-  implementation(project(Projects.core))
-  api(project(Projects.types))
+  implementation(project(Projects.picasso))
 
   implementation(Libraries.kotlin)
-  implementation(Libraries.glide)
-  kapt(Libraries.glideCompiler)
+  implementation(Libraries.picasso)
+  implementation(Libraries.gpuImage)
 }

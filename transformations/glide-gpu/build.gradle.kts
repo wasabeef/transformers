@@ -30,7 +30,7 @@ android {
 }
 
 dependencies {
-  implementation(project(Projects.Glide))
+  implementation(project(Projects.glide))
 
   implementation(Libraries.kotlin)
   implementation(Libraries.glide)

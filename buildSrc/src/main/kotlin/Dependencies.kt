@@ -11,14 +11,14 @@ object BuildConfig {
 }
 
 object Projects {
-  const val Core = ":core"
-  const val Types = ":types"
-  const val Glide = ":transformations:glide"
-  const val GlideGPU = ":transformations:glide-gpu"
-  const val Picasso = ":transformations:picasso"
-  const val Coil = ":transformations:coil"
-  const val Fresco = ":transformations:fresco"
-  const val GPU = ":transformations:gpu"
+  const val core = ":core"
+  const val types = ":types"
+  const val glide = ":transformations:glide"
+  const val glideGpu = ":transformations:glide-gpu"
+  const val picasso = ":transformations:picasso"
+  const val picassoGpu = ":transformations:picasso-gpu"
+  const val coil = ":transformations:coil"
+  const val fresco = ":transformations:fresco"
 }
 
 object Libraries {
