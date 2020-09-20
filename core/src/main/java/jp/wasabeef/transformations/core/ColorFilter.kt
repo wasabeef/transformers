@@ -6,6 +6,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
+import androidx.annotation.ColorInt
 
 /**
  * Copyright (C) 2020 Wasabeef
@@ -23,7 +24,7 @@ import android.graphics.PorterDuffColorFilter
  * limitations under the License.
  */
 
-class ColorFilter constructor(private val color: Int = 0) : Transformation() {
+class ColorFilter constructor(@ColorInt private val color: Int) : Transformation() {
 
   override fun transform(
     context: Context,
