@@ -2,10 +2,12 @@ package jp.wasabeef.transformations.core
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.BitmapShader
 import android.graphics.Canvas
+import android.graphics.Matrix
 import android.graphics.Paint
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffColorFilter
+import android.graphics.Shader
+import kotlin.math.min
 
 /**
  * Copyright (C) 2020 Wasabeef
@@ -23,7 +25,7 @@ import android.graphics.PorterDuffColorFilter
  * limitations under the License.
  */
 
-class ColorFilter constructor(private val color: Int = 0) : Transformation() {
+class CropCircle : Transformation() {
 
   override fun transform(
     context: Context,
@@ -32,12 +34,27 @@ class ColorFilter constructor(private val color: Int = 0) : Transformation() {
   ): Bitmap {
 
     destination.density = source.density
+    destination.setHasAlpha(true)
+
+    val size = min(destination.width, destination.height)
+    val width = (source.width - size) / 2
+    val height = (source.height - size) / 2
 
     val canvas = Canvas(destination)
     val paint = Paint()
+    val shader = BitmapShader(source, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
+    if (width != 0 || height != 0) {
+      // source isn't square, move viewport to center
+      val matrix = Matrix()
+      matrix.setTranslate(-width.toFloat(), -height.toFloat())
+      shader.setLocalMatrix(matrix)
+    }
+    paint.shader = shader
     paint.isAntiAlias = true
-    paint.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
-    canvas.drawBitmap(source, 0f, 0f, paint)
+
+    val r: Float = size / 2f
+    canvas.drawCircle(r, r, r, paint)
+    canvas.setBitmap(null)
 
     return destination
   }
@@ -45,17 +62,12 @@ class ColorFilter constructor(private val color: Int = 0) : Transformation() {
   override fun equals(other: Any?): Boolean {
     if (this === other) return true
     if (javaClass != other?.javaClass) return false
-
-    other as ColorFilter
-
-    if (color != other.color) return false
-
     return true
   }
 
   override fun hashCode(): Int {
-    return color
+    return javaClass.hashCode()
   }
 
-  override fun key(): String = "$id(color=$color)"
+  override fun key(): String = "$id()"
 }

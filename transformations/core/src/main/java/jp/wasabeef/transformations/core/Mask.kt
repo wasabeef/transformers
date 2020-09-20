@@ -5,7 +5,9 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.PorterDuff
-import android.graphics.PorterDuffColorFilter
+import android.graphics.PorterDuffXfermode
+import android.graphics.drawable.Drawable
+import androidx.annotation.DrawableRes
 
 /**
  * Copyright (C) 2020 Wasabeef
@@ -23,7 +25,11 @@ import android.graphics.PorterDuffColorFilter
  * limitations under the License.
  */
 
-class ColorFilter constructor(private val color: Int = 0) : Transformation() {
+class Mask constructor(@DrawableRes private val maskId: Int) : Transformation() {
+
+  private val paint = Paint().apply {
+    xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
+  }
 
   override fun transform(
     context: Context,
@@ -32,12 +38,20 @@ class ColorFilter constructor(private val color: Int = 0) : Transformation() {
   ): Bitmap {
 
     destination.density = source.density
+    destination.setHasAlpha(true)
+
+    val mask: Drawable = getMaskDrawable(context.applicationContext, maskId)!!
 
     val canvas = Canvas(destination)
-    val paint = Paint()
-    paint.isAntiAlias = true
-    paint.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
-    canvas.drawBitmap(source, 0f, 0f, paint)
+    mask.setBounds(0, 0, source.width, source.height)
+    mask.draw(canvas)
+    canvas.drawBitmap(
+      source,
+      0f,
+      0f,
+      paint
+    )
+    canvas.setBitmap(null)
 
     return destination
   }
@@ -46,16 +60,18 @@ class ColorFilter constructor(private val color: Int = 0) : Transformation() {
     if (this === other) return true
     if (javaClass != other?.javaClass) return false
 
-    other as ColorFilter
+    other as Mask
 
-    if (color != other.color) return false
+    if (maskId != other.maskId) return false
 
     return true
   }
 
   override fun hashCode(): Int {
-    return color
+    var result = maskId
+    result = 31 * result + paint.hashCode()
+    return result
   }
 
-  override fun key(): String = "$id(color=$color)"
+  override fun key(): String = "$id(maskId=$maskId)"
 }

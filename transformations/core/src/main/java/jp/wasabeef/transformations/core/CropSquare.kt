@@ -3,9 +3,9 @@ package jp.wasabeef.transformations.core
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Matrix
 import android.graphics.Paint
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffColorFilter
+import kotlin.math.max
 
 /**
  * Copyright (C) 2020 Wasabeef
@@ -23,7 +23,9 @@ import android.graphics.PorterDuffColorFilter
  * limitations under the License.
  */
 
-class ColorFilter constructor(private val color: Int = 0) : Transformation() {
+class CropSquare : Transformation() {
+
+  private var size = 0
 
   override fun transform(
     context: Context,
@@ -32,12 +34,34 @@ class ColorFilter constructor(private val color: Int = 0) : Transformation() {
   ): Bitmap {
 
     destination.density = source.density
+    destination.setHasAlpha(source.hasAlpha())
+
+    size = max(destination.width, destination.height)
+
+    if (source.width == size && source.height == size) {
+      return source
+    }
+
+    val scale: Float
+    val dx: Float
+    val dy: Float
+    val matrix = Matrix()
+    if (source.width * size > size * source.height) {
+      scale = size.toFloat() / source.height.toFloat()
+      dx = (size - source.width * scale) * 0.5f
+      dy = 0f
+    } else {
+      scale = size.toFloat() / source.width.toFloat()
+      dx = 0f
+      dy = (size - source.height * scale) * 0.5f
+    }
+
+    matrix.setScale(scale, scale)
+    matrix.postTranslate(dx + 0.5f, dy + 0.5f)
 
     val canvas = Canvas(destination)
-    val paint = Paint()
-    paint.isAntiAlias = true
-    paint.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
-    canvas.drawBitmap(source, 0f, 0f, paint)
+    canvas.drawBitmap(source, matrix, Paint(Paint.DITHER_FLAG or Paint.FILTER_BITMAP_FLAG))
+    canvas.setBitmap(null)
 
     return destination
   }
@@ -46,16 +70,16 @@ class ColorFilter constructor(private val color: Int = 0) : Transformation() {
     if (this === other) return true
     if (javaClass != other?.javaClass) return false
 
-    other as ColorFilter
+    other as CropSquare
 
-    if (color != other.color) return false
+    if (size != other.size) return false
 
     return true
   }
 
   override fun hashCode(): Int {
-    return color
+    return size
   }
 
-  override fun key(): String = "$id(color=$color)"
+  override fun key(): String = "$id(size=$size)"
 }

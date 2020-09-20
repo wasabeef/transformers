@@ -4,8 +4,8 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffColorFilter
+import kotlin.math.max
+import kotlin.math.min
 
 /**
  * Copyright (C) 2020 Wasabeef
@@ -23,7 +23,10 @@ import android.graphics.PorterDuffColorFilter
  * limitations under the License.
  */
 
-class ColorFilter constructor(private val color: Int = 0) : Transformation() {
+class CropCircleWithBorder constructor(
+  private val borderSize: Int,
+  private val borderColor: Int
+) : Transformation() {
 
   override fun transform(
     context: Context,
@@ -31,13 +34,26 @@ class ColorFilter constructor(private val color: Int = 0) : Transformation() {
     destination: Bitmap
   ): Bitmap {
 
+    CropCircle().transform(context, source, destination)
+
+    val size = min(destination.width, destination.height)
     destination.density = source.density
+    destination.setHasAlpha(true)
+
+    val paint = Paint()
+    paint.color = borderColor
+    paint.style = Paint.Style.STROKE
+    paint.strokeWidth = borderSize.toFloat()
+    paint.isAntiAlias = true
 
     val canvas = Canvas(destination)
-    val paint = Paint()
-    paint.isAntiAlias = true
-    paint.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
-    canvas.drawBitmap(source, 0f, 0f, paint)
+    canvas.drawCircle(
+      size / 2f,
+      size / 2f,
+      max(size, size) / 2f - borderSize / 2f,
+      paint
+    )
+    canvas.setBitmap(null)
 
     return destination
   }
@@ -46,16 +62,19 @@ class ColorFilter constructor(private val color: Int = 0) : Transformation() {
     if (this === other) return true
     if (javaClass != other?.javaClass) return false
 
-    other as ColorFilter
+    other as CropCircleWithBorder
 
-    if (color != other.color) return false
+    if (borderSize != other.borderSize) return false
+    if (borderColor != other.borderColor) return false
 
     return true
   }
 
   override fun hashCode(): Int {
-    return color
+    var result = borderSize
+    result = 31 * result + borderColor
+    return result
   }
 
-  override fun key(): String = "$id(color=$color)"
+  override fun key(): String = "$id(borderSize=$borderSize, borderColor=$borderColor)"
 }

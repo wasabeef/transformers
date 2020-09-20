@@ -3,9 +3,9 @@ package jp.wasabeef.transformations.core
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.ColorMatrix
+import android.graphics.ColorMatrixColorFilter
 import android.graphics.Paint
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffColorFilter
 
 /**
  * Copyright (C) 2020 Wasabeef
@@ -23,7 +23,7 @@ import android.graphics.PorterDuffColorFilter
  * limitations under the License.
  */
 
-class ColorFilter constructor(private val color: Int = 0) : Transformation() {
+class Grayscale : Transformation() {
 
   override fun transform(
     context: Context,
@@ -34,28 +34,25 @@ class ColorFilter constructor(private val color: Int = 0) : Transformation() {
     destination.density = source.density
 
     val canvas = Canvas(destination)
+    val saturation = ColorMatrix()
+    saturation.setSaturation(0f)
     val paint = Paint()
-    paint.isAntiAlias = true
-    paint.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
+    paint.colorFilter = ColorMatrixColorFilter(saturation)
     canvas.drawBitmap(source, 0f, 0f, paint)
+    canvas.setBitmap(null)
 
     return destination
   }
 
+  override fun key(): String = "$id()"
+
   override fun equals(other: Any?): Boolean {
     if (this === other) return true
     if (javaClass != other?.javaClass) return false
-
-    other as ColorFilter
-
-    if (color != other.color) return false
-
     return true
   }
 
   override fun hashCode(): Int {
-    return color
+    return javaClass.hashCode()
   }
-
-  override fun key(): String = "$id(color=$color)"
 }
