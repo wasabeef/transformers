@@ -28,7 +28,8 @@ android {
 }
 
 dependencies {
-  api(project(":transformations:core"))
+  api(project(Projects.Core))
+
   implementation(Libraries.kotlin)
   implementation(Libraries.glide)
   kapt(Libraries.glideCompiler)

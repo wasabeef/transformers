@@ -10,6 +10,15 @@ object BuildConfig {
   const val testRunner = "androidx.test.runner.AndroidJUnitRunner"
 }
 
+object Projects {
+  const val Core = ":transformations:core"
+  const val Glide = ":transformations:glide"
+  const val Picasso = ":transformations:picasso"
+  const val Coil = ":transformations:coil"
+  const val Fresco = ":transformations:fresco"
+  const val GPU = ":transformations:gpu"
+}
+
 object Libraries {
   const val kotlinVersion = "1.3.72"
   const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"

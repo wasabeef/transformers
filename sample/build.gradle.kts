@@ -39,12 +39,11 @@ android {
 }
 
 dependencies {
-  implementation(project(":transformations:glide"))
-  implementation(project(":transformations:picasso"))
-  implementation(project(":transformations:fresco"))
-  implementation(project(":transformations:coil"))
-  implementation(project(":transformations:gpu"))
-  implementation(project(":transformations:renderscript"))
+  implementation(project(Projects.Glide))
+  implementation(project(Projects.Picasso))
+  implementation(project(Projects.Coil))
+  implementation(project(Projects.Fresco))
+  implementation(project(Projects.GPU))
 
   implementation(Libraries.kotlin)
   implementation(Libraries.appcompat)
