@@ -12,35 +12,35 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.request.RequestOptions.bitmapTransform
-import jp.wasabeef.transformations.MainAdapter.Type.Brightness
-import jp.wasabeef.transformations.MainAdapter.Type.ColorFilter
-import jp.wasabeef.transformations.MainAdapter.Type.Contrast
-import jp.wasabeef.transformations.MainAdapter.Type.CropBottom
-import jp.wasabeef.transformations.MainAdapter.Type.CropBottomRatio4x3
-import jp.wasabeef.transformations.MainAdapter.Type.CropCenter
-import jp.wasabeef.transformations.MainAdapter.Type.CropCenterRatio16x9
-import jp.wasabeef.transformations.MainAdapter.Type.CropCenterRatio4x3
-import jp.wasabeef.transformations.MainAdapter.Type.CropCircle
-import jp.wasabeef.transformations.MainAdapter.Type.CropCircleWithBorder
-import jp.wasabeef.transformations.MainAdapter.Type.CropSquare
-import jp.wasabeef.transformations.MainAdapter.Type.CropTop
-import jp.wasabeef.transformations.MainAdapter.Type.CropTopRatio16x9
-import jp.wasabeef.transformations.MainAdapter.Type.Grayscale
-import jp.wasabeef.transformations.MainAdapter.Type.Invert
-import jp.wasabeef.transformations.MainAdapter.Type.Kuawahara
-import jp.wasabeef.transformations.MainAdapter.Type.Mask
-import jp.wasabeef.transformations.MainAdapter.Type.NinePatchMask
-import jp.wasabeef.transformations.MainAdapter.Type.Pixel
-import jp.wasabeef.transformations.MainAdapter.Type.RoundedCorners
-import jp.wasabeef.transformations.MainAdapter.Type.RoundedCornersTopLeft
-import jp.wasabeef.transformations.MainAdapter.Type.Sepia
-import jp.wasabeef.transformations.MainAdapter.Type.Sketch
-import jp.wasabeef.transformations.MainAdapter.Type.Swirl
-import jp.wasabeef.transformations.MainAdapter.Type.ToneCurve
-import jp.wasabeef.transformations.MainAdapter.Type.Toon
-import jp.wasabeef.transformations.MainAdapter.Type.Vignette
-import jp.wasabeef.transformations.MainAdapter.Type.WhiteBalance
-import jp.wasabeef.transformations.MainAdapter.Type.ZoomBlur
+import jp.wasabeef.transformations.GlideAdapter.Type.Brightness
+import jp.wasabeef.transformations.GlideAdapter.Type.ColorFilter
+import jp.wasabeef.transformations.GlideAdapter.Type.Contrast
+import jp.wasabeef.transformations.GlideAdapter.Type.CropBottom
+import jp.wasabeef.transformations.GlideAdapter.Type.CropBottomRatio4x3
+import jp.wasabeef.transformations.GlideAdapter.Type.CropCenter
+import jp.wasabeef.transformations.GlideAdapter.Type.CropCenterRatio16x9
+import jp.wasabeef.transformations.GlideAdapter.Type.CropCenterRatio4x3
+import jp.wasabeef.transformations.GlideAdapter.Type.CropCircle
+import jp.wasabeef.transformations.GlideAdapter.Type.CropCircleWithBorder
+import jp.wasabeef.transformations.GlideAdapter.Type.CropSquare
+import jp.wasabeef.transformations.GlideAdapter.Type.CropTop
+import jp.wasabeef.transformations.GlideAdapter.Type.CropTopRatio16x9
+import jp.wasabeef.transformations.GlideAdapter.Type.Grayscale
+import jp.wasabeef.transformations.GlideAdapter.Type.Invert
+import jp.wasabeef.transformations.GlideAdapter.Type.Kuawahara
+import jp.wasabeef.transformations.GlideAdapter.Type.Mask
+import jp.wasabeef.transformations.GlideAdapter.Type.NinePatchMask
+import jp.wasabeef.transformations.GlideAdapter.Type.Pixel
+import jp.wasabeef.transformations.GlideAdapter.Type.RoundedCorners
+import jp.wasabeef.transformations.GlideAdapter.Type.RoundedCornersTopLeft
+import jp.wasabeef.transformations.GlideAdapter.Type.Sepia
+import jp.wasabeef.transformations.GlideAdapter.Type.Sketch
+import jp.wasabeef.transformations.GlideAdapter.Type.Swirl
+import jp.wasabeef.transformations.GlideAdapter.Type.ToneCurve
+import jp.wasabeef.transformations.GlideAdapter.Type.Toon
+import jp.wasabeef.transformations.GlideAdapter.Type.Vignette
+import jp.wasabeef.transformations.GlideAdapter.Type.WhiteBalance
+import jp.wasabeef.transformations.GlideAdapter.Type.ZoomBlur
 import jp.wasabeef.transformations.core.CornerType
 import jp.wasabeef.transformations.glide.BlurTransformation
 import jp.wasabeef.transformations.glide.CenterCropTransformation
@@ -76,10 +76,10 @@ import jp.wasabeef.transformations.types.GravityVertical
 /**
  * Created by Wasabeef on 2020/09/20.
  */
-class MainAdapter(
+class GlideAdapter(
   private val context: Context,
   private val dataSet: MutableList<Type>
-) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<GlideAdapter.ViewHolder>() {
 
   companion object {
     private const val IMAGE_URL = "https://images.unsplash.com/photo-1588952159215-a4b39193464e"
