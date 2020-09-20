@@ -14,6 +14,8 @@ import com.bumptech.glide.request.RequestOptions.bitmapTransform
 import jp.wasabeef.transformations.MainAdapter.Type.ColorFilter
 import jp.wasabeef.transformations.MainAdapter.Type.CropBottom
 import jp.wasabeef.transformations.MainAdapter.Type.CropCenter
+import jp.wasabeef.transformations.MainAdapter.Type.CropCenterRatio16x9
+import jp.wasabeef.transformations.MainAdapter.Type.CropCenterRatio4x3
 import jp.wasabeef.transformations.MainAdapter.Type.CropCircle
 import jp.wasabeef.transformations.MainAdapter.Type.CropCircleWithBorder
 import jp.wasabeef.transformations.MainAdapter.Type.CropSquare
@@ -23,6 +25,7 @@ import jp.wasabeef.transformations.MainAdapter.Type.Mask
 import jp.wasabeef.transformations.MainAdapter.Type.NinePatchMask
 import jp.wasabeef.transformations.MainAdapter.Type.RoundedCorners
 import jp.wasabeef.transformations.MainAdapter.Type.RoundedCornersTopLeft
+import jp.wasabeef.transformations.core.Crop
 import jp.wasabeef.transformations.core.RoundedCorners.CornerType
 import jp.wasabeef.transformations.core.dp
 import jp.wasabeef.transformations.glide.BlurTransformation
@@ -34,6 +37,7 @@ import jp.wasabeef.transformations.glide.CropCenterTransformation
 import jp.wasabeef.transformations.glide.CropCircleTransformation
 import jp.wasabeef.transformations.glide.CropCircleWithBorderTransformation
 import jp.wasabeef.transformations.glide.CropSquareTransformation
+import jp.wasabeef.transformations.glide.CropTransformation
 import jp.wasabeef.transformations.glide.GrayscaleTransformation
 import jp.wasabeef.transformations.glide.MaskTransformation
 import jp.wasabeef.transformations.glide.RoundedCornersTransformation
@@ -56,6 +60,8 @@ class MainAdapter(
     NinePatchMask,
     CropTop,
     CropCenter,
+    CropCenterRatio16x9,
+    CropCenterRatio4x3,
     CropBottom,
     CropSquare,
     CropCircle,
@@ -130,6 +136,33 @@ class MainAdapter(
         .skipMemoryCache(SKIP_CACHE)
         .apply(bitmapTransform(CenterCropTransformation()))
         .into(holder.image)
+
+      CropCenterRatio16x9 -> Glide.with(context)
+        .load(IMAGE_URL)
+        .skipMemoryCache(SKIP_CACHE)
+        .apply(
+          bitmapTransform(
+            CropTransformation(
+              16f / 9f,
+              Crop.GravityHorizontal.CENTER,
+              Crop.GravityVertical.CENTER
+            )
+          )
+        )
+        .into(holder.image)
+
+      CropCenterRatio4x3 -> Glide.with(context)
+        .load(IMAGE_URL)
+        .skipMemoryCache(SKIP_CACHE)
+        .apply(
+          bitmapTransform(
+            CropTransformation(
+              4f / 3f,
+              Crop.GravityHorizontal.CENTER,
+              Crop.GravityVertical.CENTER
+            )
+          )
+        ).into(holder.image)
 
       CropBottom -> Glide.with(context)
         .load(IMAGE_URL)

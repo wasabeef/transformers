@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity() {
     dataSet.add(Type.NinePatchMask)
     dataSet.add(Type.CropTop)
     dataSet.add(Type.CropCenter)
+    dataSet.add(Type.CropCenterRatio16x9)
+    dataSet.add(Type.CropCenterRatio4x3)
     dataSet.add(Type.CropBottom)
     dataSet.add(Type.CropCircle)
     dataSet.add(Type.CropCircleWithBorder)
