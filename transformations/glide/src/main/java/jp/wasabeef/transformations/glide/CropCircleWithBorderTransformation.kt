@@ -44,7 +44,7 @@ class CropCircleWithBorderTransformation @JvmOverloads constructor(
   ): Bitmap {
     val size = min(source.width, source.height)
     val output = pool.get(size, size, bitmapConfig(source))
-    return cropCircleWithBorder.transform(context, source, output)
+    return cropCircleWithBorder.transform(source, output)
   }
 
   override fun updateDiskCacheKey(messageDigest: MessageDigest) {

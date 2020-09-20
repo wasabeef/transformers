@@ -1,6 +1,5 @@
 package jp.wasabeef.transformations.core
 
-import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Rect
@@ -264,7 +263,6 @@ class Crop : Transformation {
   }
 
   override fun transform(
-    context: Context,
     source: Bitmap,
     destination: Bitmap
   ): Bitmap {

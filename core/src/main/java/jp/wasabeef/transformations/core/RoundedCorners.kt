@@ -32,7 +32,6 @@ class RoundedCorners constructor(
 ) : Transformation() {
 
   override fun transform(
-    context: Context,
     source: Bitmap,
     destination: Bitmap
   ): Bitmap {

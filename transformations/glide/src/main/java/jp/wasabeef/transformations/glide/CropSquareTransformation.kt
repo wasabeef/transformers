@@ -38,7 +38,7 @@ class CropSquareTransformation : BitmapTransformation() {
   ): Bitmap {
     val size = min(source.width, source.height)
     val output = pool.get(size, size, bitmapConfig(source))
-    return cropSquare.transform(context, source, output)
+    return cropSquare.transform(source, output)
   }
 
   override fun updateDiskCacheKey(messageDigest: MessageDigest) {

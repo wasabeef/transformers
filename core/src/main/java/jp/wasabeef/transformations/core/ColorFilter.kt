@@ -1,6 +1,5 @@
 package jp.wasabeef.transformations.core
 
-import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
@@ -27,7 +26,6 @@ import androidx.annotation.ColorInt
 class ColorFilter constructor(@ColorInt private val color: Int) : Transformation() {
 
   override fun transform(
-    context: Context,
     source: Bitmap,
     destination: Bitmap
   ): Bitmap {

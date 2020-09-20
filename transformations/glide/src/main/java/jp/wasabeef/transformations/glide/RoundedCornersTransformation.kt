@@ -42,7 +42,7 @@ class RoundedCornersTransformation @JvmOverloads constructor(
     outHeight: Int
   ): Bitmap {
     val output = pool.get(source.width, source.height, bitmapConfig(source))
-    return roundedCorners.transform(context, source, output)
+    return roundedCorners.transform(source, output)
   }
 
   override fun updateDiskCacheKey(messageDigest: MessageDigest) {

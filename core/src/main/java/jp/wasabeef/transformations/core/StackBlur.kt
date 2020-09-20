@@ -1,6 +1,5 @@
 package jp.wasabeef.transformations.core
 
-import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
@@ -24,9 +23,11 @@ import kotlin.math.min
  * limitations under the License.
  */
 
-class StackBlur constructor(private val radius: Int, private val sampling: Int) : Transformation() {
-  override fun transform(context: Context, source: Bitmap, destination: Bitmap): Bitmap {
+class StackBlur constructor(
+  private val radius: Int, private val sampling: Int
+) : Transformation() {
 
+  override fun transform(source: Bitmap, destination: Bitmap): Bitmap {
     val canvas = Canvas(destination)
     canvas.scale(1 / sampling.toFloat(), 1 / sampling.toFloat())
     val paint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG)

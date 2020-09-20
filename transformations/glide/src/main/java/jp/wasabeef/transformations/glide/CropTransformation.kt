@@ -124,7 +124,7 @@ class CropTransformation : BitmapTransformation {
   ): Bitmap {
     val size = crop.calculateSize(source)
     val output = pool.get(size.width, size.height, bitmapConfig(source))
-    return crop.transform(context, source, output)
+    return crop.transform(source, output)
   }
 
   override fun updateDiskCacheKey(messageDigest: MessageDigest) {

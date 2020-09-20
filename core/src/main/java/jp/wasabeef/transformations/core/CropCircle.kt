@@ -28,7 +28,6 @@ import kotlin.math.min
 class CropCircle : Transformation() {
 
   override fun transform(
-    context: Context,
     source: Bitmap,
     destination: Bitmap
   ): Bitmap {

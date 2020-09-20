@@ -28,7 +28,6 @@ class CropSquare : Transformation() {
   private var size = 0
 
   override fun transform(
-    context: Context,
     source: Bitmap,
     destination: Bitmap
   ): Bitmap {

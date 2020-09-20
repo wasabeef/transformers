@@ -38,7 +38,7 @@ class CropCircleTransformation : BitmapTransformation() {
   ): Bitmap {
     val size = min(source.width, source.height)
     val output = pool.get(size, size, bitmapConfig(source))
-    return cropCircle.transform(context, source, output)
+    return cropCircle.transform(source, output)
   }
 
   override fun updateDiskCacheKey(messageDigest: MessageDigest) {

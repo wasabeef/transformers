@@ -36,7 +36,7 @@ class GrayscaleTransformation : BitmapTransformation() {
     outHeight: Int
   ): Bitmap {
     val output = pool.get(source.width, source.height, bitmapConfig(source))
-    return grayscale.transform(context, source, output)
+    return grayscale.transform(source, output)
   }
 
   override fun updateDiskCacheKey(messageDigest: MessageDigest) {

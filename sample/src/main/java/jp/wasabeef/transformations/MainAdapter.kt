@@ -150,7 +150,7 @@ class MainAdapter(
             bitmapTransform(
               MultiTransformation(
                 CropCenterTransformation(),
-                MaskTransformation(R.drawable.mask_starfish)
+                MaskTransformation(context, R.drawable.mask_starfish)
               )
             )
           ).into(holder.image)
@@ -163,7 +163,7 @@ class MainAdapter(
             bitmapTransform(
               MultiTransformation(
                 CropCenterTransformation(),
-                MaskTransformation(R.drawable.mask_chat_right)
+                MaskTransformation(context, R.drawable.mask_chat_right)
               )
             )
           ).into(holder.image)
@@ -310,7 +310,7 @@ class MainAdapter(
         .apply(
           bitmapTransform(
             MultiTransformation(
-              BlurTransformation(15, sampling = 1)
+              BlurTransformation(context, 15, sampling = 1)
             )
           )
         ).into(holder.image)
@@ -320,7 +320,7 @@ class MainAdapter(
         .apply(
           bitmapTransform(
             MultiTransformation(
-              BlurTransformation(25, sampling = 4)
+              BlurTransformation(context, 25, sampling = 4)
             )
           )
         )
@@ -328,12 +328,12 @@ class MainAdapter(
       Type.StackBlurLight -> Glide.with(context)
         .load(IMAGE_URL)
         .skipMemoryCache(SKIP_CACHE)
-        .apply(bitmapTransform(BlurTransformation(25, sampling = 1, rs = false)))
+        .apply(bitmapTransform(BlurTransformation(context, 25, sampling = 1, rs = false)))
         .into(holder.image)
       Type.StackBlurDeep -> Glide.with(context)
         .load(IMAGE_URL)
         .skipMemoryCache(SKIP_CACHE)
-        .apply(bitmapTransform(BlurTransformation(25, sampling = 8, rs = false)))
+        .apply(bitmapTransform(BlurTransformation(context, 25, sampling = 8, rs = false)))
         .into(holder.image)
 
       Toon -> Glide.with(context)

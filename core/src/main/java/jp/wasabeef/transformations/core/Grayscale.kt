@@ -26,7 +26,6 @@ import android.graphics.Paint
 class Grayscale : Transformation() {
 
   override fun transform(
-    context: Context,
     source: Bitmap,
     destination: Bitmap
   ): Bitmap {

@@ -27,7 +27,6 @@ abstract class Transformation {
     get() = "${this::class.java.name}-${version}"
 
   abstract fun transform(
-    @NonNull context: Context,
     source: Bitmap,
     destination: Bitmap
   ): Bitmap

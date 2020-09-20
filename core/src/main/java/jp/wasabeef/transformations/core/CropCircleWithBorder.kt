@@ -29,12 +29,11 @@ class CropCircleWithBorder constructor(
 ) : Transformation() {
 
   override fun transform(
-    context: Context,
     source: Bitmap,
     destination: Bitmap
   ): Bitmap {
 
-    CropCircle().transform(context, source, destination)
+    CropCircle().transform(source, destination)
 
     val size = min(destination.width, destination.height)
     destination.density = source.density

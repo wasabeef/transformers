@@ -25,10 +25,12 @@ import java.security.MessageDigest
  * limitations under the License.
  */
 
-class MaskTransformation constructor(@DrawableRes private val maskId: Int) :
-  BitmapTransformation() {
+class MaskTransformation constructor(
+  context: Context,
+  @DrawableRes private val maskId: Int
+) : BitmapTransformation() {
 
-  private val mask = Mask(maskId)
+  private val mask = Mask(context, maskId)
 
   override fun transform(
     context: Context,
@@ -38,7 +40,7 @@ class MaskTransformation constructor(@DrawableRes private val maskId: Int) :
     outHeight: Int
   ): Bitmap {
     val output = pool.get(source.width, source.height, bitmapConfig(source))
-    return mask.transform(context, source, output)
+    return mask.transform(source, output)
   }
 
   override fun updateDiskCacheKey(messageDigest: MessageDigest) {

@@ -30,9 +30,13 @@ import android.renderscript.ScriptIntrinsicBlur
  * limitations under the License.
  */
 
-class RSGaussianBlur constructor(private val radius: Int, private val sampling: Int) :
-  Transformation() {
-  override fun transform(context: Context, source: Bitmap, destination: Bitmap): Bitmap {
+class RSGaussianBlur constructor(
+  private val context: Context,
+  private val radius: Int,
+  private val sampling: Int
+) : Transformation() {
+
+  override fun transform(source: Bitmap, destination: Bitmap): Bitmap {
 
     val canvas = Canvas(destination)
     canvas.scale(1 / sampling.toFloat(), 1 / sampling.toFloat())

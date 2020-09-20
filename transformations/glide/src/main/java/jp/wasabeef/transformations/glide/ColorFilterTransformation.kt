@@ -38,7 +38,7 @@ class ColorFilterTransformation constructor(@ColorInt private val color: Int) :
     outHeight: Int
   ): Bitmap {
     val output = pool.get(source.width, source.height, bitmapConfig(source))
-    return colorFilter.transform(context, source, output)
+    return colorFilter.transform(source, output)
   }
 
   override fun updateDiskCacheKey(messageDigest: MessageDigest) {

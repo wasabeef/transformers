@@ -27,14 +27,14 @@ import java.security.MessageDigest
  */
 
 class BlurTransformation @JvmOverloads constructor(
+  context: Context,
   radius: Int = 25,
   private val sampling: Int = 1,
   private val rs: Boolean = true
-) :
-  BitmapTransformation() {
+) : BitmapTransformation() {
 
   private val stackBlur = StackBlur(radius, sampling)
-  private val rsGaussianBlur = RSGaussianBlur(radius, sampling)
+  private val rsGaussianBlur = RSGaussianBlur(context, radius, sampling)
 
   override fun transform(
     context: Context,
@@ -48,12 +48,12 @@ class BlurTransformation @JvmOverloads constructor(
     val output = pool.get(scaledWidth, scaledHeight, bitmapConfig(source))
     return if (rs) {
       return try {
-        rsGaussianBlur.transform(context, source, output)
+        rsGaussianBlur.transform(source, output)
       } catch (e: RSRuntimeException) {
-        stackBlur.transform(context, source, output)
+        stackBlur.transform(source, output)
       }
     } else {
-      stackBlur.transform(context, source, output)
+      stackBlur.transform(source, output)
     }
   }
 

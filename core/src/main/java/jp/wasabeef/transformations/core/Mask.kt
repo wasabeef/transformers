@@ -25,14 +25,16 @@ import androidx.annotation.DrawableRes
  * limitations under the License.
  */
 
-class Mask constructor(@DrawableRes private val maskId: Int) : Transformation() {
+class Mask constructor(
+  private val context: Context,
+  @DrawableRes private val maskId: Int
+) : Transformation() {
 
   private val paint = Paint().apply {
     xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
   }
 
   override fun transform(
-    context: Context,
     source: Bitmap,
     destination: Bitmap
   ): Bitmap {
