@@ -30,7 +30,7 @@ import android.util.Size
  * width/height in pixels
  * width/height as a ratio of the source image
  * aspect ratio
- * offset from left/top in pixels
+ * offset from start/top in pixels
  * horizontal and vertical gravity
  *
  *
@@ -48,9 +48,9 @@ import android.util.Size
 open class Crop : Transformation {
 
   enum class GravityHorizontal {
-    LEFT,
+    START,
     CENTER,
-    RIGHT
+    END
   }
 
   enum class GravityVertical {
@@ -60,7 +60,7 @@ open class Crop : Transformation {
   }
 
   private var aspectRatio = 0f
-  private var left = 0
+  private var start = 0
   private var top = 0
   private var width = 0
   private var height = 0
@@ -73,13 +73,13 @@ open class Crop : Transformation {
    * Crops to the given size and offset in pixels.
    * If either width or height is zero then the original image's dimension is used.
    *
-   * @param left   offset in pixels from the left edge of the source image
+   * @param start   offset in pixels from the start edge of the source image
    * @param top    offset in pixels from the top of the source image
    * @param width  in pixels
    * @param height in pixels
    */
-  constructor(left: Int, top: Int, width: Int, height: Int) {
-    this.left = left
+  constructor(start: Int, top: Int, width: Int, height: Int) {
+    this.start = start
     this.top = top
     this.width = width
     this.height = height
@@ -114,7 +114,7 @@ open class Crop : Transformation {
    * Crops to a ratio of the source image's width/height.
    *
    *
-   * e.g. (0.5, 0.5, LEFT, TOP) will crop a quarter-sized box from the top left of the original.
+   * e.g. (0.5, 0.5, START, TOP) will crop a quarter-sized box from the top start of the original.
    *
    *
    * If widthRatio or heightRatio are zero then 100% of the original image's dimension will be
@@ -221,7 +221,7 @@ open class Crop : Transformation {
 
   /**
    * Crops to the largest image that will fit the given aspectRatio.
-   * This will effectively chop off either the top/bottom or left/right of the source image.
+   * This will effectively chop off either the top/bottom or start/end the source image.
    *
    * @param aspectRatio       width/height: greater than 1 is landscape, less than 1 is portrait, 1 is
    * square
@@ -269,7 +269,7 @@ open class Crop : Transformation {
     if (height == 0) {
       height = source.height
     }
-    left = getLeft(source)
+    start = getStart(source)
     top = getTop(source)
 
     return Size(width, height)
@@ -285,7 +285,7 @@ open class Crop : Transformation {
     destination.density = source.density
     destination.setHasAlpha(true)
 
-    val sourceRect = Rect(left, top, left + width, top + height)
+    val sourceRect = Rect(start, top, start + width, top + height)
     val targetRect = Rect(0, 0, width, height)
     val canvas = Canvas(destination)
     canvas.drawBitmap(source, sourceRect, targetRect, null)
@@ -300,10 +300,10 @@ open class Crop : Transformation {
     GravityVertical.BOTTOM -> source.height - height
   }
 
-  private fun getLeft(source: Bitmap): Int = when (gravityHorizontal) {
-    GravityHorizontal.LEFT -> 0
+  private fun getStart(source: Bitmap): Int = when (gravityHorizontal) {
+    GravityHorizontal.START -> 0
     GravityHorizontal.CENTER -> (source.width - width) / 2
-    GravityHorizontal.RIGHT -> source.width - width
+    GravityHorizontal.END -> source.width - width
   }
 
   override fun equals(other: Any?): Boolean {
@@ -313,7 +313,7 @@ open class Crop : Transformation {
     other as Crop
 
     if (aspectRatio != other.aspectRatio) return false
-    if (left != other.left) return false
+    if (start != other.start) return false
     if (top != other.top) return false
     if (width != other.width) return false
     if (height != other.height) return false
@@ -327,7 +327,7 @@ open class Crop : Transformation {
 
   override fun hashCode(): Int {
     var result = aspectRatio.hashCode()
-    result = 31 * result + left
+    result = 31 * result + start
     result = 31 * result + top
     result = 31 * result + width
     result = 31 * result + height
@@ -339,7 +339,7 @@ open class Crop : Transformation {
   }
 
   override fun key(): String {
-    return "$id(left=$left, top=$top, width=$width, height=$height, widthRatio=$widthRatio," +
+    return "$id(start=$start, top=$top, width=$width, height=$height, widthRatio=$widthRatio," +
       " heightRatio=$heightRatio, aspectRatio=$aspectRatio, gravityHorizontal=$gravityHorizontal," +
       " gravityVertical=$gravityVertical"
   }
