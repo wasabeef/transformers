@@ -29,6 +29,7 @@ android {
 }
 
 dependencies {
+  implementation(project(Projects.Types))
   implementation(Libraries.kotlin)
   implementation(Libraries.annontation)
 }

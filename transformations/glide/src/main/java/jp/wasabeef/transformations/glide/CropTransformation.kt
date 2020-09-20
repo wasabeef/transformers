@@ -6,6 +6,8 @@ import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
 import jp.wasabeef.transformations.core.Crop
 import jp.wasabeef.transformations.core.bitmapConfig
+import jp.wasabeef.transformations.types.GravityHorizontal
+import jp.wasabeef.transformations.types.GravityVertical
 import java.security.MessageDigest
 
 /**
@@ -26,24 +28,6 @@ import java.security.MessageDigest
 
 class CropTransformation : BitmapTransformation {
 
-  enum class Horizontal {
-    START,
-    CENTER,
-    END;
-
-    val convert: Crop.GravityHorizontal
-      get() = Crop.GravityHorizontal.valueOf(name)
-  }
-
-  enum class Vertical {
-    TOP,
-    CENTER,
-    BOTTOM;
-
-    val convert: Crop.GravityVertical
-      get() = Crop.GravityVertical.valueOf(name)
-  }
-
   private var crop: Crop
 
   private var aspectRatio = 0f
@@ -53,8 +37,8 @@ class CropTransformation : BitmapTransformation {
   private var height = 0
   private var widthRatio = 0f
   private var heightRatio = 0f
-  private var gravityHorizontal = Horizontal.CENTER
-  private var gravityVertical = Vertical.CENTER
+  private var gravityHorizontal = GravityHorizontal.CENTER
+  private var gravityVertical = GravityVertical.CENTER
 
   constructor(left: Int, top: Int, width: Int, height: Int) {
     crop = Crop(left, top, width, height)
@@ -68,10 +52,10 @@ class CropTransformation : BitmapTransformation {
   constructor(
     width: Int,
     height: Int,
-    gravityHorizontal: Horizontal = Horizontal.CENTER,
-    gravityVertical: Vertical = Vertical.CENTER
+    gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
+    gravityVertical: GravityVertical = GravityVertical.CENTER
   ) {
-    crop = Crop(width, height, gravityHorizontal.convert, gravityVertical.convert)
+    crop = Crop(width, height, gravityHorizontal, gravityVertical)
     this.width = width
     this.height = height
     this.gravityHorizontal = gravityHorizontal
@@ -82,21 +66,23 @@ class CropTransformation : BitmapTransformation {
   constructor(
     widthRatio: Float,
     heightRatio: Float,
-    gravityHorizontal: Horizontal = Horizontal.CENTER,
-    gravityVertical: Vertical = Vertical.CENTER
+    gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
+    gravityVertical: GravityVertical = GravityVertical.CENTER
   ) {
-    crop = Crop(widthRatio, heightRatio, gravityHorizontal.convert, gravityVertical.convert)
+    crop = Crop(widthRatio, heightRatio, gravityHorizontal, gravityVertical)
     this.widthRatio = widthRatio
     this.heightRatio = heightRatio
     this.gravityHorizontal = gravityHorizontal
     this.gravityVertical = gravityVertical
   }
 
+  @JvmOverloads
   constructor(
     width: Int, height: Int, aspectRatio: Float,
-    gravityHorizontal: Horizontal, gravityVertical: Vertical
+    gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
+    gravityVertical: GravityVertical = GravityVertical.CENTER
   ) {
-    crop = Crop(width, height, aspectRatio, gravityHorizontal.convert, gravityVertical.convert)
+    crop = Crop(width, height, aspectRatio, gravityHorizontal, gravityVertical)
     this.width = width
     this.height = height
     this.aspectRatio = aspectRatio
@@ -104,11 +90,13 @@ class CropTransformation : BitmapTransformation {
     this.gravityVertical = gravityVertical
   }
 
+  @JvmOverloads
   constructor(
     widthRatio: Float, heightRatio: Float, aspectRatio: Float,
-    gravityHorizontal: Horizontal, gravityVertical: Vertical
+    gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
+    gravityVertical: GravityVertical = GravityVertical.CENTER
   ) {
-    crop = Crop(widthRatio, heightRatio, aspectRatio, gravityHorizontal.convert, gravityVertical.convert)
+    crop = Crop(widthRatio, heightRatio, aspectRatio, gravityHorizontal, gravityVertical)
     this.widthRatio = widthRatio
     this.heightRatio = heightRatio
     this.aspectRatio = aspectRatio
@@ -116,11 +104,12 @@ class CropTransformation : BitmapTransformation {
     this.gravityVertical = gravityVertical
   }
 
+  @JvmOverloads
   constructor(
-    aspectRatio: Float, gravityHorizontal: Horizontal,
-    gravityVertical: Vertical
+    aspectRatio: Float, gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
+    gravityVertical: GravityVertical = GravityVertical.CENTER
   ) {
-    crop = Crop(aspectRatio, gravityHorizontal.convert, gravityVertical.convert)
+    crop = Crop(aspectRatio, gravityHorizontal, gravityVertical)
     this.aspectRatio = aspectRatio
     this.gravityHorizontal = gravityHorizontal
     this.gravityVertical = gravityVertical

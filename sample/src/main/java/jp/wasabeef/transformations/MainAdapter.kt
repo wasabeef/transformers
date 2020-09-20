@@ -13,6 +13,7 @@ import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.request.RequestOptions.bitmapTransform
 import jp.wasabeef.transformations.MainAdapter.Type.ColorFilter
 import jp.wasabeef.transformations.MainAdapter.Type.CropBottom
+import jp.wasabeef.transformations.MainAdapter.Type.CropBottomRatio4x3
 import jp.wasabeef.transformations.MainAdapter.Type.CropCenter
 import jp.wasabeef.transformations.MainAdapter.Type.CropCenterRatio16x9
 import jp.wasabeef.transformations.MainAdapter.Type.CropCenterRatio4x3
@@ -20,11 +21,13 @@ import jp.wasabeef.transformations.MainAdapter.Type.CropCircle
 import jp.wasabeef.transformations.MainAdapter.Type.CropCircleWithBorder
 import jp.wasabeef.transformations.MainAdapter.Type.CropSquare
 import jp.wasabeef.transformations.MainAdapter.Type.CropTop
+import jp.wasabeef.transformations.MainAdapter.Type.CropTopRatio16x9
 import jp.wasabeef.transformations.MainAdapter.Type.Grayscale
 import jp.wasabeef.transformations.MainAdapter.Type.Mask
 import jp.wasabeef.transformations.MainAdapter.Type.NinePatchMask
 import jp.wasabeef.transformations.MainAdapter.Type.RoundedCorners
 import jp.wasabeef.transformations.MainAdapter.Type.RoundedCornersTopLeft
+import jp.wasabeef.transformations.core.CornerType
 import jp.wasabeef.transformations.glide.BlurTransformation
 import jp.wasabeef.transformations.glide.CenterCropTransformation
 import jp.wasabeef.transformations.glide.ColorFilterTransformation
@@ -38,6 +41,8 @@ import jp.wasabeef.transformations.glide.CropTransformation
 import jp.wasabeef.transformations.glide.GrayscaleTransformation
 import jp.wasabeef.transformations.glide.MaskTransformation
 import jp.wasabeef.transformations.glide.RoundedCornersTransformation
+import jp.wasabeef.transformations.types.GravityHorizontal
+import jp.wasabeef.transformations.types.GravityVertical
 
 /**
  * Created by Wasabeef on 2020/09/20.
@@ -59,6 +64,8 @@ class MainAdapter(
     CropCenter,
     CropCenterRatio16x9,
     CropCenterRatio4x3,
+    CropTopRatio16x9,
+    CropBottomRatio4x3,
     CropBottom,
     CropSquare,
     CropCircle,
@@ -140,9 +147,7 @@ class MainAdapter(
         .apply(
           bitmapTransform(
             CropTransformation(
-              16f / 9f,
-              CropTransformation.Horizontal.CENTER,
-              CropTransformation.Vertical.CENTER
+              16f / 9f
             )
           )
         )
@@ -153,11 +158,30 @@ class MainAdapter(
         .skipMemoryCache(SKIP_CACHE)
         .apply(
           bitmapTransform(
+            CropTransformation(4f / 3f)
+          )
+        ).into(holder.image)
+
+      CropTopRatio16x9 -> Glide.with(context)
+        .load(IMAGE_URL)
+        .skipMemoryCache(SKIP_CACHE)
+        .apply(
+          bitmapTransform(
             CropTransformation(
-              4f / 3f,
-              CropTransformation.Horizontal.CENTER,
-              CropTransformation.Vertical.CENTER
+              16f / 9f,
+              GravityHorizontal.START,
+              GravityVertical.TOP
             )
+          )
+        )
+        .into(holder.image)
+
+      CropBottomRatio4x3 -> Glide.with(context)
+        .load(IMAGE_URL)
+        .skipMemoryCache(SKIP_CACHE)
+        .apply(
+          bitmapTransform(
+            CropTransformation(4f / 3f, GravityHorizontal.START, GravityVertical.BOTTOM)
           )
         ).into(holder.image)
 
@@ -233,7 +257,7 @@ class MainAdapter(
               CropCenterTransformation(),
               RoundedCornersTransformation(
                 radius = 120,
-                cornerType = RoundedCornersTransformation.CornerType.DIAGONAL_FROM_TOP_LEFT
+                cornerType = CornerType.DIAGONAL_FROM_TOP_LEFT
               )
             )
           )

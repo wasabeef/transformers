@@ -11,7 +11,8 @@ object BuildConfig {
 }
 
 object Projects {
-  const val Core = ":transformations:core"
+  const val Core = ":core"
+  const val Types = ":types"
   const val Glide = ":transformations:glide"
   const val Picasso = ":transformations:picasso"
   const val Coil = ":transformations:coil"

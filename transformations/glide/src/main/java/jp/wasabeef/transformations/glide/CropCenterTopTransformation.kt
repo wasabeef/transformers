@@ -6,6 +6,8 @@ import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
 import jp.wasabeef.transformations.core.Crop
 import jp.wasabeef.transformations.core.bitmapConfig
+import jp.wasabeef.transformations.types.GravityHorizontal
+import jp.wasabeef.transformations.types.GravityVertical
 import java.security.MessageDigest
 
 /**
@@ -30,8 +32,8 @@ class CropCenterTopTransformation : BitmapTransformation() {
 
   private val crop = Crop(
     aspectRatio = 1f,
-    gravityHorizontal = Crop.GravityHorizontal.CENTER,
-    gravityVertical = Crop.GravityVertical.TOP
+    gravityHorizontal = GravityHorizontal.CENTER,
+    gravityVertical = GravityVertical.TOP
   )
 
   override fun transform(

@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
+import jp.wasabeef.transformations.core.CornerType
 import jp.wasabeef.transformations.core.RoundedCorners
 import jp.wasabeef.transformations.core.bitmapConfig
 import java.security.MessageDigest
@@ -31,28 +32,7 @@ class RoundedCornersTransformation constructor(
   private val cornerType: CornerType = CornerType.ALL
 ) : BitmapTransformation() {
 
-  enum class CornerType {
-    ALL,
-    TOP_LEFT,
-    TOP_RIGHT,
-    BOTTOM_LEFT,
-    BOTTOM_RIGHT,
-    TOP,
-    BOTTOM,
-    LEFT,
-    RIGHT,
-    OTHER_TOP_LEFT,
-    OTHER_TOP_RIGHT,
-    OTHER_BOTTOM_LEFT,
-    OTHER_BOTTOM_RIGHT,
-    DIAGONAL_FROM_TOP_LEFT,
-    DIAGONAL_FROM_TOP_RIGHT;
-
-    val convert: RoundedCorners.CornerType
-      get() = RoundedCorners.CornerType.valueOf(name)
-  }
-
-  private val roundedCorners = RoundedCorners(radius, diameter, margin, cornerType.convert)
+  private val roundedCorners = RoundedCorners(radius, diameter, margin, cornerType)
 
   override fun transform(
     context: Context,

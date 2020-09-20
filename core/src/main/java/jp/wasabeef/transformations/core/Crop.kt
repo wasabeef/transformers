@@ -5,6 +5,8 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Rect
 import android.util.Size
+import jp.wasabeef.transformations.types.GravityHorizontal
+import jp.wasabeef.transformations.types.GravityVertical
 
 /**
  * Copyright (C) 2020 Wasabeef, molexx
@@ -45,19 +47,7 @@ import android.util.Size
  * image if the
  * values are floats.
  */
-open class Crop : Transformation {
-
-  enum class GravityHorizontal {
-    START,
-    CENTER,
-    END
-  }
-
-  enum class GravityVertical {
-    TOP,
-    CENTER,
-    BOTTOM
-  }
+class Crop : Transformation {
 
   private var aspectRatio = 0f
   private var start = 0
@@ -100,10 +90,9 @@ open class Crop : Transformation {
    * @param width  in pixels
    * @param height in pixels
    */
-  @JvmOverloads
   constructor(
-    width: Int, height: Int, gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
-    gravityVertical: GravityVertical = GravityVertical.CENTER
+    width: Int, height: Int, gravityHorizontal: GravityHorizontal,
+    gravityVertical: GravityVertical
   ) {
     this.width = width
     this.height = height
@@ -142,12 +131,11 @@ open class Crop : Transformation {
    * @param heightRatio height of the target image relative to the height of the source image; 1 =
    * 100%
    */
-  @JvmOverloads
   constructor(
     widthRatio: Float,
     heightRatio: Float,
-    gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
-    gravityVertical: GravityVertical = GravityVertical.CENTER
+    gravityHorizontal: GravityHorizontal,
+    gravityVertical: GravityVertical
   ) {
     this.widthRatio = widthRatio
     this.heightRatio = heightRatio

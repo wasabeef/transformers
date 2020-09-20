@@ -1,6 +1,7 @@
 rootProject.name = "Image Transformations"
 include(":sample")
-include(":transformations:core")
+include(":core")
+include(":types")
 include(":transformations:glide")
 include(":transformations:picasso")
 include(":transformations:fresco")
