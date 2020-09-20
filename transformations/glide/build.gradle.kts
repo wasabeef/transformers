@@ -1,6 +1,7 @@
 plugins {
   id("com.android.library")
   kotlin("android")
+  id("kotlin-kapt")
 }
 
 android {
@@ -27,6 +28,8 @@ android {
 }
 
 dependencies {
+  api(project(":transformations:core"))
   implementation(Libraries.kotlin)
-  implementation(project(":transformations:core"))
+  implementation(Libraries.glide)
+  kapt(Libraries.glideCompiler)
 }
