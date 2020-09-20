@@ -28,7 +28,7 @@ import kotlin.math.min
  * limitations under the License.
  */
 
-class CropCircleWithBorderTransformation constructor(
+class CropCircleWithBorderTransformation @JvmOverloads constructor(
   private val borderSize: Int = 4.dp,
   @ColorInt private val borderColor: Int = Color.BLACK
 ) : BitmapTransformation() {

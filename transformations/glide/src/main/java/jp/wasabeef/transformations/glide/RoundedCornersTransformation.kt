@@ -25,7 +25,7 @@ import java.security.MessageDigest
  * limitations under the License.
  */
 
-class RoundedCornersTransformation constructor(
+class RoundedCornersTransformation @JvmOverloads constructor(
   private val radius: Int,
   private var diameter: Int = radius * 2,
   private val margin: Int = 0,

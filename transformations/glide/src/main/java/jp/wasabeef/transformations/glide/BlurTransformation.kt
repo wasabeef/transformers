@@ -26,7 +26,7 @@ import java.security.MessageDigest
  * limitations under the License.
  */
 
-class BlurTransformation constructor(
+class BlurTransformation @JvmOverloads constructor(
   radius: Int = 25,
   private val sampling: Int = 1,
   private val rs: Boolean = true
