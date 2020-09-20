@@ -26,6 +26,24 @@ import java.security.MessageDigest
 
 class CropTransformation : BitmapTransformation {
 
+  enum class Horizontal {
+    START,
+    CENTER,
+    END;
+
+    val convert: Crop.GravityHorizontal
+      get() = Crop.GravityHorizontal.valueOf(name)
+  }
+
+  enum class Vertical {
+    TOP,
+    CENTER,
+    BOTTOM;
+
+    val convert: Crop.GravityVertical
+      get() = Crop.GravityVertical.valueOf(name)
+  }
+
   private var crop: Crop
 
   private var aspectRatio = 0f
@@ -35,8 +53,8 @@ class CropTransformation : BitmapTransformation {
   private var height = 0
   private var widthRatio = 0f
   private var heightRatio = 0f
-  private var gravityHorizontal = Crop.GravityHorizontal.CENTER
-  private var gravityVertical = Crop.GravityVertical.CENTER
+  private var gravityHorizontal = Horizontal.CENTER
+  private var gravityVertical = Vertical.CENTER
 
   constructor(left: Int, top: Int, width: Int, height: Int) {
     crop = Crop(left, top, width, height)
@@ -50,10 +68,10 @@ class CropTransformation : BitmapTransformation {
   constructor(
     width: Int,
     height: Int,
-    gravityHorizontal: Crop.GravityHorizontal = Crop.GravityHorizontal.CENTER,
-    gravityVertical: Crop.GravityVertical = Crop.GravityVertical.CENTER
+    gravityHorizontal: Horizontal = Horizontal.CENTER,
+    gravityVertical: Vertical = Vertical.CENTER
   ) {
-    crop = Crop(width, height, gravityHorizontal, gravityVertical)
+    crop = Crop(width, height, gravityHorizontal.convert, gravityVertical.convert)
     this.width = width
     this.height = height
     this.gravityHorizontal = gravityHorizontal
@@ -64,10 +82,10 @@ class CropTransformation : BitmapTransformation {
   constructor(
     widthRatio: Float,
     heightRatio: Float,
-    gravityHorizontal: Crop.GravityHorizontal = Crop.GravityHorizontal.CENTER,
-    gravityVertical: Crop.GravityVertical = Crop.GravityVertical.CENTER
+    gravityHorizontal: Horizontal = Horizontal.CENTER,
+    gravityVertical: Vertical = Vertical.CENTER
   ) {
-    crop = Crop(widthRatio, heightRatio, gravityHorizontal, gravityVertical)
+    crop = Crop(widthRatio, heightRatio, gravityHorizontal.convert, gravityVertical.convert)
     this.widthRatio = widthRatio
     this.heightRatio = heightRatio
     this.gravityHorizontal = gravityHorizontal
@@ -76,9 +94,9 @@ class CropTransformation : BitmapTransformation {
 
   constructor(
     width: Int, height: Int, aspectRatio: Float,
-    gravityHorizontal: Crop.GravityHorizontal, gravityVertical: Crop.GravityVertical
+    gravityHorizontal: Horizontal, gravityVertical: Vertical
   ) {
-    crop = Crop(width, height, aspectRatio, gravityHorizontal, gravityVertical)
+    crop = Crop(width, height, aspectRatio, gravityHorizontal.convert, gravityVertical.convert)
     this.width = width
     this.height = height
     this.aspectRatio = aspectRatio
@@ -88,9 +106,9 @@ class CropTransformation : BitmapTransformation {
 
   constructor(
     widthRatio: Float, heightRatio: Float, aspectRatio: Float,
-    gravityHorizontal: Crop.GravityHorizontal, gravityVertical: Crop.GravityVertical
+    gravityHorizontal: Horizontal, gravityVertical: Vertical
   ) {
-    crop = Crop(widthRatio, heightRatio, aspectRatio, gravityHorizontal, gravityVertical)
+    crop = Crop(widthRatio, heightRatio, aspectRatio, gravityHorizontal.convert, gravityVertical.convert)
     this.widthRatio = widthRatio
     this.heightRatio = heightRatio
     this.aspectRatio = aspectRatio
@@ -99,10 +117,10 @@ class CropTransformation : BitmapTransformation {
   }
 
   constructor(
-    aspectRatio: Float, gravityHorizontal: Crop.GravityHorizontal,
-    gravityVertical: Crop.GravityVertical
+    aspectRatio: Float, gravityHorizontal: Horizontal,
+    gravityVertical: Vertical
   ) {
-    crop = Crop(aspectRatio, gravityHorizontal, gravityVertical)
+    crop = Crop(aspectRatio, gravityHorizontal.convert, gravityVertical.convert)
     this.aspectRatio = aspectRatio
     this.gravityHorizontal = gravityHorizontal
     this.gravityVertical = gravityVertical

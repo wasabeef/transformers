@@ -25,9 +25,6 @@ import jp.wasabeef.transformations.MainAdapter.Type.Mask
 import jp.wasabeef.transformations.MainAdapter.Type.NinePatchMask
 import jp.wasabeef.transformations.MainAdapter.Type.RoundedCorners
 import jp.wasabeef.transformations.MainAdapter.Type.RoundedCornersTopLeft
-import jp.wasabeef.transformations.core.Crop
-import jp.wasabeef.transformations.core.RoundedCorners.CornerType
-import jp.wasabeef.transformations.core.dp
 import jp.wasabeef.transformations.glide.BlurTransformation
 import jp.wasabeef.transformations.glide.CenterCropTransformation
 import jp.wasabeef.transformations.glide.ColorFilterTransformation
@@ -144,8 +141,8 @@ class MainAdapter(
           bitmapTransform(
             CropTransformation(
               16f / 9f,
-              Crop.GravityHorizontal.CENTER,
-              Crop.GravityVertical.CENTER
+              CropTransformation.Horizontal.CENTER,
+              CropTransformation.Vertical.CENTER
             )
           )
         )
@@ -158,8 +155,8 @@ class MainAdapter(
           bitmapTransform(
             CropTransformation(
               4f / 3f,
-              Crop.GravityHorizontal.CENTER,
-              Crop.GravityVertical.CENTER
+              CropTransformation.Horizontal.CENTER,
+              CropTransformation.Vertical.CENTER
             )
           )
         ).into(holder.image)
@@ -236,7 +233,7 @@ class MainAdapter(
               CropCenterTransformation(),
               RoundedCornersTransformation(
                 radius = 120,
-                cornerType = CornerType.DIAGONAL_FROM_TOP_LEFT
+                cornerType = RoundedCornersTransformation.CornerType.DIAGONAL_FROM_TOP_LEFT
               )
             )
           )

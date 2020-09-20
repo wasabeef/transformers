@@ -28,7 +28,7 @@ android {
 }
 
 dependencies {
-  api(project(Projects.Core))
+  implementation(project(Projects.Core))
 
   implementation(Libraries.kotlin)
   implementation(Libraries.glide)

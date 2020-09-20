@@ -28,10 +28,31 @@ class RoundedCornersTransformation constructor(
   private val radius: Int,
   private var diameter: Int = radius * 2,
   private val margin: Int = 0,
-  private val cornerType: RoundedCorners.CornerType = RoundedCorners.CornerType.ALL
+  private val cornerType: CornerType = CornerType.ALL
 ) : BitmapTransformation() {
 
-  private val roundedCorners = RoundedCorners(radius, diameter, margin, cornerType)
+  enum class CornerType {
+    ALL,
+    TOP_LEFT,
+    TOP_RIGHT,
+    BOTTOM_LEFT,
+    BOTTOM_RIGHT,
+    TOP,
+    BOTTOM,
+    LEFT,
+    RIGHT,
+    OTHER_TOP_LEFT,
+    OTHER_TOP_RIGHT,
+    OTHER_BOTTOM_LEFT,
+    OTHER_BOTTOM_RIGHT,
+    DIAGONAL_FROM_TOP_LEFT,
+    DIAGONAL_FROM_TOP_RIGHT;
+
+    val convert: RoundedCorners.CornerType
+      get() = RoundedCorners.CornerType.valueOf(name)
+  }
+
+  private val roundedCorners = RoundedCorners(radius, diameter, margin, cornerType.convert)
 
   override fun transform(
     context: Context,
