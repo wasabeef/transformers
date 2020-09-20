@@ -1,0 +1,12 @@
+{
+  "name": "flutter_gen",
+  "author": "wasabeef",
+  "husky": {
+    "hooks": {
+      "pre-push": "./gradlew ktlint"
+    }
+  },
+  "devDependencies": {
+    "husky": "^4.3.0"
+  }
+}
