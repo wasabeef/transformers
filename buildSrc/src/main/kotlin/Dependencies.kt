@@ -14,6 +14,7 @@ object Projects {
   const val Core = ":core"
   const val Types = ":types"
   const val Glide = ":transformations:glide"
+  const val GlideGPU = ":transformations:glide-gpu"
   const val Picasso = ":transformations:picasso"
   const val Coil = ":transformations:coil"
   const val Fresco = ":transformations:fresco"
@@ -43,4 +44,5 @@ object Libraries {
   const val glideCompiler = "com.github.bumptech.glide:compiler:$glideVersion"
   const val coil = "io.coil-kt:coil:0.13.0"
   const val fresco = "com.facebook.fresco:fresco:2.3.0"
+  const val gpuImage = "jp.co.cyberagent.android:gpuimage:2.0.4"
 }

@@ -1,6 +1,7 @@
 plugins {
   id("com.android.library")
   kotlin("android")
+  id("kotlin-kapt")
 }
 
 android {
@@ -11,6 +12,8 @@ android {
     targetSdkVersion(BuildConfig.targetSdk)
     versionCode(BuildConfig.appVersionCode)
     versionName(BuildConfig.appVersionName)
+
+    buildConfigField("String", "Version", "\"${BuildConfig.appVersionName}\"")
 
     testInstrumentationRunner = BuildConfig.testRunner
     consumerProguardFile("consumer-rules.pro")
@@ -27,5 +30,9 @@ android {
 }
 
 dependencies {
+  implementation(project(Projects.Glide))
+
   implementation(Libraries.kotlin)
+  implementation(Libraries.glide)
+  implementation(Libraries.gpuImage)
 }
