@@ -1,7 +1,7 @@
 object BuildConfig {
   const val compileSdk = 30
 
-  const val appId = "jp.wasabeef.transformations"
+  const val appId = "jp.wasabeef.transformers"
   const val minSdk = 21
   const val targetSdk = 30
   const val appVersionCode = 1
@@ -13,14 +13,14 @@ object BuildConfig {
 object Projects {
   const val core = ":core"
   const val types = ":types"
-  const val glide = ":transformations:glide"
-  const val glideGpu = ":transformations:glide-gpu"
-  const val picasso = ":transformations:picasso"
-  const val picassoGpu = ":transformations:picasso-gpu"
-  const val coil = ":transformations:coil"
-  const val coilGpu = ":transformations:coil-gpu"
-  const val fresco = ":transformations:fresco"
-  const val frescoGpu = ":transformations:fresco-gpu"
+  const val glide = ":transformers:glide"
+  const val glideGpu = ":transformers:glide-gpu"
+  const val picasso = ":transformers:picasso"
+  const val picassoGpu = ":transformers:picasso-gpu"
+  const val coil = ":transformers:coil"
+  const val coilGpu = ":transformers:coil-gpu"
+  const val fresco = ":transformers:fresco"
+  const val frescoGpu = ":transformers:fresco-gpu"
 }
 
 object Ktlint {
