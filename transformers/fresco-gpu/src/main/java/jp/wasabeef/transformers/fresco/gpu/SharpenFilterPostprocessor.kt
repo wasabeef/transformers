@@ -29,12 +29,12 @@ import jp.co.cyberagent.android.gpuimage.filter.GPUImageSharpenFilter
 class SharpenFilterPostprocessor @JvmOverloads constructor(
   context: Context,
   private val sharpness: Float = 0.0f
-) : GPUFilterPostprocessor(context, GPUImageSharpenFilter()) {
-
-  init {
-    val filter: GPUImageSharpenFilter = filter()
-    filter.setSharpness(sharpness)
+) : GPUFilterPostprocessor(
+  context,
+  GPUImageSharpenFilter().apply {
+    setSharpness(sharpness)
   }
+) {
 
   override fun key(): String = "$id(sharpness=$sharpness)"
 }

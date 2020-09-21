@@ -30,12 +30,12 @@ import jp.co.cyberagent.android.gpuimage.filter.GPUImageSepiaToneFilter
 class SepiaFilterPostprocessor @JvmOverloads constructor(
   context: Context,
   private val intensity: Float = 1.0f
-) : GPUFilterPostprocessor(context, GPUImageSepiaToneFilter()) {
-
-  init {
-    val filter: GPUImageSepiaToneFilter = filter()
-    filter.setIntensity(intensity)
+) : GPUFilterPostprocessor(
+  context,
+  GPUImageSepiaToneFilter().apply {
+    setIntensity(intensity)
   }
+) {
 
   override fun key(): String = "$id(intensity=$intensity)"
 }

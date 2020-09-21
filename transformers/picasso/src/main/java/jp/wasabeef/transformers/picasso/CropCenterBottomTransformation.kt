@@ -1,7 +1,6 @@
 package jp.wasabeef.transformers.picasso
 
 import android.graphics.Bitmap
-import com.squareup.picasso.Transformation
 import jp.wasabeef.transformers.core.Crop
 import jp.wasabeef.transformers.core.bitmapConfig
 import jp.wasabeef.transformers.types.GravityHorizontal
@@ -25,23 +24,21 @@ import jp.wasabeef.transformers.types.GravityVertical
 
 typealias CenterBottomCropTransformation = CropCenterTopTransformation
 
-class CropCenterBottomTransformation : Transformation {
-
-  private val crop = Crop(
+class CropCenterBottomTransformation : BaseTransformation(
+  Crop(
     aspectRatio = 1f,
     gravityHorizontal = GravityHorizontal.CENTER,
     gravityVertical = GravityVertical.BOTTOM
   )
+) {
 
   override fun transform(
     source: Bitmap
   ): Bitmap {
-    val size = crop.calculateSize(source)
+    val size = (transformer as Crop).calculateSize(source)
     val output = Bitmap.createBitmap(size.width, size.height, bitmapConfig(source))
-    crop.transform(source, output)
+    transformer.transform(source, output)
     source.recycle()
     return output
   }
-
-  override fun key() = crop.key()
 }

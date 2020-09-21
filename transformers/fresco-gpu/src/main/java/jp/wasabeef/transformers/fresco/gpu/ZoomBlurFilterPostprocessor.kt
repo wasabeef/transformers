@@ -31,13 +31,13 @@ class ZoomBlurFilterPostprocessor @JvmOverloads constructor(
   context: Context,
   private val blurCenter: PointF = PointF(0.5f, 0.5f),
   private val blurSize: Float = 1.0f
-) : GPUFilterPostprocessor(context, GPUImageZoomBlurFilter()) {
-
-  init {
-    val filter: GPUImageZoomBlurFilter = filter()
-    filter.setBlurCenter(blurCenter)
-    filter.setBlurSize(blurSize)
+) : GPUFilterPostprocessor(
+  context,
+  GPUImageZoomBlurFilter().apply {
+    setBlurCenter(blurCenter)
+    setBlurSize(blurSize)
   }
+) {
 
   override fun key(): String = "$id(blurCenter=$blurCenter, blurSize=$blurSize)"
 }

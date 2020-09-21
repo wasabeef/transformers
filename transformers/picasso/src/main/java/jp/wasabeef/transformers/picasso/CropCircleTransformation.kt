@@ -1,7 +1,6 @@
 package jp.wasabeef.transformers.picasso
 
 import android.graphics.Bitmap
-import com.squareup.picasso.Transformation
 import jp.wasabeef.transformers.core.CropCircle
 import jp.wasabeef.transformers.core.bitmapConfig
 import kotlin.math.min
@@ -22,19 +21,15 @@ import kotlin.math.min
  * limitations under the License.
  */
 
-class CropCircleTransformation : Transformation {
-
-  private val cropCircle = CropCircle()
+class CropCircleTransformation : BaseTransformation(CropCircle()) {
 
   override fun transform(
     source: Bitmap
   ): Bitmap {
     val size = min(source.width, source.height)
     val output = Bitmap.createBitmap(size, size, bitmapConfig(source))
-    cropCircle.transform(source, output)
+    transformer.transform(source, output)
     source.recycle()
     return output
   }
-
-  override fun key() = cropCircle.key()
 }

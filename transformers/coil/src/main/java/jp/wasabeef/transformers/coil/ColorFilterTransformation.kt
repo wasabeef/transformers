@@ -4,7 +4,6 @@ import android.graphics.Bitmap
 import androidx.annotation.ColorInt
 import coil.bitmap.BitmapPool
 import coil.size.Size
-import coil.transform.Transformation
 import jp.wasabeef.transformers.core.ColorFilter
 import jp.wasabeef.transformers.core.bitmapConfig
 
@@ -25,15 +24,11 @@ import jp.wasabeef.transformers.core.bitmapConfig
  */
 
 class ColorFilterTransformation constructor(
-  @ColorInt private val color: Int
-) : Transformation {
-
-  private val colorFilter = ColorFilter(color)
+  @ColorInt color: Int
+) : BaseTransformation(ColorFilter(color)) {
 
   override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
     val output = pool.get(input.width, input.height, bitmapConfig(input))
-    return colorFilter.transform(input, output)
+    return transformer.transform(input, output)
   }
-
-  override fun key() = colorFilter.key()
 }

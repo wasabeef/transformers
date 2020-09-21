@@ -29,13 +29,12 @@ import jp.co.cyberagent.android.gpuimage.filter.GPUImageToonFilter
 class ToonFilterTransformation @JvmOverloads constructor(
   private val threshold: Float = 0.2f,
   private val quantizationLevels: Float = 10.0f
-) : GPUFilterTransformation(GPUImageToonFilter()) {
-
-  init {
-    val filter: GPUImageToonFilter = filter()
-    filter.setThreshold(threshold)
-    filter.setQuantizationLevels(quantizationLevels)
+) : GPUFilterTransformation(
+  GPUImageToonFilter().apply {
+    setThreshold(threshold)
+    setQuantizationLevels(quantizationLevels)
   }
+) {
 
   override fun key(): String = "$id(threshold=$threshold, quantizationLevels=$quantizationLevels)"
 }

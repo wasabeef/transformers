@@ -5,7 +5,6 @@ import android.graphics.Bitmap
 import androidx.annotation.DrawableRes
 import coil.bitmap.BitmapPool
 import coil.size.Size
-import coil.transform.Transformation
 import jp.wasabeef.transformers.core.Mask
 import jp.wasabeef.transformers.core.bitmapConfig
 
@@ -27,15 +26,11 @@ import jp.wasabeef.transformers.core.bitmapConfig
 
 class MaskTransformation constructor(
   context: Context,
-  @DrawableRes private val maskId: Int
-) : Transformation {
-
-  private val mask = Mask(context, maskId)
+  @DrawableRes maskId: Int
+) : BaseTransformation(Mask(context, maskId)) {
 
   override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
     val output = pool.get(input.width, input.height, bitmapConfig(input))
-    return mask.transform(input, output)
+    return transformer.transform(input, output)
   }
-
-  override fun key() = mask.key()
 }

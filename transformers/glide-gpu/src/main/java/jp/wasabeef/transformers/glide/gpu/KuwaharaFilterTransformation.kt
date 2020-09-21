@@ -28,12 +28,11 @@ import jp.co.cyberagent.android.gpuimage.filter.GPUImageKuwaharaFilter
  */
 class KuwaharaFilterTransformation @JvmOverloads constructor(
   private val radius: Int = 25
-) : GPUFilterTransformation(GPUImageKuwaharaFilter()) {
-
-  init {
-    val filter: GPUImageKuwaharaFilter = filter()
-    filter.setRadius(radius)
+) : GPUFilterTransformation(
+  GPUImageKuwaharaFilter().apply {
+    setRadius(radius)
   }
+) {
 
   override fun key(): String = "$id(radius=$radius)"
 }

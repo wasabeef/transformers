@@ -27,12 +27,12 @@ import jp.co.cyberagent.android.gpuimage.filter.GPUImageBrightnessFilter
 class BrightnessFilterPostprocessor @JvmOverloads constructor(
   context: Context,
   private val brightness: Float = 0.0f
-) : GPUFilterPostprocessor(context, GPUImageBrightnessFilter()) {
-
-  init {
-    val filter: GPUImageBrightnessFilter = filter()
-    filter.setBrightness(brightness)
+) : GPUFilterPostprocessor(
+  context,
+  GPUImageBrightnessFilter().apply {
+    setBrightness(brightness)
   }
+) {
 
   override fun key(): String = "$id(brightness=$brightness)"
 }

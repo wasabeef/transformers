@@ -2,9 +2,7 @@ package jp.wasabeef.transformers.glide
 
 import android.content.Context
 import android.graphics.Bitmap
-import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
-import java.security.MessageDigest
 import jp.wasabeef.transformers.core.RoundedCorners
 import jp.wasabeef.transformers.core.bitmapConfig
 import jp.wasabeef.transformers.types.CornerType
@@ -30,9 +28,7 @@ class RoundedCornersTransformation @JvmOverloads constructor(
   private var diameter: Int = radius * 2,
   private val margin: Int = 0,
   private val cornerType: CornerType = CornerType.ALL
-) : BitmapTransformation() {
-
-  private val roundedCorners = RoundedCorners(radius, diameter, margin, cornerType)
+) : BaseTransformation(RoundedCorners(radius, diameter, margin, cornerType)) {
 
   override fun transform(
     context: Context,
@@ -42,10 +38,6 @@ class RoundedCornersTransformation @JvmOverloads constructor(
     outHeight: Int
   ): Bitmap {
     val output = pool.get(source.width, source.height, bitmapConfig(source))
-    return roundedCorners.transform(source, output)
-  }
-
-  override fun updateDiskCacheKey(messageDigest: MessageDigest) {
-    messageDigest.update(roundedCorners.key().toByteArray(Key.CHARSET))
+    return transformer.transform(source, output)
   }
 }

@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.Bitmap
 import coil.bitmap.BitmapPool
 import coil.size.Size
-import coil.transform.Transformation
 import jp.wasabeef.transformers.core.Blur
 import jp.wasabeef.transformers.core.bitmapConfig
 
@@ -29,16 +28,12 @@ class BlurTransformation @JvmOverloads constructor(
   radius: Int = 25,
   private val sampling: Int = 1,
   rs: Boolean = true
-) : Transformation {
-
-  private val blur = Blur(context, radius, sampling, rs)
+) : BaseTransformation(Blur(context, radius, sampling, rs)) {
 
   override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
     val scaledWidth: Int = input.width / sampling
     val scaledHeight: Int = input.height / sampling
     val output = pool.get(scaledWidth, scaledHeight, bitmapConfig(input))
-    return blur.transform(input, output)
+    return transformer.transform(input, output)
   }
-
-  override fun key(): String = blur.key()
 }

@@ -2,9 +2,7 @@ package jp.wasabeef.transformers.glide
 
 import android.content.Context
 import android.graphics.Bitmap
-import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
-import java.security.MessageDigest
 import jp.wasabeef.transformers.core.Crop
 import jp.wasabeef.transformers.core.bitmapConfig
 import jp.wasabeef.transformers.types.GravityHorizontal
@@ -26,9 +24,7 @@ import jp.wasabeef.transformers.types.GravityVertical
  * limitations under the License.
  */
 
-class CropTransformation : BitmapTransformation {
-
-  private var crop: Crop
+class CropTransformation : BaseTransformation {
 
   private var aspectRatio = 0f
   private var left = 0
@@ -40,8 +36,14 @@ class CropTransformation : BitmapTransformation {
   private var gravityHorizontal = GravityHorizontal.CENTER
   private var gravityVertical = GravityVertical.CENTER
 
-  constructor(left: Int, top: Int, width: Int, height: Int) {
-    crop = Crop(left, top, width, height)
+  constructor(left: Int, top: Int, width: Int, height: Int) : super(
+    Crop(
+      left,
+      top,
+      width,
+      height
+    )
+  ) {
     this.left = left
     this.top = top
     this.width = width
@@ -54,8 +56,7 @@ class CropTransformation : BitmapTransformation {
     height: Int,
     gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
     gravityVertical: GravityVertical = GravityVertical.CENTER
-  ) {
-    crop = Crop(width, height, gravityHorizontal, gravityVertical)
+  ) : super(Crop(width, height, gravityHorizontal, gravityVertical)) {
     this.width = width
     this.height = height
     this.gravityHorizontal = gravityHorizontal
@@ -68,8 +69,7 @@ class CropTransformation : BitmapTransformation {
     heightRatio: Float,
     gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
     gravityVertical: GravityVertical = GravityVertical.CENTER
-  ) {
-    crop = Crop(widthRatio, heightRatio, gravityHorizontal, gravityVertical)
+  ) : super(Crop(widthRatio, heightRatio, gravityHorizontal, gravityVertical)) {
     this.widthRatio = widthRatio
     this.heightRatio = heightRatio
     this.gravityHorizontal = gravityHorizontal
@@ -83,8 +83,7 @@ class CropTransformation : BitmapTransformation {
     aspectRatio: Float,
     gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
     gravityVertical: GravityVertical = GravityVertical.CENTER
-  ) {
-    crop = Crop(width, height, aspectRatio, gravityHorizontal, gravityVertical)
+  ) : super(Crop(width, height, aspectRatio, gravityHorizontal, gravityVertical)) {
     this.width = width
     this.height = height
     this.aspectRatio = aspectRatio
@@ -99,8 +98,7 @@ class CropTransformation : BitmapTransformation {
     aspectRatio: Float,
     gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
     gravityVertical: GravityVertical = GravityVertical.CENTER
-  ) {
-    crop = Crop(widthRatio, heightRatio, aspectRatio, gravityHorizontal, gravityVertical)
+  ) : super(Crop(widthRatio, heightRatio, aspectRatio, gravityHorizontal, gravityVertical)) {
     this.widthRatio = widthRatio
     this.heightRatio = heightRatio
     this.aspectRatio = aspectRatio
@@ -113,8 +111,7 @@ class CropTransformation : BitmapTransformation {
     aspectRatio: Float,
     gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
     gravityVertical: GravityVertical = GravityVertical.CENTER
-  ) {
-    crop = Crop(aspectRatio, gravityHorizontal, gravityVertical)
+  ) : super(Crop(aspectRatio, gravityHorizontal, gravityVertical)) {
     this.aspectRatio = aspectRatio
     this.gravityHorizontal = gravityHorizontal
     this.gravityVertical = gravityVertical
@@ -127,12 +124,8 @@ class CropTransformation : BitmapTransformation {
     outWidth: Int,
     outHeight: Int
   ): Bitmap {
-    val size = crop.calculateSize(source)
+    val size = (transformer as Crop).calculateSize(source)
     val output = pool.get(size.width, size.height, bitmapConfig(source))
-    return crop.transform(source, output)
-  }
-
-  override fun updateDiskCacheKey(messageDigest: MessageDigest) {
-    messageDigest.update(crop.key().toByteArray(Key.CHARSET))
+    return transformer.transform(source, output)
   }
 }

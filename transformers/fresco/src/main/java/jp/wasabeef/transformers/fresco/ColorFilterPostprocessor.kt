@@ -20,5 +20,5 @@ import jp.wasabeef.transformers.core.ColorFilter
  */
 
 class ColorFilterPostprocessor constructor(
-  @ColorInt private val color: Int
+  @ColorInt color: Int
 ) : SimplePostprocessor(ColorFilter(color))

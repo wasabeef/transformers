@@ -3,9 +3,7 @@ package jp.wasabeef.transformers.glide
 import android.content.Context
 import android.graphics.Bitmap
 import androidx.annotation.DrawableRes
-import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
-import java.security.MessageDigest
 import jp.wasabeef.transformers.core.Mask
 import jp.wasabeef.transformers.core.bitmapConfig
 
@@ -27,10 +25,8 @@ import jp.wasabeef.transformers.core.bitmapConfig
 
 class MaskTransformation constructor(
   context: Context,
-  @DrawableRes private val maskId: Int
-) : BitmapTransformation() {
-
-  private val mask = Mask(context, maskId)
+  @DrawableRes maskId: Int
+) : BaseTransformation(Mask(context, maskId)) {
 
   override fun transform(
     context: Context,
@@ -40,10 +36,6 @@ class MaskTransformation constructor(
     outHeight: Int
   ): Bitmap {
     val output = pool.get(source.width, source.height, bitmapConfig(source))
-    return mask.transform(source, output)
-  }
-
-  override fun updateDiskCacheKey(messageDigest: MessageDigest) {
-    messageDigest.update(mask.key().toByteArray(Key.CHARSET))
+    return transformer.transform(source, output)
   }
 }

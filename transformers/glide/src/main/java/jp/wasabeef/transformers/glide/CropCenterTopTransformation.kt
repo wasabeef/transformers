@@ -2,9 +2,7 @@ package jp.wasabeef.transformers.glide
 
 import android.content.Context
 import android.graphics.Bitmap
-import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
-import java.security.MessageDigest
 import jp.wasabeef.transformers.core.Crop
 import jp.wasabeef.transformers.core.bitmapConfig
 import jp.wasabeef.transformers.types.GravityHorizontal
@@ -28,13 +26,13 @@ import jp.wasabeef.transformers.types.GravityVertical
 
 typealias CenterTopCropTransformation = CropCenterTopTransformation
 
-class CropCenterTopTransformation : BitmapTransformation() {
-
-  private val crop = Crop(
+class CropCenterTopTransformation : BaseTransformation(
+  Crop(
     aspectRatio = 1f,
     gravityHorizontal = GravityHorizontal.CENTER,
     gravityVertical = GravityVertical.TOP
   )
+) {
 
   override fun transform(
     context: Context,
@@ -43,12 +41,8 @@ class CropCenterTopTransformation : BitmapTransformation() {
     outWidth: Int,
     outHeight: Int
   ): Bitmap {
-    val size = crop.calculateSize(source)
+    val size = (transformer as Crop).calculateSize(source)
     val output = pool.get(size.width, size.height, bitmapConfig(source))
-    return crop.transform(source, output)
-  }
-
-  override fun updateDiskCacheKey(messageDigest: MessageDigest) {
-    messageDigest.update(crop.key().toByteArray(Key.CHARSET))
+    return transformer.transform(source, output)
   }
 }

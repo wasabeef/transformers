@@ -1,7 +1,6 @@
 package jp.wasabeef.transformers.picasso
 
 import android.graphics.Bitmap
-import com.squareup.picasso.Transformation
 import jp.wasabeef.transformers.core.Crop
 import jp.wasabeef.transformers.core.bitmapConfig
 import jp.wasabeef.transformers.types.GravityHorizontal
@@ -23,9 +22,7 @@ import jp.wasabeef.transformers.types.GravityVertical
  * limitations under the License.
  */
 
-class CropTransformation : Transformation {
-
-  private var crop: Crop
+class CropTransformation : BaseTransformation {
 
   private var aspectRatio = 0f
   private var left = 0
@@ -37,8 +34,14 @@ class CropTransformation : Transformation {
   private var gravityHorizontal = GravityHorizontal.CENTER
   private var gravityVertical = GravityVertical.CENTER
 
-  constructor(left: Int, top: Int, width: Int, height: Int) {
-    crop = Crop(left, top, width, height)
+  constructor(left: Int, top: Int, width: Int, height: Int) : super(
+    Crop(
+      left,
+      top,
+      width,
+      height
+    )
+  ) {
     this.left = left
     this.top = top
     this.width = width
@@ -51,8 +54,7 @@ class CropTransformation : Transformation {
     height: Int,
     gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
     gravityVertical: GravityVertical = GravityVertical.CENTER
-  ) {
-    crop = Crop(width, height, gravityHorizontal, gravityVertical)
+  ) : super(Crop(width, height, gravityHorizontal, gravityVertical)) {
     this.width = width
     this.height = height
     this.gravityHorizontal = gravityHorizontal
@@ -65,8 +67,7 @@ class CropTransformation : Transformation {
     heightRatio: Float,
     gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
     gravityVertical: GravityVertical = GravityVertical.CENTER
-  ) {
-    crop = Crop(widthRatio, heightRatio, gravityHorizontal, gravityVertical)
+  ) : super(Crop(widthRatio, heightRatio, gravityHorizontal, gravityVertical)) {
     this.widthRatio = widthRatio
     this.heightRatio = heightRatio
     this.gravityHorizontal = gravityHorizontal
@@ -80,8 +81,7 @@ class CropTransformation : Transformation {
     aspectRatio: Float,
     gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
     gravityVertical: GravityVertical = GravityVertical.CENTER
-  ) {
-    crop = Crop(width, height, aspectRatio, gravityHorizontal, gravityVertical)
+  ) : super(Crop(width, height, aspectRatio, gravityHorizontal, gravityVertical)) {
     this.width = width
     this.height = height
     this.aspectRatio = aspectRatio
@@ -96,8 +96,7 @@ class CropTransformation : Transformation {
     aspectRatio: Float,
     gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
     gravityVertical: GravityVertical = GravityVertical.CENTER
-  ) {
-    crop = Crop(widthRatio, heightRatio, aspectRatio, gravityHorizontal, gravityVertical)
+  ) : super(Crop(widthRatio, heightRatio, aspectRatio, gravityHorizontal, gravityVertical)) {
     this.widthRatio = widthRatio
     this.heightRatio = heightRatio
     this.aspectRatio = aspectRatio
@@ -110,8 +109,7 @@ class CropTransformation : Transformation {
     aspectRatio: Float,
     gravityHorizontal: GravityHorizontal = GravityHorizontal.CENTER,
     gravityVertical: GravityVertical = GravityVertical.CENTER
-  ) {
-    crop = Crop(aspectRatio, gravityHorizontal, gravityVertical)
+  ) : super(Crop(aspectRatio, gravityHorizontal, gravityVertical)) {
     this.aspectRatio = aspectRatio
     this.gravityHorizontal = gravityHorizontal
     this.gravityVertical = gravityVertical
@@ -120,12 +118,10 @@ class CropTransformation : Transformation {
   override fun transform(
     source: Bitmap
   ): Bitmap {
-    val size = crop.calculateSize(source)
+    val size = (transformer as Crop).calculateSize(source)
     val output = Bitmap.createBitmap(size.width, size.height, bitmapConfig(source))
-    crop.transform(source, output)
+    transformer.transform(source, output)
     source.recycle()
     return output
   }
-
-  override fun key() = crop.key()
 }

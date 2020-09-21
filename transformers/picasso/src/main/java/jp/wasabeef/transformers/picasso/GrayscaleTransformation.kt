@@ -1,7 +1,6 @@
 package jp.wasabeef.transformers.picasso
 
 import android.graphics.Bitmap
-import com.squareup.picasso.Transformation
 import jp.wasabeef.transformers.core.Grayscale
 import jp.wasabeef.transformers.core.bitmapConfig
 
@@ -21,18 +20,14 @@ import jp.wasabeef.transformers.core.bitmapConfig
  * limitations under the License.
  */
 
-class GrayscaleTransformation : Transformation {
-
-  private val grayscale = Grayscale()
+class GrayscaleTransformation : BaseTransformation(Grayscale()) {
 
   override fun transform(
     source: Bitmap
   ): Bitmap {
     val output = Bitmap.createBitmap(source.width, source.height, bitmapConfig(source))
-    grayscale.transform(source, output)
+    transformer.transform(source, output)
     source.recycle()
     return output
   }
-
-  override fun key() = grayscale.key()
 }

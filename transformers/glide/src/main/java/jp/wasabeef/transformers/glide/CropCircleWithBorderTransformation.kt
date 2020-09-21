@@ -4,9 +4,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Color
 import androidx.annotation.ColorInt
-import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
-import java.security.MessageDigest
 import jp.wasabeef.transformers.core.CropCircleWithBorder
 import jp.wasabeef.transformers.core.bitmapConfig
 import jp.wasabeef.transformers.core.dp
@@ -29,11 +27,9 @@ import kotlin.math.min
  */
 
 class CropCircleWithBorderTransformation @JvmOverloads constructor(
-  private val borderSize: Int = 4.dp,
-  @ColorInt private val borderColor: Int = Color.BLACK
-) : BitmapTransformation() {
-
-  private val cropCircleWithBorder = CropCircleWithBorder(borderSize, borderColor)
+  borderSize: Int = 4.dp,
+  @ColorInt borderColor: Int = Color.BLACK
+) : BaseTransformation(CropCircleWithBorder(borderSize, borderColor)) {
 
   override fun transform(
     context: Context,
@@ -44,10 +40,6 @@ class CropCircleWithBorderTransformation @JvmOverloads constructor(
   ): Bitmap {
     val size = min(source.width, source.height)
     val output = pool.get(size, size, bitmapConfig(source))
-    return cropCircleWithBorder.transform(source, output)
-  }
-
-  override fun updateDiskCacheKey(messageDigest: MessageDigest) {
-    messageDigest.update(cropCircleWithBorder.key().toByteArray(Key.CHARSET))
+    return transformer.transform(source, output)
   }
 }

@@ -17,16 +17,22 @@ package jp.wasabeef.transformers.glide.gpu
  */
 import android.content.Context
 import android.graphics.Bitmap
+import com.bumptech.glide.Glide
 import com.bumptech.glide.load.Key
+import com.bumptech.glide.load.Transformation
+import com.bumptech.glide.load.engine.Resource
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
+import com.bumptech.glide.load.resource.bitmap.BitmapResource
+import com.bumptech.glide.request.target.Target
+import com.bumptech.glide.util.Util
 import java.security.MessageDigest
 import jp.co.cyberagent.android.gpuimage.GPUImage
 import jp.co.cyberagent.android.gpuimage.filter.GPUImageFilter
-import jp.wasabeef.transformers.glide.BitmapTransformation
 import jp.wasabeef.transformers.glide.gpu.BuildConfig.Version
 
-abstract class GPUFilterTransformation(private val filter: GPUImageFilter) :
-  BitmapTransformation() {
+abstract class GPUFilterTransformation(
+  private val filter: GPUImageFilter
+) : Transformation<Bitmap> {
 
   val version: String = Version
 
@@ -34,6 +40,33 @@ abstract class GPUFilterTransformation(private val filter: GPUImageFilter) :
     get() = "${this::class.java.name}-$version"
 
   override fun transform(
+    context: Context,
+    resource: Resource<Bitmap>,
+    outWidth: Int,
+    outHeight: Int
+  ): Resource<Bitmap> {
+    require(Util.isValidDimensions(outWidth, outHeight)) {
+      (
+        "Cannot apply transformation on width: " + outWidth + " or height: " + outHeight +
+          " less than or equal to zero and not Target.SIZE_ORIGINAL"
+        )
+    }
+    val bitmapPool = Glide.get(context).bitmapPool
+    val toTransform = resource.get()
+    val targetWidth = if (outWidth == Target.SIZE_ORIGINAL) toTransform.width else outWidth
+    val targetHeight = if (outHeight == Target.SIZE_ORIGINAL) toTransform.height else outHeight
+    val transformed =
+      transform(context.applicationContext, bitmapPool, toTransform, targetWidth, targetHeight)
+    val result: Resource<Bitmap>
+    result = if (toTransform == transformed) {
+      resource
+    } else {
+      BitmapResource.obtain(transformed, bitmapPool)!!
+    }
+    return result
+  }
+
+  private fun transform(
     context: Context,
     pool: BitmapPool,
     source: Bitmap,
@@ -45,9 +78,6 @@ abstract class GPUFilterTransformation(private val filter: GPUImageFilter) :
     gpuImage.setFilter(filter)
     return gpuImage.bitmapWithFilterApplied
   }
-
-  @Suppress("UNCHECKED_CAST")
-  fun <T> filter(): T = filter as T
 
   override fun updateDiskCacheKey(messageDigest: MessageDigest) {
     messageDigest.update(key().toByteArray(Key.CHARSET))

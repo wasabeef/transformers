@@ -25,8 +25,7 @@ import jp.wasabeef.transformers.picasso.gpu.BuildConfig.Version
 abstract class GPUFilterTransformation(
   private val context: Context,
   private val filter: GPUImageFilter
-) :
-  Transformation {
+) : Transformation {
 
   val version: String = Version
 
@@ -44,7 +43,4 @@ abstract class GPUFilterTransformation(
 
     return output
   }
-
-  @Suppress("UNCHECKED_CAST")
-  fun <T> filter(): T = filter as T
 }

@@ -34,15 +34,15 @@ class VignetteFilterTransformation @JvmOverloads constructor(
   private val vignetteColor: FloatArray = floatArrayOf(0.0f, 0.0f, 0.0f),
   private val vignetteStart: Float = 0.0f,
   private val vignetteEnd: Float = 0.75f
-) : GPUFilterTransformation(context, GPUImageVignetteFilter()) {
-
-  init {
-    val filter: GPUImageVignetteFilter = filter()
-    filter.setVignetteCenter(center)
-    filter.setVignetteColor(vignetteColor)
-    filter.setVignetteStart(vignetteStart)
-    filter.setVignetteEnd(vignetteEnd)
+) : GPUFilterTransformation(
+  context,
+  GPUImageVignetteFilter().apply {
+    setVignetteCenter(center)
+    setVignetteColor(vignetteColor)
+    setVignetteStart(vignetteStart)
+    setVignetteEnd(vignetteEnd)
   }
+) {
 
   override fun key(): String =
     "$id(center=$center," +

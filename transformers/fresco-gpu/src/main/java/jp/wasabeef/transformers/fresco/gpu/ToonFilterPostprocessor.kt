@@ -31,13 +31,13 @@ class ToonFilterPostprocessor @JvmOverloads constructor(
   context: Context,
   private val threshold: Float = 0.2f,
   private val quantizationLevels: Float = 10.0f
-) : GPUFilterPostprocessor(context, GPUImageToonFilter()) {
-
-  init {
-    val filter: GPUImageToonFilter = filter()
-    filter.setThreshold(threshold)
-    filter.setQuantizationLevels(quantizationLevels)
+) : GPUFilterPostprocessor(
+  context,
+  GPUImageToonFilter().apply {
+    setThreshold(threshold)
+    setQuantizationLevels(quantizationLevels)
   }
+) {
 
   override fun key(): String = "$id(threshold=$threshold, quantizationLevels=$quantizationLevels)"
 }

@@ -2,9 +2,7 @@ package jp.wasabeef.transformers.glide
 
 import android.content.Context
 import android.graphics.Bitmap
-import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
-import java.security.MessageDigest
 import jp.wasabeef.transformers.core.Blur
 import jp.wasabeef.transformers.core.bitmapConfig
 
@@ -29,9 +27,7 @@ class BlurTransformation @JvmOverloads constructor(
   radius: Int = 25,
   private val sampling: Int = 1,
   rs: Boolean = true
-) : BitmapTransformation() {
-
-  private val blur = Blur(context, radius, sampling, rs)
+) : BaseTransformation(Blur(context, radius, sampling, rs)) {
 
   override fun transform(
     context: Context,
@@ -43,10 +39,6 @@ class BlurTransformation @JvmOverloads constructor(
     val scaledWidth: Int = source.width / sampling
     val scaledHeight: Int = source.height / sampling
     val output = pool.get(scaledWidth, scaledHeight, bitmapConfig(source))
-    return blur.transform(source, output)
-  }
-
-  override fun updateDiskCacheKey(messageDigest: MessageDigest) {
-    messageDigest.update((blur.key()).toByteArray(Key.CHARSET))
+    return transformer.transform(source, output)
   }
 }

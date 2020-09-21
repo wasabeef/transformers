@@ -3,7 +3,6 @@ package jp.wasabeef.transformers.picasso
 import android.content.Context
 import android.graphics.Bitmap
 import androidx.annotation.DrawableRes
-import com.squareup.picasso.Transformation
 import jp.wasabeef.transformers.core.Mask
 import jp.wasabeef.transformers.core.bitmapConfig
 
@@ -25,19 +24,15 @@ import jp.wasabeef.transformers.core.bitmapConfig
 
 class MaskTransformation constructor(
   context: Context,
-  @DrawableRes private val maskId: Int
-) : Transformation {
-
-  private val mask = Mask(context, maskId)
+  @DrawableRes maskId: Int
+) : BaseTransformation(Mask(context, maskId)) {
 
   override fun transform(
     source: Bitmap
   ): Bitmap {
     val output = Bitmap.createBitmap(source.width, source.height, bitmapConfig(source))
-    mask.transform(source, output)
+    transformer.transform(source, output)
     source.recycle()
     return output
   }
-
-  override fun key() = mask.key()
 }

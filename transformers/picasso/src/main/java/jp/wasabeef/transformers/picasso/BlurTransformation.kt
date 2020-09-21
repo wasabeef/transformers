@@ -2,7 +2,6 @@ package jp.wasabeef.transformers.picasso
 
 import android.content.Context
 import android.graphics.Bitmap
-import com.squareup.picasso.Transformation
 import jp.wasabeef.transformers.core.Blur
 import jp.wasabeef.transformers.core.bitmapConfig
 
@@ -27,9 +26,7 @@ class BlurTransformation @JvmOverloads constructor(
   radius: Int = 25,
   private val sampling: Int = 1,
   rs: Boolean = true
-) : Transformation {
-
-  private val blur = Blur(context, radius, sampling, rs)
+) : BaseTransformation(Blur(context, radius, sampling, rs)) {
 
   override fun transform(
     source: Bitmap
@@ -37,10 +34,8 @@ class BlurTransformation @JvmOverloads constructor(
     val scaledWidth: Int = source.width / sampling
     val scaledHeight: Int = source.height / sampling
     val output = Bitmap.createBitmap(scaledWidth, scaledHeight, bitmapConfig(source))
-    blur.transform(source, output)
+    transformer.transform(source, output)
     source.recycle()
     return output
   }
-
-  override fun key(): String = blur.key()
 }

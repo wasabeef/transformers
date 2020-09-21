@@ -5,7 +5,6 @@ import android.graphics.Color
 import androidx.annotation.ColorInt
 import coil.bitmap.BitmapPool
 import coil.size.Size
-import coil.transform.Transformation
 import jp.wasabeef.transformers.core.CropCircleWithBorder
 import jp.wasabeef.transformers.core.bitmapConfig
 import jp.wasabeef.transformers.core.dp
@@ -28,17 +27,13 @@ import kotlin.math.min
  */
 
 class CropCircleWithBorderTransformation @JvmOverloads constructor(
-  private val borderSize: Int = 4.dp,
-  @ColorInt private val borderColor: Int = Color.BLACK
-) : Transformation {
-
-  private val cropCircleWithBorder = CropCircleWithBorder(borderSize, borderColor)
+  borderSize: Int = 4.dp,
+  @ColorInt borderColor: Int = Color.BLACK
+) : BaseTransformation(CropCircleWithBorder(borderSize, borderColor)) {
 
   override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
     val minSize = min(input.width, input.height)
     val output = pool.get(minSize, minSize, bitmapConfig(input))
-    return cropCircleWithBorder.transform(input, output)
+    return transformer.transform(input, output)
   }
-
-  override fun key() = cropCircleWithBorder.key()
 }

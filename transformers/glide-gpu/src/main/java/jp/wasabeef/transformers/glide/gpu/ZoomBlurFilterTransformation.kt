@@ -29,13 +29,12 @@ import jp.co.cyberagent.android.gpuimage.filter.GPUImageZoomBlurFilter
 class ZoomBlurFilterTransformation @JvmOverloads constructor(
   private val blurCenter: PointF = PointF(0.5f, 0.5f),
   private val blurSize: Float = 1.0f
-) : GPUFilterTransformation(GPUImageZoomBlurFilter()) {
-
-  init {
-    val filter: GPUImageZoomBlurFilter = filter()
-    filter.setBlurCenter(blurCenter)
-    filter.setBlurSize(blurSize)
+) : GPUFilterTransformation(
+  GPUImageZoomBlurFilter().apply {
+    setBlurCenter(blurCenter)
+    setBlurSize(blurSize)
   }
+) {
 
   override fun key(): String = "$id(blurCenter=$blurCenter, blurSize=$blurSize)"
 }

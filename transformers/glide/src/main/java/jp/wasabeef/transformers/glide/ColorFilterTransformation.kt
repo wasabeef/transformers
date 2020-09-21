@@ -3,9 +3,7 @@ package jp.wasabeef.transformers.glide
 import android.content.Context
 import android.graphics.Bitmap
 import androidx.annotation.ColorInt
-import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
-import java.security.MessageDigest
 import jp.wasabeef.transformers.core.ColorFilter
 import jp.wasabeef.transformers.core.bitmapConfig
 
@@ -25,10 +23,8 @@ import jp.wasabeef.transformers.core.bitmapConfig
  * limitations under the License.
  */
 
-class ColorFilterTransformation constructor(@ColorInt private val color: Int) :
-  BitmapTransformation() {
-
-  private val colorFilter = ColorFilter(color)
+class ColorFilterTransformation constructor(@ColorInt color: Int) :
+  BaseTransformation(ColorFilter(color)) {
 
   override fun transform(
     context: Context,
@@ -38,10 +34,6 @@ class ColorFilterTransformation constructor(@ColorInt private val color: Int) :
     outHeight: Int
   ): Bitmap {
     val output = pool.get(source.width, source.height, bitmapConfig(source))
-    return colorFilter.transform(source, output)
-  }
-
-  override fun updateDiskCacheKey(messageDigest: MessageDigest) {
-    messageDigest.update(colorFilter.key().toByteArray(Key.CHARSET))
+    return transformer.transform(source, output)
   }
 }

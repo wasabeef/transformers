@@ -30,12 +30,12 @@ import jp.co.cyberagent.android.gpuimage.filter.GPUImageKuwaharaFilter
 class KuwaharaFilterPostprocessor @JvmOverloads constructor(
   context: Context,
   private val radius: Int = 25
-) : GPUFilterPostprocessor(context, GPUImageKuwaharaFilter()) {
-
-  init {
-    val filter: GPUImageKuwaharaFilter = filter()
-    filter.setRadius(radius)
+) : GPUFilterPostprocessor(
+  context,
+  GPUImageKuwaharaFilter().apply {
+    setRadius(radius)
   }
+) {
 
   override fun key(): String = "$id(radius=$radius)"
 }

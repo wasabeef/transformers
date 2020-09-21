@@ -3,7 +3,6 @@ package jp.wasabeef.transformers.coil
 import android.graphics.Bitmap
 import coil.bitmap.BitmapPool
 import coil.size.Size
-import coil.transform.Transformation
 import jp.wasabeef.transformers.core.Crop
 import jp.wasabeef.transformers.core.bitmapConfig
 import jp.wasabeef.transformers.types.GravityHorizontal
@@ -27,19 +26,17 @@ import jp.wasabeef.transformers.types.GravityVertical
 
 typealias CenterBottomCropTransformation = CropCenterTopTransformation
 
-class CropCenterBottomTransformation : Transformation {
-
-  private val crop = Crop(
+class CropCenterBottomTransformation : BaseTransformation(
+  Crop(
     aspectRatio = 1f,
     gravityHorizontal = GravityHorizontal.CENTER,
     gravityVertical = GravityVertical.BOTTOM
   )
+) {
 
   override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
-    val calcSize = crop.calculateSize(input)
+    val calcSize = (transformer as Crop).calculateSize(input)
     val output = pool.get(calcSize.width, calcSize.height, bitmapConfig(input))
-    return crop.transform(input, output)
+    return transformer.transform(input, output)
   }
-
-  override fun key() = crop.key()
 }

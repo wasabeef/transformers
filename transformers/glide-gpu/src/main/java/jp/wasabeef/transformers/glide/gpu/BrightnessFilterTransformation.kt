@@ -25,12 +25,11 @@ import jp.co.cyberagent.android.gpuimage.filter.GPUImageBrightnessFilter
  */
 class BrightnessFilterTransformation @JvmOverloads constructor(
   private val brightness: Float = 0.0f
-) : GPUFilterTransformation(GPUImageBrightnessFilter()) {
-
-  init {
-    val filter: GPUImageBrightnessFilter = filter()
-    filter.setBrightness(brightness)
+) : GPUFilterTransformation(
+  GPUImageBrightnessFilter().apply {
+    setBrightness(brightness)
   }
+) {
 
   override fun key(): String = "$id(brightness=$brightness)"
 }

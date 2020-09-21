@@ -2,9 +2,7 @@ package jp.wasabeef.transformers.glide
 
 import android.content.Context
 import android.graphics.Bitmap
-import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
-import java.security.MessageDigest
 import jp.wasabeef.transformers.core.Grayscale
 import jp.wasabeef.transformers.core.bitmapConfig
 
@@ -24,9 +22,7 @@ import jp.wasabeef.transformers.core.bitmapConfig
  * limitations under the License.
  */
 
-class GrayscaleTransformation : BitmapTransformation() {
-
-  private val grayscale = Grayscale()
+class GrayscaleTransformation : BaseTransformation(Grayscale()) {
 
   override fun transform(
     context: Context,
@@ -36,10 +32,6 @@ class GrayscaleTransformation : BitmapTransformation() {
     outHeight: Int
   ): Bitmap {
     val output = pool.get(source.width, source.height, bitmapConfig(source))
-    return grayscale.transform(source, output)
-  }
-
-  override fun updateDiskCacheKey(messageDigest: MessageDigest) {
-    messageDigest.update(grayscale.key().toByteArray(Key.CHARSET))
+    return transformer.transform(source, output)
   }
 }

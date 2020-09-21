@@ -3,7 +3,6 @@ package jp.wasabeef.transformers.coil
 import android.graphics.Bitmap
 import coil.bitmap.BitmapPool
 import coil.size.Size
-import coil.transform.Transformation
 import jp.wasabeef.transformers.core.RoundedCorners
 import jp.wasabeef.transformers.core.bitmapConfig
 import jp.wasabeef.transformers.types.CornerType
@@ -25,18 +24,14 @@ import jp.wasabeef.transformers.types.CornerType
  */
 
 class RoundedCornersTransformation @JvmOverloads constructor(
-  private val radius: Int,
-  private var diameter: Int = radius * 2,
-  private val margin: Int = 0,
-  private val cornerType: CornerType = CornerType.ALL
-) : Transformation {
-
-  private val roundedCorners = RoundedCorners(radius, diameter, margin, cornerType)
+  radius: Int,
+  diameter: Int = radius * 2,
+  margin: Int = 0,
+  cornerType: CornerType = CornerType.ALL
+) : BaseTransformation(RoundedCorners(radius, diameter, margin, cornerType)) {
 
   override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
     val output = pool.get(input.width, input.height, bitmapConfig(input))
-    return roundedCorners.transform(input, output)
+    return transformer.transform(input, output)
   }
-
-  override fun key() = roundedCorners.key()
 }

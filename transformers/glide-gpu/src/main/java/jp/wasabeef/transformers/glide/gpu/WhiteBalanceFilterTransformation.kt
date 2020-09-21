@@ -30,13 +30,12 @@ import jp.co.cyberagent.android.gpuimage.filter.GPUImageWhiteBalanceFilter
 class WhiteBalanceFilterTransformation @JvmOverloads constructor(
   private val temperature: Float = 5000.0f,
   private val tint: Float = 0.0f
-) : GPUFilterTransformation(GPUImageWhiteBalanceFilter()) {
-
-  init {
-    val filter: GPUImageWhiteBalanceFilter = filter()
-    filter.setTemperature(temperature)
-    filter.setTint(tint)
+) : GPUFilterTransformation(
+  GPUImageWhiteBalanceFilter().apply {
+    setTemperature(temperature)
+    setTint(tint)
   }
+) {
 
   override fun key(): String = "$id(temperature=$temperature, tint=$tint)"
 }

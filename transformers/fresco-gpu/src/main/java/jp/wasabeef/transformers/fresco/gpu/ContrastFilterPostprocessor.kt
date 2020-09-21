@@ -27,12 +27,12 @@ import jp.co.cyberagent.android.gpuimage.filter.GPUImageContrastFilter
 class ContrastFilterPostprocessor @JvmOverloads constructor(
   context: Context,
   private val contrast: Float = 1.0f
-) : GPUFilterPostprocessor(context, GPUImageContrastFilter()) {
-
-  init {
-    val filter: GPUImageContrastFilter = filter()
-    filter.setContrast(contrast)
+) : GPUFilterPostprocessor(
+  context,
+  GPUImageContrastFilter().apply {
+    setContrast(contrast)
   }
+) {
 
   override fun key(): String = "$id(contrast=$contrast)"
 }

@@ -40,7 +40,4 @@ abstract class GPUFilterTransformation(
     gpuImage.setFilter(filter)
     return gpuImage.bitmapWithFilterApplied
   }
-
-  @Suppress("UNCHECKED_CAST")
-  fun <T> filter(): T = filter as T
 }

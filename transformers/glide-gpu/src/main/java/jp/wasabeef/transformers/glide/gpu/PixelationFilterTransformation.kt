@@ -27,12 +27,11 @@ import jp.co.cyberagent.android.gpuimage.filter.GPUImagePixelationFilter
  */
 class PixelationFilterTransformation @JvmOverloads constructor(
   private val pixel: Float = 10f
-) : GPUFilterTransformation(GPUImagePixelationFilter()) {
-
-  init {
-    val filter: GPUImagePixelationFilter = filter()
-    filter.setPixel(pixel)
+) : GPUFilterTransformation(
+  GPUImagePixelationFilter().apply {
+    setPixel(pixel)
   }
+) {
 
   override fun key(): String = "$id(pixel=$pixel)"
 }

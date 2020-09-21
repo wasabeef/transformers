@@ -43,9 +43,6 @@ abstract class GPUFilterPostprocessor(
     super.process(destBitmap, bitmap)
   }
 
-  @Suppress("UNCHECKED_CAST")
-  fun <T> filter(): T = filter as T
-
   override fun getName(): String {
     return this::class.java.name
   }

@@ -1,7 +1,6 @@
 package jp.wasabeef.transformers.picasso
 
 import android.graphics.Bitmap
-import com.squareup.picasso.Transformation
 import jp.wasabeef.transformers.core.RoundedCorners
 import jp.wasabeef.transformers.core.bitmapConfig
 import jp.wasabeef.transformers.types.CornerType
@@ -23,22 +22,18 @@ import jp.wasabeef.transformers.types.CornerType
  */
 
 class RoundedCornersTransformation @JvmOverloads constructor(
-  private val radius: Int,
-  private var diameter: Int = radius * 2,
-  private val margin: Int = 0,
-  private val cornerType: CornerType = CornerType.ALL
-) : Transformation {
-
-  private val roundedCorners = RoundedCorners(radius, diameter, margin, cornerType)
+  radius: Int,
+  diameter: Int = radius * 2,
+  margin: Int = 0,
+  cornerType: CornerType = CornerType.ALL
+) : BaseTransformation(RoundedCorners(radius, diameter, margin, cornerType)) {
 
   override fun transform(
     source: Bitmap
   ): Bitmap {
     val output = Bitmap.createBitmap(source.width, source.height, bitmapConfig(source))
-    roundedCorners.transform(source, output)
+    transformer.transform(source, output)
     source.recycle()
     return output
   }
-
-  override fun key() = roundedCorners.key()
 }

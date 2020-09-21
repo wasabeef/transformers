@@ -2,9 +2,7 @@ package jp.wasabeef.transformers.glide
 
 import android.content.Context
 import android.graphics.Bitmap
-import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
-import java.security.MessageDigest
 import jp.wasabeef.transformers.core.CropSquare
 import jp.wasabeef.transformers.core.bitmapConfig
 import kotlin.math.min
@@ -25,9 +23,7 @@ import kotlin.math.min
  * limitations under the License.
  */
 
-class CropSquareTransformation : BitmapTransformation() {
-
-  private val cropSquare = CropSquare()
+class CropSquareTransformation : BaseTransformation(CropSquare()) {
 
   override fun transform(
     context: Context,
@@ -38,10 +34,6 @@ class CropSquareTransformation : BitmapTransformation() {
   ): Bitmap {
     val size = min(source.width, source.height)
     val output = pool.get(size, size, bitmapConfig(source))
-    return cropSquare.transform(source, output)
-  }
-
-  override fun updateDiskCacheKey(messageDigest: MessageDigest) {
-    messageDigest.update(cropSquare.key().toByteArray(Key.CHARSET))
+    return transformer.transform(source, output)
   }
 }

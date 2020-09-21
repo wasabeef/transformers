@@ -32,13 +32,13 @@ class WhiteBalanceFilterTransformation @JvmOverloads constructor(
   context: Context,
   private val temperature: Float = 5000.0f,
   private val tint: Float = 0.0f
-) : GPUFilterTransformation(context, GPUImageWhiteBalanceFilter()) {
-
-  init {
-    val filter: GPUImageWhiteBalanceFilter = filter()
-    filter.setTemperature(temperature)
-    filter.setTint(tint)
+) : GPUFilterTransformation(
+  context,
+  GPUImageWhiteBalanceFilter().apply {
+    setTemperature(temperature)
+    setTint(tint)
   }
+) {
 
   override fun key(): String = "$id(temperature=$temperature, tint=$tint)"
 }

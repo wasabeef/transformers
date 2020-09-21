@@ -2,7 +2,6 @@ package jp.wasabeef.transformers.picasso
 
 import android.graphics.Bitmap
 import androidx.annotation.ColorInt
-import com.squareup.picasso.Transformation
 import jp.wasabeef.transformers.core.ColorFilter
 import jp.wasabeef.transformers.core.bitmapConfig
 
@@ -23,19 +22,15 @@ import jp.wasabeef.transformers.core.bitmapConfig
  */
 
 class ColorFilterTransformation constructor(
-  @ColorInt private val color: Int
-) : Transformation {
-
-  private val colorFilter = ColorFilter(color)
+  @ColorInt color: Int
+) : BaseTransformation(ColorFilter(color)) {
 
   override fun transform(
     source: Bitmap
   ): Bitmap {
     val output = Bitmap.createBitmap(source.width, source.height, bitmapConfig(source))
-    colorFilter.transform(source, output)
+    transformer.transform(source, output)
     source.recycle()
     return output
   }
-
-  override fun key() = colorFilter.key()
 }

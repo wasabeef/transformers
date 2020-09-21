@@ -3,7 +3,6 @@ package jp.wasabeef.transformers.picasso
 import android.graphics.Bitmap
 import android.graphics.Color
 import androidx.annotation.ColorInt
-import com.squareup.picasso.Transformation
 import jp.wasabeef.transformers.core.CropCircleWithBorder
 import jp.wasabeef.transformers.core.bitmapConfig
 import jp.wasabeef.transformers.core.dp
@@ -26,21 +25,17 @@ import kotlin.math.min
  */
 
 class CropCircleWithBorderTransformation @JvmOverloads constructor(
-  private val borderSize: Int = 4.dp,
-  @ColorInt private val borderColor: Int = Color.BLACK
-) : Transformation {
-
-  private val cropCircleWithBorder = CropCircleWithBorder(borderSize, borderColor)
+  borderSize: Int = 4.dp,
+  @ColorInt borderColor: Int = Color.BLACK
+) : BaseTransformation(CropCircleWithBorder(borderSize, borderColor)) {
 
   override fun transform(
     source: Bitmap
   ): Bitmap {
     val size = min(source.width, source.height)
     val output = Bitmap.createBitmap(size, size, bitmapConfig(source))
-    cropCircleWithBorder.transform(source, output)
+    transformer.transform(source, output)
     source.recycle()
     return output
   }
-
-  override fun key() = cropCircleWithBorder.key()
 }

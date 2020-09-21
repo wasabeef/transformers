@@ -28,12 +28,12 @@ import jp.co.cyberagent.android.gpuimage.filter.GPUImageToneCurveFilter
 class ToneCurveFilterTransformation constructor(
   context: Context,
   @RawRes private val toneCurveId: Int
-) : GPUFilterTransformation(context, GPUImageToneCurveFilter()) {
-
-  init {
-    val filter: GPUImageToneCurveFilter = filter()
-    filter.setFromCurveFileInputStream(context.resources.openRawResource(toneCurveId))
+) : GPUFilterTransformation(
+  context,
+  GPUImageToneCurveFilter().apply {
+    setFromCurveFileInputStream(context.resources.openRawResource(toneCurveId))
   }
+) {
 
   override fun key(): String = "$id(toneCurveId=$toneCurveId)"
 }

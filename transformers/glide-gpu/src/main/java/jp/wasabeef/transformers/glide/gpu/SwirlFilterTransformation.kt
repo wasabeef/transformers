@@ -32,14 +32,13 @@ class SwirlFilterTransformation @JvmOverloads constructor(
   private val radius: Float = 0.5f,
   private val angle: Float = 1.0f,
   private val center: PointF = PointF(0.5f, 0.5f)
-) : GPUFilterTransformation(GPUImageSwirlFilter()) {
-
-  init {
-    val filter: GPUImageSwirlFilter = filter()
-    filter.setRadius(radius)
-    filter.setAngle(angle)
-    filter.setCenter(center)
+) : GPUFilterTransformation(
+  GPUImageSwirlFilter().apply {
+    setRadius(radius)
+    setAngle(angle)
+    setCenter(center)
   }
+) {
 
   override fun key(): String = "$id(radius=$radius, angle=$angle, center=$center)"
 }

@@ -26,7 +26,7 @@ import jp.wasabeef.transformers.core.bitmapConfig
 
 class MaskPostprocessor constructor(
   context: Context,
-  @DrawableRes private val maskId: Int
+  @DrawableRes maskId: Int
 ) : BasePostprocessor(Mask(context, maskId)) {
 
   override fun transform(
