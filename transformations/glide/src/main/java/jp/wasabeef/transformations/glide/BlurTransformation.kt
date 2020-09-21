@@ -2,13 +2,11 @@ package jp.wasabeef.transformations.glide
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.renderscript.RSRuntimeException
 import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
-import java.security.MessageDigest
-import jp.wasabeef.transformations.core.RSGaussianBlur
-import jp.wasabeef.transformations.core.StackBlur
+import jp.wasabeef.transformations.core.Blur
 import jp.wasabeef.transformations.core.bitmapConfig
+import java.security.MessageDigest
 
 /**
  * Copyright (C) 2020 Wasabeef
@@ -30,11 +28,10 @@ class BlurTransformation @JvmOverloads constructor(
   context: Context,
   radius: Int = 25,
   private val sampling: Int = 1,
-  private val rs: Boolean = true
+  rs: Boolean = true
 ) : BitmapTransformation() {
 
-  private val stackBlur = StackBlur(radius, sampling)
-  private val rsGaussianBlur = RSGaussianBlur(context, radius, sampling)
+  private val blur = Blur(context, radius, sampling, rs)
 
   override fun transform(
     context: Context,
@@ -46,19 +43,11 @@ class BlurTransformation @JvmOverloads constructor(
     val scaledWidth: Int = source.width / sampling
     val scaledHeight: Int = source.height / sampling
     val output = pool.get(scaledWidth, scaledHeight, bitmapConfig(source))
-    return if (rs) {
-      return try {
-        rsGaussianBlur.transform(source, output)
-      } catch (e: RSRuntimeException) {
-        stackBlur.transform(source, output)
-      }
-    } else {
-      stackBlur.transform(source, output)
-    }
+    return blur.transform(source, output)
   }
 
   override fun updateDiskCacheKey(messageDigest: MessageDigest) {
-    messageDigest.update((stackBlur.key() + rsGaussianBlur.key()).toByteArray(Key.CHARSET))
+    messageDigest.update((blur.key()).toByteArray(Key.CHARSET))
   }
 
   override fun equals(o: Any?): Boolean {
@@ -67,11 +56,10 @@ class BlurTransformation @JvmOverloads constructor(
 
     o as BlurTransformation
 
-    if (stackBlur != o.stackBlur) return false
-    if (rsGaussianBlur != o.rsGaussianBlur) return false
+    if (blur != o.blur) return false
 
     return true
   }
 
-  override fun hashCode(): Int = stackBlur.key().hashCode() + rsGaussianBlur.key().hashCode()
+  override fun hashCode(): Int = blur.key().hashCode()
 }

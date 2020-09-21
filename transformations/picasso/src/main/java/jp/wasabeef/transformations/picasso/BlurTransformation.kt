@@ -2,10 +2,8 @@ package jp.wasabeef.transformations.picasso
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.renderscript.RSRuntimeException
 import com.squareup.picasso.Transformation
-import jp.wasabeef.transformations.core.RSGaussianBlur
-import jp.wasabeef.transformations.core.StackBlur
+import jp.wasabeef.transformations.core.Blur
 import jp.wasabeef.transformations.core.bitmapConfig
 
 /**
@@ -25,14 +23,13 @@ import jp.wasabeef.transformations.core.bitmapConfig
  */
 
 class BlurTransformation @JvmOverloads constructor(
-  private val context: Context,
+  context: Context,
   radius: Int = 25,
   private val sampling: Int = 1,
-  private val rs: Boolean = true
+  rs: Boolean = true
 ) : Transformation {
 
-  private val stackBlur = StackBlur(radius, sampling)
-  private val rsGaussianBlur = RSGaussianBlur(context, radius, sampling)
+  private val blur = Blur(context, radius, sampling, rs)
 
   override fun transform(
     source: Bitmap
@@ -40,20 +37,12 @@ class BlurTransformation @JvmOverloads constructor(
     val scaledWidth: Int = source.width / sampling
     val scaledHeight: Int = source.height / sampling
     val output = Bitmap.createBitmap(scaledWidth, scaledHeight, bitmapConfig(source))
-    if (rs) {
-      try {
-        rsGaussianBlur.transform(source, output)
-      } catch (e: RSRuntimeException) {
-        stackBlur.transform(source, output)
-      }
-    } else {
-      stackBlur.transform(source, output)
-    }
+    blur.transform(source, output)
     source.recycle()
     return output
   }
 
-  override fun key(): String = stackBlur.key() + rsGaussianBlur.key()
+  override fun key(): String = blur.key()
 
   override fun equals(o: Any?): Boolean {
     if (this === o) return true
@@ -61,11 +50,10 @@ class BlurTransformation @JvmOverloads constructor(
 
     o as BlurTransformation
 
-    if (stackBlur != o.stackBlur) return false
-    if (rsGaussianBlur != o.rsGaussianBlur) return false
+    if (blur != o.blur) return false
 
     return true
   }
 
-  override fun hashCode(): Int = stackBlur.key().hashCode() + rsGaussianBlur.key().hashCode()
+  override fun hashCode(): Int = blur.key().hashCode()
 }
