@@ -28,7 +28,7 @@ import jp.wasabeef.transformations.PicassoAdapter.Type.Invert
 import jp.wasabeef.transformations.PicassoAdapter.Type.Kuawahara
 import jp.wasabeef.transformations.PicassoAdapter.Type.Mask
 import jp.wasabeef.transformations.PicassoAdapter.Type.NinePatchMask
-import jp.wasabeef.transformations.PicassoAdapter.Type.Pixel
+import jp.wasabeef.transformations.PicassoAdapter.Type.PixelLight
 import jp.wasabeef.transformations.PicassoAdapter.Type.RoundedCorners
 import jp.wasabeef.transformations.PicassoAdapter.Type.RoundedCornersTopLeft
 import jp.wasabeef.transformations.PicassoAdapter.Type.Sepia
@@ -108,7 +108,8 @@ class PicassoAdapter(
     Sepia,
     Contrast,
     Invert,
-    Pixel,
+    PixelLight,
+    PixelDeep,
     Sketch,
     Swirl,
     Brightness,
@@ -355,11 +356,18 @@ class PicassoAdapter(
           .transform(InvertFilterTransformation(context))
           .into(holder.image)
 
-      Pixel ->
+      PixelLight ->
         Picasso.get()
           .load(IMAGE_URL)
           .fit().centerInside().rotate(90f)
           .transform(PixelationFilterTransformation(context, 20f))
+          .into(holder.image)
+
+      Type.PixelDeep ->
+        Picasso.get()
+          .load(IMAGE_URL)
+          .fit().centerInside().rotate(90f)
+          .transform(PixelationFilterTransformation(context, 80f))
           .into(holder.image)
 
       Sketch ->

@@ -30,7 +30,8 @@ import jp.wasabeef.transformations.GlideAdapter.Type.Invert
 import jp.wasabeef.transformations.GlideAdapter.Type.Kuawahara
 import jp.wasabeef.transformations.GlideAdapter.Type.Mask
 import jp.wasabeef.transformations.GlideAdapter.Type.NinePatchMask
-import jp.wasabeef.transformations.GlideAdapter.Type.Pixel
+import jp.wasabeef.transformations.GlideAdapter.Type.PixelLight
+import jp.wasabeef.transformations.GlideAdapter.Type.PixelDeep
 import jp.wasabeef.transformations.GlideAdapter.Type.RoundedCorners
 import jp.wasabeef.transformations.GlideAdapter.Type.RoundedCornersTopLeft
 import jp.wasabeef.transformations.GlideAdapter.Type.Sepia
@@ -112,7 +113,8 @@ class GlideAdapter(
     Sepia,
     Contrast,
     Invert,
-    Pixel,
+    PixelLight,
+    PixelDeep,
     Sketch,
     Swirl,
     Brightness,
@@ -382,12 +384,19 @@ class GlideAdapter(
           .apply(bitmapTransform(InvertFilterTransformation()))
           .into(holder.image)
 
-      Pixel ->
+      PixelLight ->
         Glide.with(context)
           .load(IMAGE_URL)
           .skipMemoryCache(SKIP_CACHE)
           .apply(bitmapTransform(PixelationFilterTransformation(20f)))
-          .into(holder.image)
+          .into(GlideDownloader(context, PixelLight.name))
+
+      PixelDeep ->
+        Glide.with(context)
+          .load(IMAGE_URL)
+          .skipMemoryCache(SKIP_CACHE)
+          .apply(bitmapTransform(PixelationFilterTransformation(80f)))
+          .into(GlideDownloader(context, PixelDeep.name))
 
       Sketch ->
         Glide.with(context)

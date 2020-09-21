@@ -27,7 +27,8 @@ import jp.wasabeef.transformations.CoilAdapter.Type.Invert
 import jp.wasabeef.transformations.CoilAdapter.Type.Kuawahara
 import jp.wasabeef.transformations.CoilAdapter.Type.Mask
 import jp.wasabeef.transformations.CoilAdapter.Type.NinePatchMask
-import jp.wasabeef.transformations.CoilAdapter.Type.Pixel
+import jp.wasabeef.transformations.CoilAdapter.Type.PixelDeep
+import jp.wasabeef.transformations.CoilAdapter.Type.PixelLight
 import jp.wasabeef.transformations.CoilAdapter.Type.RoundedCorners
 import jp.wasabeef.transformations.CoilAdapter.Type.RoundedCornersTopLeft
 import jp.wasabeef.transformations.CoilAdapter.Type.Sepia
@@ -108,7 +109,8 @@ class CoilAdapter(
     Sepia,
     Contrast,
     Invert,
-    Pixel,
+    PixelLight,
+    PixelDeep,
     Sketch,
     Swirl,
     Brightness,
@@ -275,8 +277,12 @@ class CoilAdapter(
         transformations(InvertFilterTransformation(context))
       }
 
-      Pixel -> holder.image.load(IMAGE_URL) {
+      PixelLight -> holder.image.load(IMAGE_URL) {
         transformations(PixelationFilterTransformation(context, 20f))
+      }
+
+      PixelDeep -> holder.image.load(IMAGE_URL) {
+        transformations(PixelationFilterTransformation(context, 80f))
       }
 
       Sketch -> holder.image.load(IMAGE_URL) {
