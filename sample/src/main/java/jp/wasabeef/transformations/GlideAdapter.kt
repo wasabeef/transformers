@@ -30,8 +30,8 @@ import jp.wasabeef.transformations.GlideAdapter.Type.Invert
 import jp.wasabeef.transformations.GlideAdapter.Type.Kuawahara
 import jp.wasabeef.transformations.GlideAdapter.Type.Mask
 import jp.wasabeef.transformations.GlideAdapter.Type.NinePatchMask
-import jp.wasabeef.transformations.GlideAdapter.Type.PixelLight
 import jp.wasabeef.transformations.GlideAdapter.Type.PixelDeep
+import jp.wasabeef.transformations.GlideAdapter.Type.PixelLight
 import jp.wasabeef.transformations.GlideAdapter.Type.RoundedCorners
 import jp.wasabeef.transformations.GlideAdapter.Type.RoundedCornersTopLeft
 import jp.wasabeef.transformations.GlideAdapter.Type.Sepia
