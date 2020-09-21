@@ -44,7 +44,7 @@ class Mask constructor(
     }
 
     val canvas = Canvas(destination)
-    getMaskDrawable(context.applicationContext, maskId)?.run {
+    context.getDrawable(maskId)?.run {
       setBounds(0, 0, source.width, source.height)
       draw(canvas)
     }
