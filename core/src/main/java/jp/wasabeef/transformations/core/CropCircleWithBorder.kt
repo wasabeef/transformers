@@ -57,23 +57,5 @@ class CropCircleWithBorder constructor(
     return destination
   }
 
-  override fun equals(other: Any?): Boolean {
-    if (this === other) return true
-    if (javaClass != other?.javaClass) return false
-
-    other as CropCircleWithBorder
-
-    if (borderSize != other.borderSize) return false
-    if (borderColor != other.borderColor) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int {
-    var result = borderSize
-    result = 31 * result + borderColor
-    return result
-  }
-
   override fun key(): String = "$id(borderSize=$borderSize, borderColor=$borderColor)"
 }

@@ -35,17 +35,4 @@ class CropCircleTransformation : Transformation {
   }
 
   override fun key() = cropCircle.key()
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-
-    o as CropCircleTransformation
-
-    if (cropCircle != o.cropCircle) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int = cropCircle.key().hashCode()
 }

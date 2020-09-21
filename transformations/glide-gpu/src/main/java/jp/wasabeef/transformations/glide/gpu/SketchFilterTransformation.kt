@@ -26,16 +26,4 @@ import jp.co.cyberagent.android.gpuimage.filter.GPUImageSketchFilter
 class SketchFilterTransformation : GPUFilterTransformation(GPUImageSketchFilter()) {
 
   override fun key(): String = "$id()"
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-    if (!super.equals(o)) return false
-
-    o as SketchFilterTransformation
-
-    return true
-  }
-
-  override fun hashCode(): Int = key().hashCode()
 }

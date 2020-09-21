@@ -59,22 +59,5 @@ class Mask constructor(
     return destination
   }
 
-  override fun equals(other: Any?): Boolean {
-    if (this === other) return true
-    if (javaClass != other?.javaClass) return false
-
-    other as Mask
-
-    if (maskId != other.maskId) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int {
-    var result = context.hashCode()
-    result = 31 * result + maskId
-    return result
-  }
-
   override fun key(): String = "$id(maskId=$maskId)"
 }

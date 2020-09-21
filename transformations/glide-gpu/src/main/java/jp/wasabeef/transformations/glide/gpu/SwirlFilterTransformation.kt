@@ -42,20 +42,4 @@ class SwirlFilterTransformation @JvmOverloads constructor(
   }
 
   override fun key(): String = "$id(radius=$radius, angle=$angle, center=$center)"
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-    if (!super.equals(o)) return false
-
-    o as SwirlFilterTransformation
-
-    if (radius != o.radius) return false
-    if (angle != o.angle) return false
-    if (center != o.center) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int = key().hashCode()
 }

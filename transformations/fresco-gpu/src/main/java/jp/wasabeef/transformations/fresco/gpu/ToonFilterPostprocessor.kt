@@ -40,19 +40,4 @@ class ToonFilterPostprocessor @JvmOverloads constructor(
   }
 
   override fun key(): String = "$id(threshold=$threshold, quantizationLevels=$quantizationLevels)"
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-    if (!super.equals(o)) return false
-
-    o as ToonFilterPostprocessor
-
-    if (threshold != o.threshold) return false
-    if (quantizationLevels != o.quantizationLevels) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int = key().hashCode()
 }

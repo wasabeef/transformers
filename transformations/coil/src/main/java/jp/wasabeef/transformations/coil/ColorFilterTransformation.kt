@@ -36,18 +36,4 @@ class ColorFilterTransformation constructor(
   }
 
   override fun key() = colorFilter.key()
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-
-    o as ColorFilterTransformation
-
-    if (color != o.color) return false
-    if (colorFilter != o.colorFilter) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int = colorFilter.key().hashCode()
 }

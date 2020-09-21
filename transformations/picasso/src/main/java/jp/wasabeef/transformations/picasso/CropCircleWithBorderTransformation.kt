@@ -43,19 +43,4 @@ class CropCircleWithBorderTransformation @JvmOverloads constructor(
   }
 
   override fun key() = cropCircleWithBorder.key()
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-
-    o as CropCircleWithBorderTransformation
-
-    if (borderSize != o.borderSize) return false
-    if (borderColor != o.borderColor) return false
-    if (cropCircleWithBorder != o.cropCircleWithBorder) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int = cropCircleWithBorder.key().hashCode()
 }

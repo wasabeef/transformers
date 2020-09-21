@@ -49,17 +49,4 @@ class BlurTransformation @JvmOverloads constructor(
   override fun updateDiskCacheKey(messageDigest: MessageDigest) {
     messageDigest.update((blur.key()).toByteArray(Key.CHARSET))
   }
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-
-    o as BlurTransformation
-
-    if (blur != o.blur) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int = blur.key().hashCode()
 }

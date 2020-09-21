@@ -135,26 +135,4 @@ class CropTransformation : BitmapTransformation {
   override fun updateDiskCacheKey(messageDigest: MessageDigest) {
     messageDigest.update(crop.key().toByteArray(Key.CHARSET))
   }
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-
-    o as CropTransformation
-
-    if (crop != o.crop) return false
-    if (aspectRatio != o.aspectRatio) return false
-    if (left != o.left) return false
-    if (top != o.top) return false
-    if (width != o.width) return false
-    if (height != o.height) return false
-    if (widthRatio != o.widthRatio) return false
-    if (heightRatio != o.heightRatio) return false
-    if (gravityHorizontal != o.gravityHorizontal) return false
-    if (gravityVertical != o.gravityVertical) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int = crop.key().hashCode()
 }

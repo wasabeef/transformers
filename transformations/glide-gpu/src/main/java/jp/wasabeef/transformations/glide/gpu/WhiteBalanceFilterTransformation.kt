@@ -39,19 +39,4 @@ class WhiteBalanceFilterTransformation @JvmOverloads constructor(
   }
 
   override fun key(): String = "$id(temperature=$temperature, tint=$tint)"
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-    if (!super.equals(o)) return false
-
-    o as WhiteBalanceFilterTransformation
-
-    if (temperature != o.temperature) return false
-    if (tint != o.tint) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int = key().hashCode()
 }

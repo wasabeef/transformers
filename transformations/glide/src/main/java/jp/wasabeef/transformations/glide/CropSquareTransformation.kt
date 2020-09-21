@@ -44,17 +44,4 @@ class CropSquareTransformation : BitmapTransformation() {
   override fun updateDiskCacheKey(messageDigest: MessageDigest) {
     messageDigest.update(cropSquare.key().toByteArray(Key.CHARSET))
   }
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-
-    o as CropSquareTransformation
-
-    if (cropSquare != o.cropSquare) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int = cropSquare.key().hashCode()
 }

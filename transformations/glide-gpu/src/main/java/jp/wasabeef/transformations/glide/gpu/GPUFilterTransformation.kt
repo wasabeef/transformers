@@ -54,16 +54,4 @@ abstract class GPUFilterTransformation(private val filter: GPUImageFilter) :
   }
 
   abstract fun key(): String
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-
-    o as GPUFilterTransformation
-
-    if (filter != o.filter) return false
-    if (version != o.version) return false
-
-    return true
-  }
 }

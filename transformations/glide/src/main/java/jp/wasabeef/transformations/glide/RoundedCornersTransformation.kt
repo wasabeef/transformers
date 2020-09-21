@@ -48,21 +48,4 @@ class RoundedCornersTransformation @JvmOverloads constructor(
   override fun updateDiskCacheKey(messageDigest: MessageDigest) {
     messageDigest.update(roundedCorners.key().toByteArray(Key.CHARSET))
   }
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-
-    o as RoundedCornersTransformation
-
-    if (radius != o.radius) return false
-    if (diameter != o.diameter) return false
-    if (margin != o.margin) return false
-    if (cornerType != o.cornerType) return false
-    if (roundedCorners != o.roundedCorners) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int = roundedCorners.key().hashCode()
 }

@@ -307,38 +307,6 @@ class Crop : Transformation {
     GravityHorizontal.END -> source.width - width
   }
 
-  override fun equals(other: Any?): Boolean {
-    if (this === other) return true
-    if (javaClass != other?.javaClass) return false
-
-    other as Crop
-
-    if (aspectRatio != other.aspectRatio) return false
-    if (start != other.start) return false
-    if (top != other.top) return false
-    if (width != other.width) return false
-    if (height != other.height) return false
-    if (widthRatio != other.widthRatio) return false
-    if (heightRatio != other.heightRatio) return false
-    if (gravityHorizontal != other.gravityHorizontal) return false
-    if (gravityVertical != other.gravityVertical) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int {
-    var result = aspectRatio.hashCode()
-    result = 31 * result + start
-    result = 31 * result + top
-    result = 31 * result + width
-    result = 31 * result + height
-    result = 31 * result + widthRatio.hashCode()
-    result = 31 * result + heightRatio.hashCode()
-    result = 31 * result + gravityHorizontal.hashCode()
-    result = 31 * result + gravityVertical.hashCode()
-    return result
-  }
-
   override fun key(): String {
     return "$id(start=$start, top=$top, width=$width, height=$height, widthRatio=$widthRatio," +
       " heightRatio=$heightRatio, aspectRatio=$aspectRatio, gravityHorizontal=$gravityHorizontal," +

@@ -37,18 +37,4 @@ class SharpenFilterPostprocessor @JvmOverloads constructor(
   }
 
   override fun key(): String = "$id(sharpness=$sharpness)"
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-    if (!super.equals(o)) return false
-
-    o as SharpenFilterPostprocessor
-
-    if (sharpness != o.sharpness) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int = key().hashCode()
 }

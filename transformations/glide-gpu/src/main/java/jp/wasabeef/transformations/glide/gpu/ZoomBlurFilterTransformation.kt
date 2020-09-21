@@ -38,19 +38,4 @@ class ZoomBlurFilterTransformation @JvmOverloads constructor(
   }
 
   override fun key(): String = "$id(blurCenter=$blurCenter, blurSize=$blurSize)"
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-    if (!super.equals(o)) return false
-
-    o as ZoomBlurFilterTransformation
-
-    if (blurCenter != o.blurCenter) return false
-    if (blurSize != o.blurSize) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int = key().hashCode()
 }

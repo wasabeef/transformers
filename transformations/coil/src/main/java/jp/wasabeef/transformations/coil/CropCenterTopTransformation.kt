@@ -42,17 +42,4 @@ class CropCenterTopTransformation : Transformation {
   }
 
   override fun key() = crop.key()
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-
-    o as CropCenterTopTransformation
-
-    if (crop != o.crop) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int = crop.key().hashCode()
 }

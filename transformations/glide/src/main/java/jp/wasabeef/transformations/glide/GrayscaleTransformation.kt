@@ -42,17 +42,4 @@ class GrayscaleTransformation : BitmapTransformation() {
   override fun updateDiskCacheKey(messageDigest: MessageDigest) {
     messageDigest.update(grayscale.key().toByteArray(Key.CHARSET))
   }
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-
-    o as GrayscaleTransformation
-
-    if (grayscale != o.grayscale) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int = grayscale.key().hashCode()
 }

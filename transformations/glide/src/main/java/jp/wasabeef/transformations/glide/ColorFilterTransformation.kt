@@ -44,18 +44,4 @@ class ColorFilterTransformation constructor(@ColorInt private val color: Int) :
   override fun updateDiskCacheKey(messageDigest: MessageDigest) {
     messageDigest.update(colorFilter.key().toByteArray(Key.CHARSET))
   }
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-
-    o as ColorFilterTransformation
-
-    if (color != o.color) return false
-    if (colorFilter != o.colorFilter) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int = colorFilter.key().hashCode()
 }

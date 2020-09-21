@@ -348,28 +348,6 @@ class RoundedCorners constructor(
     )
   }
 
-  override fun equals(other: Any?): Boolean {
-    if (this === other) return true
-    if (javaClass != other?.javaClass) return false
-
-    other as RoundedCorners
-
-    if (radius != other.radius) return false
-    if (diameter != other.diameter) return false
-    if (margin != other.margin) return false
-    if (cornerType != other.cornerType) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int {
-    var result = radius
-    result = 31 * result + diameter
-    result = 31 * result + margin
-    result = 31 * result + cornerType.hashCode()
-    return result
-  }
-
   override fun key(): String {
     return "$id(radius=$radius, margin=$margin, diameter=$diameter, cornerType=${cornerType.name})"
   }

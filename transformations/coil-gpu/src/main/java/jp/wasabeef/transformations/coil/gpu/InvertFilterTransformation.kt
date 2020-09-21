@@ -29,16 +29,4 @@ class InvertFilterTransformation constructor(
 ) : GPUFilterTransformation(context, GPUImageColorInvertFilter()) {
 
   override fun key(): String = "$id()"
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-    if (!super.equals(o)) return false
-
-    o as InvertFilterTransformation
-
-    return true
-  }
-
-  override fun hashCode(): Int = key().hashCode()
 }

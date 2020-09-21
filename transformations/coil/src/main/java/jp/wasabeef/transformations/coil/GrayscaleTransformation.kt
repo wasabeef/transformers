@@ -33,17 +33,4 @@ class GrayscaleTransformation : Transformation {
   }
 
   override fun key() = grayscale.key()
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-
-    o as GrayscaleTransformation
-
-    if (grayscale != o.grayscale) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int = grayscale.key().hashCode()
 }

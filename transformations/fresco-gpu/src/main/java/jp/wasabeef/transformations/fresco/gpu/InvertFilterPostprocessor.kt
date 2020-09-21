@@ -29,16 +29,4 @@ class InvertFilterPostprocessor constructor(
 ) : GPUFilterPostprocessor(context, GPUImageColorInvertFilter()) {
 
   override fun key(): String = "$id()"
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-    if (!super.equals(o)) return false
-
-    o as InvertFilterPostprocessor
-
-    return true
-  }
-
-  override fun hashCode(): Int = key().hashCode()
 }

@@ -65,6 +65,4 @@ abstract class BitmapTransformation : Transformation<Bitmap> {
   ): Bitmap
 
   abstract override fun updateDiskCacheKey(messageDigest: MessageDigest)
-  abstract override fun equals(o: Any?): Boolean
-  abstract override fun hashCode(): Int
 }

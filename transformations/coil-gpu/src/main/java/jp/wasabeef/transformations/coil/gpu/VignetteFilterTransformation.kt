@@ -48,21 +48,4 @@ class VignetteFilterTransformation @JvmOverloads constructor(
     "$id(center=$center," +
       " vignetteColor=${vignetteColor.contentToString()}, vignetteStart=$vignetteStart," +
       " vignetteEnd=$vignetteEnd)"
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-    if (!super.equals(o)) return false
-
-    o as VignetteFilterTransformation
-
-    if (center != o.center) return false
-    if (!vignetteColor.contentEquals(o.vignetteColor)) return false
-    if (vignetteStart != o.vignetteStart) return false
-    if (vignetteEnd != o.vignetteEnd) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int = key().hashCode()
 }

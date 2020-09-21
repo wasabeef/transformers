@@ -46,18 +46,4 @@ class MaskTransformation constructor(
   override fun updateDiskCacheKey(messageDigest: MessageDigest) {
     messageDigest.update(mask.key().toByteArray(Key.CHARSET))
   }
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-
-    o as MaskTransformation
-
-    if (maskId != o.maskId) return false
-    if (mask != o.mask) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int = mask.key().hashCode()
 }

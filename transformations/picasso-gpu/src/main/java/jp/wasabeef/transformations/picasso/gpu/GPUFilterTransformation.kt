@@ -47,16 +47,4 @@ abstract class GPUFilterTransformation(
 
   @Suppress("UNCHECKED_CAST")
   fun <T> filter(): T = filter as T
-
-  override fun equals(o: Any?): Boolean {
-    if (this === o) return true
-    if (javaClass != o?.javaClass) return false
-
-    o as GPUFilterTransformation
-
-    if (filter != o.filter) return false
-    if (version != o.version) return false
-
-    return true
-  }
 }
