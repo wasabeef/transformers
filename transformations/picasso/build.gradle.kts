@@ -33,4 +33,5 @@ dependencies {
 
   implementation(Libraries.kotlin)
   implementation(Libraries.picasso)
+  implementation(Libraries.annontation)
 }

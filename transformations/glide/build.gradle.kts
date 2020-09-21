@@ -35,4 +35,5 @@ dependencies {
   implementation(Libraries.kotlin)
   implementation(Libraries.glide)
   kapt(Libraries.glideCompiler)
+  implementation(Libraries.annontation)
 }

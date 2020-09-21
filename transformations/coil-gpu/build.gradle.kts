@@ -34,4 +34,5 @@ dependencies {
   implementation(Libraries.kotlin)
   implementation(Libraries.coil)
   implementation(Libraries.gpuImage)
+  implementation(Libraries.annontation)
 }
