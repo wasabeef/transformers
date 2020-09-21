@@ -15,31 +15,31 @@ import com.facebook.drawee.view.SimpleDraweeView
 import com.facebook.imagepipeline.common.ResizeOptions
 import com.facebook.imagepipeline.request.ImageRequest
 import com.facebook.imagepipeline.request.ImageRequestBuilder
-import jp.wasabeef.transformers.FrescoAdapter.Type.Brightness
-import jp.wasabeef.transformers.FrescoAdapter.Type.ColorFilter
-import jp.wasabeef.transformers.FrescoAdapter.Type.Contrast
-import jp.wasabeef.transformers.FrescoAdapter.Type.Grayscale
-import jp.wasabeef.transformers.FrescoAdapter.Type.Halftone
-import jp.wasabeef.transformers.FrescoAdapter.Type.Invert
-import jp.wasabeef.transformers.FrescoAdapter.Type.Kuawahara
-import jp.wasabeef.transformers.FrescoAdapter.Type.Mask
-import jp.wasabeef.transformers.FrescoAdapter.Type.NinePatchMask
-import jp.wasabeef.transformers.FrescoAdapter.Type.Original
-import jp.wasabeef.transformers.FrescoAdapter.Type.PixelDeep
-import jp.wasabeef.transformers.FrescoAdapter.Type.PixelLight
-import jp.wasabeef.transformers.FrescoAdapter.Type.RSGaussianBlurDeep
-import jp.wasabeef.transformers.FrescoAdapter.Type.RSGaussianBlurLight
-import jp.wasabeef.transformers.FrescoAdapter.Type.Sepia
-import jp.wasabeef.transformers.FrescoAdapter.Type.Sharpness
-import jp.wasabeef.transformers.FrescoAdapter.Type.Sketch
-import jp.wasabeef.transformers.FrescoAdapter.Type.StackBlurDeep
-import jp.wasabeef.transformers.FrescoAdapter.Type.StackBlurLight
-import jp.wasabeef.transformers.FrescoAdapter.Type.Swirl
-import jp.wasabeef.transformers.FrescoAdapter.Type.ToneCurve
-import jp.wasabeef.transformers.FrescoAdapter.Type.Toon
-import jp.wasabeef.transformers.FrescoAdapter.Type.Vignette
-import jp.wasabeef.transformers.FrescoAdapter.Type.WhiteBalance
-import jp.wasabeef.transformers.FrescoAdapter.Type.ZoomBlur
+import jp.wasabeef.transformers.Type.Brightness
+import jp.wasabeef.transformers.Type.ColorFilter
+import jp.wasabeef.transformers.Type.Contrast
+import jp.wasabeef.transformers.Type.Grayscale
+import jp.wasabeef.transformers.Type.Halftone
+import jp.wasabeef.transformers.Type.Invert
+import jp.wasabeef.transformers.Type.Kuawahara
+import jp.wasabeef.transformers.Type.Mask
+import jp.wasabeef.transformers.Type.NinePatchMask
+import jp.wasabeef.transformers.Type.Original
+import jp.wasabeef.transformers.Type.PixelDeep
+import jp.wasabeef.transformers.Type.PixelLight
+import jp.wasabeef.transformers.Type.RSGaussianBlurDeep
+import jp.wasabeef.transformers.Type.RSGaussianBlurLight
+import jp.wasabeef.transformers.Type.Sepia
+import jp.wasabeef.transformers.Type.Sharpness
+import jp.wasabeef.transformers.Type.Sketch
+import jp.wasabeef.transformers.Type.StackBlurDeep
+import jp.wasabeef.transformers.Type.StackBlurLight
+import jp.wasabeef.transformers.Type.Swirl
+import jp.wasabeef.transformers.Type.ToneCurve
+import jp.wasabeef.transformers.Type.Toon
+import jp.wasabeef.transformers.Type.Vignette
+import jp.wasabeef.transformers.Type.WhiteBalance
+import jp.wasabeef.transformers.Type.ZoomBlur
 import jp.wasabeef.transformers.fresco.BlurPostprocessor
 import jp.wasabeef.transformers.fresco.ColorFilterPostprocessor
 import jp.wasabeef.transformers.fresco.GrayscalePostprocessor
@@ -70,36 +70,6 @@ class FrescoAdapter(
 
   companion object {
     private const val IMAGE_URL = "https://images.unsplash.com/photo-1588952159215-a4b39193464e"
-  }
-
-  enum class Type {
-    Original,
-    Mask,
-    NinePatchMask,
-    ColorFilter,
-    Grayscale,
-    RoundedCorners,
-    RoundedCornersTopLeft,
-    RSGaussianBlurLight,
-    RSGaussianBlurDeep,
-    StackBlurLight,
-    StackBlurDeep,
-    Toon,
-    Sepia,
-    Contrast,
-    Invert,
-    PixelLight,
-    PixelDeep,
-    Sketch,
-    Swirl,
-    Brightness,
-    Kuawahara,
-    Vignette,
-    ZoomBlur,
-    WhiteBalance,
-    Halftone,
-    Sharpness,
-    ToneCurve
   }
 
   override fun getItemCount(): Int {

@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import jp.wasabeef.transformers.PicassoAdapter.Type
 
 class PicassoActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {

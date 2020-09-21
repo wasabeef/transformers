@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.facebook.drawee.backends.pipeline.Fresco
-import jp.wasabeef.transformers.FrescoAdapter.Type
 
 class FrescoActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
