@@ -47,6 +47,7 @@ dependencies {
   implementation(project(Projects.coil))
   implementation(project(Projects.coilGpu))
   implementation(project(Projects.fresco))
+  implementation(project(Projects.frescoGpu))
 
   implementation(Libraries.kotlin)
   implementation(Libraries.appcompat)

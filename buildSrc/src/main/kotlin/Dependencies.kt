@@ -20,6 +20,7 @@ object Projects {
   const val coil = ":transformations:coil"
   const val coilGpu = ":transformations:coil-gpu"
   const val fresco = ":transformations:fresco"
+  const val frescoGpu = ":transformations:fresco-gpu"
 }
 
 object Ktlint {

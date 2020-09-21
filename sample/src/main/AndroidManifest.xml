@@ -23,6 +23,7 @@
     <activity android:name=".GlideActivity"/>
     <activity android:name=".PicassoActivity"/>
     <activity android:name=".CoilActivity"/>
+    <activity android:name=".FrescoActivity"/>
   </application>
 
 </manifest>

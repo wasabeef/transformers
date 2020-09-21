@@ -19,5 +19,8 @@ class MainActivity : AppCompatActivity() {
     coil.setOnClickListener {
       startActivity(Intent(this, CoilActivity::class.java))
     }
+    fresco.setOnClickListener {
+      startActivity(Intent(this, FrescoActivity::class.java))
+    }
   }
 }

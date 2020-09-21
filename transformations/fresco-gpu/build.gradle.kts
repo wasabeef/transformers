@@ -28,10 +28,10 @@ android {
 }
 
 dependencies {
-  implementation(project(Projects.core))
-  api(project(Projects.types))
+  implementation(project(Projects.fresco))
 
   implementation(Libraries.kotlin)
   implementation(Libraries.fresco)
+  implementation(Libraries.gpuImage)
   implementation(Libraries.annontation)
 }
