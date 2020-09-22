@@ -33,7 +33,13 @@ An Android transformation library providing a variety of image transformations f
 > [Glide Transformations](https://github.com/wasabeef/glide-transformations), [Picasso Transformations](https://github.com/wasabeef/picasso-transformations), [Fresco Processors](https://github.com/wasabeef/fresco-processors) are deprecated.   
 > No more development will be taking place. For an up-to-date version, please use this.
 
-## Gradle settings
+## Setup
+
+### Requirements
+- Android 5.0+ Lollipop (API level 21)
+- Kotlin 1.4.+
+
+### Gradle settings
 
 ```gradle
 repositories {
