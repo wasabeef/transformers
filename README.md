@@ -8,7 +8,7 @@ $ ./gradlew ktlint
 
 
 ## Sample toransformers
-| Original | Mask | Contrast.png | NinePatchMask | CropTop |
+| Original | Mask | Contrast | NinePatchMask | CropTop |
 |:---:|:---:|:---:|:---:|:---:|
 | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Original.png" width="100%" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Mask.png" width="100%" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Contrast.png" width="100%" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/NinePatchMask.png" width="100%" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/CropTop.png" width="100%" /> |
 | CropCenter | CropCenterRatio16x9 | CropCenterRatio4x3 | CropTopRatio16x9 | CropBottomRatio4x3 |
