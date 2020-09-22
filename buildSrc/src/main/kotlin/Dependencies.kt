@@ -43,7 +43,7 @@ object Libraries {
   const val uiMaterial = "androidx.ui:ui-material:$uiVersion"
   const val uiTooling = "androidx.ui:ui-tooling:$uiVersion"
 
-  const val picasso = "com.squareup.picasso:picasso:2.71828"
+  const val picasso = "com.squareup.picasso:picasso:2.8"
   private const val glideVersion = "4.11.0"
   const val glide = "com.github.bumptech.glide:glide:$glideVersion"
   const val glideCompiler = "com.github.bumptech.glide:compiler:$glideVersion"
