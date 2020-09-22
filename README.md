@@ -12,7 +12,7 @@
 
 ## What is Transformers?
 
-An Android transformation library providing a variety of image transformations for [Glide], [Picasso], [Coil], [Fresco]
+An Android transformation library providing a variety of image transformations for [Coil], [Glide], [Picasso], [Fresco]
 
 <a href="https://github.com/coil-kt/coil">
   <img src="https://github.com/wasabeef/transformers/raw/main/art/coil.png" width="64px"/>
