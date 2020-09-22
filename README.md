@@ -40,7 +40,7 @@ For [Coil]
 ```gradle
 dependencies {
   implementation 'jp.wasabeef.transformers:coil:1.x.x'
-  implementation 'jp.wasabeef.transformers:coil-gpu:1.x.x' // If you want to use the GPU Filters 
+  implementation 'jp.wasabeef.transformers:coil-gpu:1.x.x' // Use the GPU Filters 
 }
 ```
 
@@ -48,7 +48,7 @@ For [Glide]
 ```gradle
 dependencies {
   implementation 'jp.wasabeef.transformers:glide:1.x.x'
-  implementation 'jp.wasabeef.transformers:glide-gpu:1.x.x' // If you want to use the GPU Filters
+  implementation 'jp.wasabeef.transformers:glide-gpu:1.x.x' // Use the GPU Filters 
 }
 ```
 
@@ -56,7 +56,7 @@ For [Picasso]
 ```gradle
 dependencies {
   implementation 'jp.wasabeef.transformers:picasso:1.x.x'
-  implementation 'jp.wasabeef.transformers:picasso-gpu:1.x.x' // If you want to use the GPU Filters
+  implementation 'jp.wasabeef.transformers:picasso-gpu:1.x.x' // Use the GPU Filters 
 }
 ```
 
@@ -64,7 +64,7 @@ For [Fresco]
 ```gradle
 dependencies {
   implementation 'jp.wasabeef.transformers:fresco:1.x.x'
-  implementation 'jp.wasabeef.transformers:fresco-gpu:1.x.x' // If you want to use the GPU Filters
+  implementation 'jp.wasabeef.transformers:fresco-gpu:1.x.x' // Use the GPU Filters 
 }
 ```
 
