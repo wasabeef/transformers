@@ -26,8 +26,10 @@ An Android transformation library providing a variety of image transformations f
 <a href="https://github.com/facebook/fresco">
   <img src="https://github.com/wasabeef/transformers/raw/main/art/fresco.png" width="64px"/>
 </a>
-  
-  
+
+<br>
+<br>
+
 > [Glide Transformations](https://github.com/wasabeef/glide-transformations), [Picasso Transformations](https://github.com/wasabeef/picasso-transformations), [Fresco Processors](https://github.com/wasabeef/fresco-processors) are deprecated.   
 > No more development will be taking place. For an up-to-date version, please use this.
 
