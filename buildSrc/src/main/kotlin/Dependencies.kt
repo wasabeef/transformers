@@ -12,7 +12,6 @@ object BuildConfig {
 
 object Projects {
   const val core = ":core"
-  const val types = ":types"
   const val glide = ":transformers:glide"
   const val glideGpu = ":transformers:glide-gpu"
   const val picasso = ":transformers:picasso"

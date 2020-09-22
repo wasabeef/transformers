@@ -1,4 +1,4 @@
-package jp.wasabeef.transformers.types
+package jp.wasabeef.transformers.core.types
 
 /**
  * Copyright (C) 2020 Wasabeef
@@ -15,9 +15,8 @@ package jp.wasabeef.transformers.types
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-enum class GravityHorizontal {
-  START,
+enum class GravityVertical {
+  TOP,
   CENTER,
-  END
+  BOTTOM
 }

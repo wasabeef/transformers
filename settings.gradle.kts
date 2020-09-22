@@ -1,7 +1,6 @@
 rootProject.name = "Transformers"
 include(":sample")
 include(":core")
-include(":types")
 include(":transformers:glide")
 include(":transformers:glide-gpu")
 include(":transformers:picasso")

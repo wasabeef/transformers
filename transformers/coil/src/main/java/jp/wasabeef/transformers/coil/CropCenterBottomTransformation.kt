@@ -5,8 +5,8 @@ import coil.bitmap.BitmapPool
 import coil.size.Size
 import jp.wasabeef.transformers.core.Crop
 import jp.wasabeef.transformers.core.bitmapConfig
-import jp.wasabeef.transformers.types.GravityHorizontal
-import jp.wasabeef.transformers.types.GravityVertical
+import jp.wasabeef.transformers.core.types.GravityHorizontal
+import jp.wasabeef.transformers.core.types.GravityVertical
 
 /**
  * Copyright (C) 2020 Wasabeef

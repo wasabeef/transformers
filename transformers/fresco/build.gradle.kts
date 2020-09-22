@@ -29,7 +29,6 @@ android {
 
 dependencies {
   implementation(project(Projects.core))
-  api(project(Projects.types))
 
   implementation(Libraries.kotlin)
   implementation(Libraries.fresco)

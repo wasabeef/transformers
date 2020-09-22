@@ -5,8 +5,8 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Rect
 import android.util.Size
-import jp.wasabeef.transformers.types.GravityHorizontal
-import jp.wasabeef.transformers.types.GravityVertical
+import jp.wasabeef.transformers.core.types.GravityHorizontal
+import jp.wasabeef.transformers.core.types.GravityVertical
 
 /**
  * Copyright (C) 2020 Wasabeef, molexx
