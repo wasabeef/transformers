@@ -30,24 +30,17 @@ $ ./gradlew ktlint
 | RoundedCornersTopLeft | RSGaussianBlurLight | RSGaussianBlurDeep | StackBlurLight |
 | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/RoundedCornersTopLeft.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/RSGaussianBlurLight.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/RSGaussianBlurDeep.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/StackBlurLight.png" width="120px" /> |
 | StackBlurDeep | 
-|:---:|
 | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/StackBlurDeep.png" width="120px" /> | 
 
 
 
 ## Sample toransformers with [GPUImage](https://github.com/cats-oss/android-gpuimage)
-| Original | Original | Original | Original |
+| Toon | Sepia | Contrast | Invert |
 |:---:|:---:|:---:|:---:|
-| <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Original.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/ToneCurve.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Mask.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/NinePatchMask.png" width="120px" /> |
-| Original | ToneCurve | Original | Original |
-|:---:|:---:|:---:|:---:|
-| <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Original.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/ToneCurve.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Mask.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/NinePatchMask.png" width="120px" /> |
-| Original | Original | Original | Original |
-|:---:|:---:|:---:|:---:|
-| <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Original.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/ToneCurve.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Mask.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/NinePatchMask.png" width="120px" /> |
-| Original | ToneCurve | Original | Original |
-|:---:|:---:|:---:|:---:|
-| <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Original.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/ToneCurve.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Mask.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/NinePatchMask.png" width="120px" /> |
-| Original | Original | Original | Original |
-|:---:|:---:|:---:|:---:|
-| <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Original.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/ToneCurve.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Mask.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/NinePatchMask.png" width="120px" /> |
+| <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Toon.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Sepia.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Contrast.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Invert.png" width="120px" /> |
+| PixelLight | PixelDeep | Sketch | Swirl |
+| <img src="https://github.com/wasabeef/image-transformations/raw/main/art/PixelLight.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/PixelDeep.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Sketch.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Swirl.png" width="120px" /> |
+| Brightness | Kuawahara | Vignette | ZoomBlur |
+| <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Brightness.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Kuawahara.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Vignette.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/ZoomBlur.png" width="120px" /> |
+| WhiteBalance | Halftone | Sharpness | ToneCurve |
+| <img src="https://github.com/wasabeef/image-transformations/raw/main/art/WhiteBalance.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Halftone.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Sharpness.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/ToneCurve.png" width="120px" /> |
