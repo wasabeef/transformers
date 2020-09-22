@@ -10,6 +10,23 @@
   </a>
 </p>
 
+## What is Transformers?
+
+An Android transformation library providing a variety of image transformations for [Glide], [Picasso], [Coil], [Fresco]
+
+<a href="https://github.com/coil-kt/coil">
+  <img src="https://github.com/wasabeef/transformers/raw/main/art/coil.png" width="64px"/>
+</a>
+<a href="https://github.com/bumptech/glide">
+  <img src="https://github.com/wasabeef/transformers/raw/main/art/glide.png" width="64px"/>
+</a>
+<a href="https://github.com/square/picasso">
+  <img src="https://github.com/wasabeef/transformers/raw/main/art/picasso.jpg" width="64px"/>
+</a>
+<a href="https://github.com/facebook/fresco">
+  <img src="https://github.com/wasabeef/transformers/raw/main/art/fresco.png" width="64px"/>
+</a>
+
 
 ## Gradle settings
 
