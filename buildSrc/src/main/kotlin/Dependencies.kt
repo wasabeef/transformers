@@ -28,21 +28,29 @@ object Ktlint {
 }
 
 object Libraries {
-  const val kotlinVersion = "1.3.72"
-  const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+  const val kotlinVersion = "1.4.10"
+  const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 
-  private const val appcompatVersion = "1.1.0"
-  private const val coreKtxVersion = "1.1.0"
+  private const val appcompatVersion = "1.2.0"
+  private const val coreKtxVersion = "1.2.0"
   const val appcompat = "androidx.appcompat:appcompat:$appcompatVersion"
   const val recyclerview = "androidx.recyclerview:recyclerview:1.1.0"
   const val constraint = "androidx.constraintlayout:constraintlayout:2.0.1"
   const val coreKtx = "androidx.core:core-ktx:$coreKtxVersion"
   const val annontation = "androidx.annotation:annotation:1.2.0-alpha01"
 
-  private const val uiVersion = "0.1.0-dev14"
-  const val uiLayout = "androidx.ui:ui-layout:$uiVersion"
-  const val uiMaterial = "androidx.ui:ui-material:$uiVersion"
-  const val uiTooling = "androidx.ui:ui-tooling:$uiVersion"
+  object Compose {
+    const val composeVersion = "1.0.0-alpha03"
+    const val runtime = "androidx.compose.runtime:runtime:$composeVersion"
+    const val foundation = "androidx.compose.foundation:foundation:${composeVersion}"
+    const val layout = "androidx.compose.foundation:foundation-layout:${composeVersion}"
+
+    const val ui = "androidx.compose.ui:ui:${composeVersion}"
+    const val material = "androidx.compose.material:material:${composeVersion}"
+
+    const val tooling = "androidx.ui:ui-tooling:${composeVersion}"
+  }
+
 
   const val picasso = "com.squareup.picasso:picasso:2.8"
   private const val glideVersion = "4.11.0"

@@ -54,9 +54,6 @@ dependencies {
   implementation(Libraries.recyclerview)
   implementation(Libraries.constraint)
   implementation(Libraries.coreKtx)
-  implementation(Libraries.uiLayout)
-  implementation(Libraries.uiMaterial)
-  implementation(Libraries.uiTooling)
 
   implementation(Libraries.glide)
   kapt(Libraries.glideCompiler)
