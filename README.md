@@ -81,18 +81,52 @@ dependencies {
 ## Codes
 For [Coil]
 ```kotlin
+imageView.load(IMAGE_URL) {
+  transformations(
+    CropCenterTransformation(),
+    RoundedCornersTransformation(radius = 120, cornerType = CornerType.DIAGONAL_FROM_TOP_LEFT)
+  )
+}
 ```
 
 For [Glide]
 ```kotlin
+Glide.with(context)
+  .load(IMAGE_URL)
+  .apply(
+    bitmapTransform(
+      MultiTransformation(
+        CropCenterTransformation(),
+        BlurTransformation(context, 15, sampling = 1)
+      )
+    )
+  ).into(imageView)
 ```
 
 For [Picasso]
 ```kotlin
+Picasso.get()
+  .load(IMAGE_URL)
+  .fit().centerInside()
+  .transform(
+    mutableListOf(
+      CropCenterTransformation(),
+      BlurTransformation(context, 25, sampling = 4)
+    )
+  ).into(imageView)
 ```
 
 For [Fresco]
 ```kotlin
+val request: ImageRequest =
+  ImageRequestBuilder.newBuilderWithSource(IMAGE_URL.toUri())
+  .setPostprocessor(BlurPostprocessor(context, 25, 4))
+  .build()
+
+holder.image.controller = Fresco.newDraweeControllerBuilder()
+  .setImageRequest(request)
+  .setOldController(draweeView.controller)
+  .build()
 ```
 
 ### Sample transformations
