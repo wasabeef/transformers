@@ -476,10 +476,6 @@ class GlideAdapter(
             )
           )
           .into(holder.image)
-
-      else -> {
-        // no op
-      }
     }
     holder.title.text = dataSet[position].name
   }

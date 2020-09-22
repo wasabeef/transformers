@@ -322,10 +322,6 @@ class CoilAdapter(
           ToneCurveFilterTransformation(context, R.raw.tone_cuver_sample)
         )
       }
-
-      else -> {
-        // no op
-      }
     }
     holder.title.text = dataSet[position].name
   }
