@@ -40,7 +40,6 @@ An Android transformation library providing a variety of image transformations f
 - Kotlin 1.4.+
 
 ### Gradle settings
-
 ```gradle
 repositories {
   jcenter()
@@ -79,6 +78,22 @@ dependencies {
 }
 ```
 
+## Codes
+For [Coil]
+```kotlin
+```
+
+For [Glide]
+```kotlin
+```
+
+For [Picasso]
+```kotlin
+```
+
+For [Fresco]
+```kotlin
+```
 
 ### Sample transformations
 | Original | Mask | NinePatchMask | CropTop |
