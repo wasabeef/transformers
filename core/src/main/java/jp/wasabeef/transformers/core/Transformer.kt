@@ -19,10 +19,8 @@ import android.graphics.Bitmap
  */
 
 abstract class Transformer {
-  val version: String = BuildConfig.Version
-
   protected val id: String
-    get() = "${this::class.java.name}-$version"
+    get() = "${this::class.java.name}-${BuildConfig.Version}"
 
   abstract fun transform(
     source: Bitmap,
