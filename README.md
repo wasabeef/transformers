@@ -10,7 +10,8 @@
   </a>
 </p>
 
-## 
+
+## Gradle settings
 
 ```gradle
 repositories {
@@ -51,7 +52,7 @@ dependencies {
 ```
 
 
-## Sample transformations
+### Sample transformations
 | Original | Mask | NinePatchMask | CropTop |
 |:---:|:---:|:---:|:---:|
 | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Original.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Mask.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/NinePatchMask.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/CropTop.png" width="120px" /> |
@@ -66,9 +67,29 @@ dependencies {
 | StackBlurDeep | 
 | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/StackBlurDeep.png" width="120px" /> | 
 
+<kbd>coil</kbd>, <kbd>glide</kbd>, <kbd>picasso</kbd>
+- BlurTransformation
+- ColorFilterTransformation
+- CropCenterBottomTransformation
+- CropCenterTopTransformation
+- CropCenterTransformation
+- CropCircleTransformation
+- CropCircleWithBorderTransformation
+- CropSquareTransformation
+- CropTransformation
+- GrayscaleTransformation
+- MaskTransformation
+- RoundedCornersTransformation
+
+<kbd>fresco</kbd>
+- BlurPostprocessor
+- ColorFilterPostprocessor
+- CombinePostProcessors
+- GrayscalePostprocessor
+- MaskPostprocessor
 
 
-## Sample transformations with [GPUImage](https://github.com/cats-oss/android-gpuimage)
+### Sample transformations with [GPUImage](https://github.com/cats-oss/android-gpuimage)
 | Original | Sepia | Contrast | Invert |
 |:---:|:---:|:---:|:---:|
 | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Original.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Sepia.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Contrast.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Invert.png" width="120px" /> |
@@ -81,6 +102,39 @@ dependencies {
 | ToneCurve | 
 | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/ToneCurve.png" width="120px" /> | 
 
+<kbd>coil-gpu</kbd>, <kbd>glide-gpu</kbd>, <kbd>picasso-gpu</kbd>
+- BrightnessFilterTransformation
+- ContrastFilterTransformation
+- HalftoneFilterTransformation
+- InvertFilterTransformation
+- KuwaharaFilterTransformation
+- PixelationFilterTransformation
+- SepiaFilterTransformation
+- SharpenFilterTransformation
+- SketchFilterTransformation
+- SwirlFilterTransformation
+- ToneCurveFilterTransformation
+- ToonFilterTransformation
+- VignetteFilterTransformation
+- WhiteBalanceFilterTransformation
+- ZoomBlurFilterTransformation
+
+<kbd>fresco-gpu</kbd>
+- BrightnessFilterPostprocessor
+- ContrastFilterPostprocessor
+- HalftoneFilterPostprocessor
+- InvertFilterPostprocessor
+- KuwaharaFilterPostprocessor
+- PixelationFilterPostprocessor
+- SepiaFilterPostprocessor
+- SharpenFilterPostprocessor
+- SketchFilterPostprocessor
+- SwirlFilterPostprocessor
+- ToneCurveFilterPostprocessor
+- ToonFilterPostprocessor
+- VignetteFilterPostprocessor
+- WhiteBalanceFilterPostprocessor
+- ZoomBlurFilterPostprocessor
 
 ## Development
 
