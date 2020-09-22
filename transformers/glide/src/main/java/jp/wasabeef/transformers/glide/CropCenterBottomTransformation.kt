@@ -5,8 +5,8 @@ import android.graphics.Bitmap
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
 import jp.wasabeef.transformers.core.Crop
 import jp.wasabeef.transformers.core.bitmapConfig
-import jp.wasabeef.transformers.core.types.GravityHorizontal
-import jp.wasabeef.transformers.core.types.GravityVertical
+import jp.wasabeef.transformers.types.GravityHorizontal
+import jp.wasabeef.transformers.types.GravityVertical
 
 /**
  * Copyright (C) 2020 Wasabeef

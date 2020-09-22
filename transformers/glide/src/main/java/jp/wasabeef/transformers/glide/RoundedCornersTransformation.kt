@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
 import jp.wasabeef.transformers.core.RoundedCorners
 import jp.wasabeef.transformers.core.bitmapConfig
-import jp.wasabeef.transformers.core.types.CornerType
+import jp.wasabeef.transformers.types.CornerType
 
 /**
  * Copyright (C) 2020 Wasabeef

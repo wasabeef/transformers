@@ -1,4 +1,4 @@
-package jp.wasabeef.transformers.core.types
+package jp.wasabeef.transformers.types
 
 /**
  * Copyright (C) 2020 Wasabeef

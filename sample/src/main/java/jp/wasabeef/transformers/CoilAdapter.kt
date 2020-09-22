@@ -66,9 +66,9 @@ import jp.wasabeef.transformers.coil.gpu.ToonFilterTransformation
 import jp.wasabeef.transformers.coil.gpu.VignetteFilterTransformation
 import jp.wasabeef.transformers.coil.gpu.WhiteBalanceFilterTransformation
 import jp.wasabeef.transformers.coil.gpu.ZoomBlurFilterTransformation
-import jp.wasabeef.transformers.core.types.CornerType
-import jp.wasabeef.transformers.core.types.GravityHorizontal
-import jp.wasabeef.transformers.core.types.GravityVertical
+import jp.wasabeef.transformers.types.CornerType
+import jp.wasabeef.transformers.types.GravityHorizontal
+import jp.wasabeef.transformers.types.GravityVertical
 
 /**
  * Copyright (C) 2020 Wasabeef
