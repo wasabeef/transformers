@@ -37,7 +37,6 @@ An Android transformation library providing a variety of image transformations f
 
 ### Requirements
 - Android 5.0+ Lollipop (API level 21)
-- Kotlin 1.4.+
 
 ### Gradle settings
 ```gradle
