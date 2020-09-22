@@ -10,10 +10,44 @@
   </a>
 </p>
 
-## Formatting
+## 
 
+```gradle
+repositories {
+  jcenter()
+}
 ```
-$ ./gradlew ktlint
+
+For [Coil]
+```gradle
+dependencies {
+  implementation 'jp.wasabeef.transformers:coil:1.x.x'
+  implementation 'jp.wasabeef.transformers:coil-gpu:1.x.x' // If you want to use the GPU Filters 
+}
+```
+
+For [Glide]
+```gradle
+dependencies {
+  implementation 'jp.wasabeef.transformers:glide:1.x.x'
+  implementation 'jp.wasabeef.transformers:glide-gpu:1.x.x' // If you want to use the GPU Filters
+}
+```
+
+For [Picasso]
+```gradle
+dependencies {
+  implementation 'jp.wasabeef.transformers:picasso:1.x.x'
+  implementation 'jp.wasabeef.transformers:picasso-gpu:1.x.x' // If you want to use the GPU Filters
+}
+```
+
+For [Fresco]
+```gradle
+dependencies {
+  implementation 'jp.wasabeef.transformers:fresco:1.x.x'
+  implementation 'jp.wasabeef.transformers:fresco-gpu:1.x.x' // If you want to use the GPU Filters
+}
 ```
 
 
@@ -46,3 +80,44 @@ $ ./gradlew ktlint
 | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/WhiteBalance.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Halftone.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Sharpness.png" width="120px" /> | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/Toon.png" width="120px" /> |
 | ToneCurve | 
 | <img src="https://github.com/wasabeef/image-transformations/raw/main/art/ToneCurve.png" width="120px" /> | 
+
+
+## Development
+
+### Setup 
+
+Things you will need
+
+- Linux, Mac OS X, or Windows.
+- [Android Studio (Preview)](https://developer.android.com/studio/preview)
+- npm
+
+```
+$ npm install
+```
+
+### Build
+
+```
+$ ./gradlew assemble
+```
+
+### Formatting
+
+```
+$ ./gradlew ktlint
+```
+
+### Publishing to [Bintray](https://bintray.com/bintray/jcenter)
+
+```
+$ ./gradlew clean install build
+$ ./gradlew bintrayUpload -PbintrayUser=******** -PbintrayKey=****************************************
+```
+
+
+
+[Coil]: https://github.com/coil-kt/coil
+[Glide]: https://github.com/bumptech/glide
+[Picasso]: https://github.com/square/picasso
+[Fresco]: https://github.com/facebook/fresco
