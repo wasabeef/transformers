@@ -8,6 +8,9 @@
   <a href="https://bintray.com/wasabeef/maven/transformers/_latestVersion">
     <img src="https://api.bintray.com/packages/wasabeef/maven/transformers/images/download.svg" />
   </a>
+  <a href="https://github.com/wasabeef/transformers/actions">
+    <img src="https://github.com/wasabeef/transformers/workflows/Android%20CI/badge.svg" />
+  </a>
 </p>
 
 ## What is Transformers?
