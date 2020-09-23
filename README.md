@@ -18,7 +18,7 @@
 An Android transformation library providing a variety of image transformations for [Coil], [Glide], [Picasso], [Fresco]
 
 <a href="https://github.com/coil-kt/coil">
-  <img src="https://github.com/wasabeef/transformers/raw/main/art/coil.png" width="64px"/>
+  <img src="https://github.com/wasabeef/transformers/raw/main/art/coil.png" width="58px"/>
 </a>
 <a href="https://github.com/bumptech/glide">
   <img src="https://github.com/wasabeef/transformers/raw/main/art/glide.png" width="64px"/>
