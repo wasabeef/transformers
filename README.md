@@ -29,6 +29,9 @@ An Android transformation library providing a variety of image transformations f
 <a href="https://github.com/facebook/fresco">
   <img src="https://github.com/wasabeef/transformers/raw/main/art/fresco.png" width="64px"/>
 </a>
+<a href="https://developer.android.com/jetpack/compose">
+  <img src="https://github.com/wasabeef/transformers/raw/main/art/jetpack-compose.svg" width="64px"/>
+</a>
 
 <br>
 <br>
