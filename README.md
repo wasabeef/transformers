@@ -8,6 +8,9 @@
   <a href="https://bintray.com/wasabeef/maven/transformers/_latestVersion">
     <img src="https://api.bintray.com/packages/wasabeef/maven/transformers/images/download.svg" />
   </a>
+  <a href="https://github.com/wasabeef/transformers/actions">
+    <img src="https://github.com/wasabeef/transformers/workflows/Android%20CI/badge.svg" />
+  </a>
 </p>
 
 ## What is Transformers?
@@ -31,13 +34,12 @@ An Android transformation library providing a variety of image transformations f
 <br>
 
 > [Glide Transformations](https://github.com/wasabeef/glide-transformations), [Picasso Transformations](https://github.com/wasabeef/picasso-transformations), [Fresco Processors](https://github.com/wasabeef/fresco-processors) are deprecated.   
-> No more development will be taking place. For an up-to-date version, please use this.
+> Development will stop soon.. For an up-to-date version, please use this.
 
 ## Installation
 
 ### Requirements
 - Android 5.0+ Lollipop (API level 21)
-- Kotlin 1.4.+
 
 ### Gradle settings
 ```gradle
@@ -81,18 +83,52 @@ dependencies {
 ## Codes
 For [Coil]
 ```kotlin
+imageView.load(IMAGE_URL) {
+  transformations(
+    CropCenterTransformation(),
+    RoundedCornersTransformation(radius = 120, cornerType = CornerType.DIAGONAL_FROM_TOP_LEFT)
+  )
+}
 ```
 
 For [Glide]
 ```kotlin
+Glide.with(context)
+  .load(IMAGE_URL)
+  .apply(
+    bitmapTransform(
+      MultiTransformation(
+        CropCenterTransformation(),
+        BlurTransformation(context, 15, sampling = 1)
+      )
+    )
+  ).into(imageView)
 ```
 
 For [Picasso]
 ```kotlin
+Picasso.get()
+  .load(IMAGE_URL)
+  .fit().centerInside()
+  .transform(
+    mutableListOf(
+      CropCenterTransformation(),
+      BlurTransformation(context, 25, sampling = 4)
+    )
+  ).into(imageView)
 ```
 
 For [Fresco]
 ```kotlin
+val request: ImageRequest =
+  ImageRequestBuilder.newBuilderWithSource(IMAGE_URL.toUri())
+  .setPostprocessor(BlurPostprocessor(context, 25, 4))
+  .build()
+
+holder.image.controller = Fresco.newDraweeControllerBuilder()
+  .setImageRequest(request)
+  .setOldController(draweeView.controller)
+  .build()
 ```
 
 ### Sample transformations
