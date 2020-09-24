@@ -95,7 +95,7 @@ Glide.with(context)
   ).into(imageView)
 ```
 
-#### For [Picasso] <a href="https://github.com/square/picasso"><img src="https://github.com/wasabeef/transformers/raw/main/art/picasso.jpg" width="12px"/>
+#### For [Picasso] <a href="https://github.com/square/picasso"><img src="https://github.com/wasabeef/transformers/raw/main/art/picasso.jpg" width="12px"/></a>
 ```gradle
 dependencies {
   implementation 'jp.wasabeef.transformers:picasso:1.x.x'
@@ -115,7 +115,7 @@ Picasso.get()
   ).into(imageView)
 ```
 
-#### For [Fresco] <a href="https://github.com/facebook/fresco"><img src="https://github.com/wasabeef/transformers/raw/main/art/fresco.jpg" width="12px"/>
+#### For [Fresco] <a href="https://github.com/facebook/fresco"><img src="https://github.com/wasabeef/transformers/raw/main/art/fresco.png" width="12px"/></a>
 ```gradle
 dependencies {
   implementation 'jp.wasabeef.transformers:fresco:1.x.x'
