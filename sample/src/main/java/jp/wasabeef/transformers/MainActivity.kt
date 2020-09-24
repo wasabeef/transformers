@@ -2,8 +2,8 @@ package jp.wasabeef.transformers
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * Copyright (C) 2020 Wasabeef
@@ -25,17 +25,19 @@ class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
-
-    glide.setOnClickListener {
+    findViewById<View>(R.id.glide).setOnClickListener {
       startActivity(Intent(this, GlideActivity::class.java))
     }
-    picasso.setOnClickListener {
+
+    findViewById<View>(R.id.picasso).setOnClickListener {
       startActivity(Intent(this, PicassoActivity::class.java))
     }
-    coil.setOnClickListener {
+
+    findViewById<View>(R.id.coil).setOnClickListener {
       startActivity(Intent(this, CoilActivity::class.java))
     }
-    fresco.setOnClickListener {
+
+    findViewById<View>(R.id.fresco).setOnClickListener {
       startActivity(Intent(this, FrescoActivity::class.java))
     }
   }

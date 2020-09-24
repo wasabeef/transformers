@@ -26,8 +26,6 @@ allprojects {
     kotlinOptions {
       allWarningsAsErrors = true
       jvmTarget = "1.8"
-      freeCompilerArgs = freeCompilerArgs + "-Xallow-jvm-ir-dependencies"
-      freeCompilerArgs = freeCompilerArgs + "-Xskip-prerelease-check"
     }
   }
 }

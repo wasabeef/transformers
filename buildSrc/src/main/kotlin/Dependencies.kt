@@ -13,6 +13,7 @@ object BuildConfig {
 object Projects {
   const val core = ":core"
   const val types = ":types"
+
   const val glide = ":transformers:glide"
   const val glideGpu = ":transformers:glide-gpu"
   const val picasso = ":transformers:picasso"
@@ -44,10 +45,8 @@ object Libraries {
     const val runtime = "androidx.compose.runtime:runtime:$composeVersion"
     const val foundation = "androidx.compose.foundation:foundation:${composeVersion}"
     const val layout = "androidx.compose.foundation:foundation-layout:${composeVersion}"
-
     const val ui = "androidx.compose.ui:ui:${composeVersion}"
     const val material = "androidx.compose.material:material:${composeVersion}"
-
     const val tooling = "androidx.ui:ui-tooling:${composeVersion}"
   }
 
