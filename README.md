@@ -58,40 +58,14 @@ repositories {
 }
 ```
 
-For [Coil]
+#### For [Coil] <a href="https://github.com/coil-kt/coil"><img src="https://github.com/wasabeef/transformers/raw/main/art/coil.png" width="12px"/></a>
 ```gradle
 dependencies {
   implementation 'jp.wasabeef.transformers:coil:1.x.x'
-  implementation 'jp.wasabeef.transformers:coil-gpu:1.x.x' // Use the GPU Filters 
+  // Use the GPU Filters 
+  implementation 'jp.wasabeef.transformers:coil-gpu:1.x.x'
 }
 ```
-
-For [Glide]
-```gradle
-dependencies {
-  implementation 'jp.wasabeef.transformers:glide:1.x.x'
-  implementation 'jp.wasabeef.transformers:glide-gpu:1.x.x' // Use the GPU Filters 
-}
-```
-
-For [Picasso]
-```gradle
-dependencies {
-  implementation 'jp.wasabeef.transformers:picasso:1.x.x'
-  implementation 'jp.wasabeef.transformers:picasso-gpu:1.x.x' // Use the GPU Filters 
-}
-```
-
-For [Fresco]
-```gradle
-dependencies {
-  implementation 'jp.wasabeef.transformers:fresco:1.x.x'
-  implementation 'jp.wasabeef.transformers:fresco-gpu:1.x.x' // Use the GPU Filters 
-}
-```
-
-## Codes
-For [Coil]
 ```kotlin
 imageView.load(IMAGE_URL) {
   transformations(
@@ -101,7 +75,13 @@ imageView.load(IMAGE_URL) {
 }
 ```
 
-For [Glide]
+#### For [Glide] <a href="https://github.com/bumptech/glide"><img src="https://github.com/wasabeef/transformers/raw/main/art/glide.png" width="12px"/></a>
+```gradle
+dependencies {
+  implementation 'jp.wasabeef.transformers:glide:1.x.x'
+  implementation 'jp.wasabeef.transformers:glide-gpu:1.x.x' // Use the GPU Filters 
+}
+```
 ```kotlin
 Glide.with(context)
   .load(IMAGE_URL)
@@ -115,7 +95,14 @@ Glide.with(context)
   ).into(imageView)
 ```
 
-For [Picasso]
+#### For [Picasso] <a href="https://github.com/square/picasso"><img src="https://github.com/wasabeef/transformers/raw/main/art/picasso.jpg" width="12px"/>
+```gradle
+dependencies {
+  implementation 'jp.wasabeef.transformers:picasso:1.x.x'
+  // Use the GPU Filters 
+  implementation 'jp.wasabeef.transformers:picasso-gpu:1.x.x'
+}
+```
 ```kotlin
 Picasso.get()
   .load(IMAGE_URL)
@@ -128,7 +115,14 @@ Picasso.get()
   ).into(imageView)
 ```
 
-For [Fresco]
+#### For [Fresco] <a href="https://github.com/facebook/fresco"><img src="https://github.com/wasabeef/transformers/raw/main/art/fresco.jpg" width="12px"/>
+```gradle
+dependencies {
+  implementation 'jp.wasabeef.transformers:fresco:1.x.x'
+  // Use the GPU Filters 
+  implementation 'jp.wasabeef.transformers:fresco-gpu:1.x.x'
+}
+```
 ```kotlin
 val request: ImageRequest =
   ImageRequestBuilder.newBuilderWithSource(IMAGE_URL.toUri())
@@ -140,6 +134,7 @@ holder.image.controller = Fresco.newDraweeControllerBuilder()
   .setOldController(draweeView.controller)
   .build()
 ```
+
 
 ### Sample transformations
 | Original | Mask | NinePatchMask | CropTop |
