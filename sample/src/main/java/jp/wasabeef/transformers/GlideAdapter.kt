@@ -362,14 +362,14 @@ class GlideAdapter(
           .load(IMAGE_URL)
           .skipMemoryCache(SKIP_CACHE)
           .apply(bitmapTransform(PixelationFilterTransformation(20f)))
-          .into(GlideDownloader(context, PixelLight.name))
+          .into(holder.image)
 
       PixelDeep ->
         Glide.with(context)
           .load(IMAGE_URL)
           .skipMemoryCache(SKIP_CACHE)
           .apply(bitmapTransform(PixelationFilterTransformation(80f)))
-          .into(GlideDownloader(context, PixelDeep.name))
+          .into(holder.image)
 
       Sketch ->
         Glide.with(context)
