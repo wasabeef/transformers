@@ -34,10 +34,17 @@ An Android transformation library providing a variety of image transformations f
 </a>
 
 <br>
+
+### Part of the sample
+<img src="https://github.com/wasabeef/image-transformations/raw/main/art/Original.png" width="120px" /><img src="https://github.com/wasabeef/image-transformations/raw/main/art/Mask.png" width="120px" /><img src="https://github.com/wasabeef/image-transformations/raw/main/art/CropCircle.png" width="120px" /><img src="https://github.com/wasabeef/image-transformations/raw/main/art/RSGaussianBlurDeep.png" width="120px" /><img src="https://github.com/wasabeef/image-transformations/raw/main/art/RoundedCornersTopLeft.png" width="120px" />
+
+<img src="https://github.com/wasabeef/image-transformations/raw/main/art/PixelDeep.png" width="120px" /><img src="https://github.com/wasabeef/image-transformations/raw/main/art/ZoomBlur.png" width="120px" /><img src="https://github.com/wasabeef/image-transformations/raw/main/art/Kuawahara.png" width="120px" /><img src="https://github.com/wasabeef/image-transformations/raw/main/art/Vignette.png" width="120px" /><img src="https://github.com/wasabeef/image-transformations/raw/main/art/ToneCurve.png" width="120px" />
+
 <br>
 
 > [Glide Transformations](https://github.com/wasabeef/glide-transformations), [Picasso Transformations](https://github.com/wasabeef/picasso-transformations), [Fresco Processors](https://github.com/wasabeef/fresco-processors) are deprecated.   
 > Development will stop soon.. For an up-to-date version, please use this.
+
 
 ## Installation
 
