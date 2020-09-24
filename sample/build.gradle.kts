@@ -32,22 +32,6 @@ android {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
   }
-
-  buildFeatures {
-    compose = true
-  }
-
-  composeOptions {
-    kotlinCompilerVersion = Libraries.kotlinVersion
-    kotlinCompilerExtensionVersion = Libraries.Compose.composeVersion
-  }
-
-  tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class).configureEach {
-    kotlinOptions {
-      freeCompilerArgs = freeCompilerArgs + "-Xallow-jvm-ir-dependencies"
-      freeCompilerArgs = freeCompilerArgs + "-Xskip-prerelease-check"
-    }
-  }
 }
 
 repositories {

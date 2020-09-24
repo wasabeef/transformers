@@ -40,17 +40,6 @@ object Libraries {
   const val coreKtx = "androidx.core:core-ktx:$coreKtxVersion"
   const val annontation = "androidx.annotation:annotation:1.2.0-alpha01"
 
-  object Compose {
-    const val composeVersion = "1.0.0-alpha03"
-    const val runtime = "androidx.compose.runtime:runtime:$composeVersion"
-    const val foundation = "androidx.compose.foundation:foundation:${composeVersion}"
-    const val layout = "androidx.compose.foundation:foundation-layout:${composeVersion}"
-    const val ui = "androidx.compose.ui:ui:${composeVersion}"
-    const val material = "androidx.compose.material:material:${composeVersion}"
-    const val tooling = "androidx.ui:ui-tooling:${composeVersion}"
-  }
-
-
   const val picasso = "com.squareup.picasso:picasso:2.8"
   private const val glideVersion = "4.11.0"
   const val glide = "com.github.bumptech.glide:glide:$glideVersion"
