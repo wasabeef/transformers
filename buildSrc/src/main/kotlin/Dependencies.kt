@@ -5,7 +5,7 @@ object BuildConfig {
   const val minSdk = 21
   const val targetSdk = 30
   const val appVersionCode = 1
-  const val appVersionName = "1.0.0"
+  const val appVersionName = "1.0.2"
 
   const val testRunner = "androidx.test.runner.AndroidJUnitRunner"
 }
@@ -46,5 +46,5 @@ object Libraries {
   const val glideCompiler = "com.github.bumptech.glide:compiler:$glideVersion"
   const val coil = "io.coil-kt:coil:0.13.0"
   const val fresco = "com.facebook.fresco:fresco:2.3.0"
-  const val gpuImage = "jp.co.cyberagent.android:gpuimage:2.0.4"
+  const val gpuImage = "jp.co.cyberagent.android:gpuimage:2.1.0"
 }
