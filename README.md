@@ -58,7 +58,7 @@ repositories {
 }
 ```
 
-**This Transformer is not using android.support.v8.rendererscript because `librs.so` make the APK file too big.**
+**This Transformer is NOT using [android.support.v8.rendererscript](https://developer.android.com/guide/topics/renderscript/compute#ide-setup) because `librs.so` make the APK file too big.**
 
 #### For [Coil] <a href="https://github.com/coil-kt/coil"><img src="https://github.com/wasabeef/transformers/raw/main/art/coil.png" width="12px"/></a>
 ```gradle
