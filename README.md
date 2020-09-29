@@ -36,9 +36,9 @@ An Android transformation library providing a variety of image transformations f
 <br>
 
 ### Part of the sample
-<img src="https://github.com/wasabeef/transformers/raw/main/art/Original.png" width="120px" /><img src="https://github.com/wasabeef/transformers/raw/main/art/Mask.png" width="120px" /><img src="https://github.com/wasabeef/transformers/raw/main/art/CropCircle.png" width="120px" /><img src="https://github.com/wasabeef/transformers/raw/main/art/RSGaussianBlurDeep.png" width="120px" /><img src="https://github.com/wasabeef/transformers/raw/main/art/RoundedCornersTopLeft.png" width="120px" />
+<img src="https://github.com/wasabeef/transformers/raw/main/art/Original.png" width="120px" /> <img src="https://github.com/wasabeef/transformers/raw/main/art/Mask.png" width="120px" /> <img src="https://github.com/wasabeef/transformers/raw/main/art/CropCircle.png" width="120px" /> <img src="https://github.com/wasabeef/transformers/raw/main/art/RSGaussianBlurDeep.png" width="120px" /> <img src="https://github.com/wasabeef/transformers/raw/main/art/RoundedCornersTopLeft.png" width="120px" />
 
-<img src="https://github.com/wasabeef/transformers/raw/main/art/PixelDeep.png" width="120px" /><img src="https://github.com/wasabeef/transformers/raw/main/art/ZoomBlur.png" width="120px" /><img src="https://github.com/wasabeef/transformers/raw/main/art/Kuawahara.png" width="120px" /><img src="https://github.com/wasabeef/transformers/raw/main/art/Vignette.png" width="120px" /><img src="https://github.com/wasabeef/transformers/raw/main/art/ToneCurve.png" width="120px" />
+<img src="https://github.com/wasabeef/transformers/raw/main/art/PixelDeep.png" width="120px" /> <img src="https://github.com/wasabeef/transformers/raw/main/art/ZoomBlur.png" width="120px" /> <img src="https://github.com/wasabeef/transformers/raw/main/art/Kuawahara.png" width="120px" /> <img src="https://github.com/wasabeef/transformers/raw/main/art/Vignette.png" width="120px" /> <img src="https://github.com/wasabeef/transformers/raw/main/art/ToneCurve.png" width="120px" />
 
 <br>
 
@@ -81,7 +81,8 @@ imageView.load(IMAGE_URL) {
 ```gradle
 dependencies {
   implementation 'jp.wasabeef.transformers:glide:1.x.x'
-  implementation 'jp.wasabeef.transformers:glide-gpu:1.x.x' // Use the GPU Filters 
+  // Use the GPU Filters 
+  implementation 'jp.wasabeef.transformers:glide-gpu:1.x.x'
 }
 ```
 ```kotlin
