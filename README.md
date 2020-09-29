@@ -144,7 +144,7 @@ Use [Composable Images](https://github.com/wasabeef/composable-images) when usin
 
 ```kotlin
 GlideImage(
-  model = "https://images.unsplash.com/photo-1588952159215-a4b39193464e",
+  model = IMAGE_URL,
   modifier = Modifier.preferredWidth(120.dp),
   options = RequestOptions().transform(
     BlurTransformation(context, radius = 25, sampling = 4)
