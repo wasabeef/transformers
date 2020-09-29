@@ -190,6 +190,9 @@ GlideImage(
 
 
 ### Sample transformations with [GPUImage](https://github.com/cats-oss/android-gpuimage)
+
+We recommend that you have a ToneCurve file, as you can apply any filters you like.
+
 | Original | Sepia | Contrast | Invert |
 |:---:|:---:|:---:|:---:|
 | <img src="https://github.com/wasabeef/transformers/raw/main/art/Original.png" width="120px" /> | <img src="https://github.com/wasabeef/transformers/raw/main/art/Sepia.png" width="120px" /> | <img src="https://github.com/wasabeef/transformers/raw/main/art/Contrast.png" width="120px" /> | <img src="https://github.com/wasabeef/transformers/raw/main/art/Invert.png" width="120px" /> |
