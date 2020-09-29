@@ -137,6 +137,19 @@ holder.image.controller = Fresco.newDraweeControllerBuilder()
   .build()
 ```
 
+### With Jetpack Compose
+
+Use [Composable Images](https://github.com/wasabeef/composable-images) when using with Jetpack Compose.
+
+```kotlin
+GlideImage(
+  model = "https://images.unsplash.com/photo-1588952159215-a4b39193464e",
+  modifier = Modifier.preferredWidth(120.dp),
+  options = RequestOptions().transform(
+    BlurTransformation(context, radius = 25, sampling = 4)
+  )
+)
+```
 
 ### Sample transformations
 | Original | Mask | NinePatchMask | CropTop |
