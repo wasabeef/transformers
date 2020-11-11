@@ -22,6 +22,18 @@ object Projects {
   const val coilGpu = ":transformers:coil-gpu"
   const val fresco = ":transformers:fresco"
   const val frescoGpu = ":transformers:fresco-gpu"
+
+  object FromBintray {
+    const val transformersVersion = "1.0.2"
+    const val glide = "jp.wasabeef.transformers:glide:$transformersVersion"
+    const val glideGpu = "jp.wasabeef.transformers:glide-gpu:$transformersVersion"
+    const val picasso = "jp.wasabeef.transformers:picasso:$transformersVersion"
+    const val picassoGpu = "jp.wasabeef.transformers:picasso-gpu:$transformersVersion"
+    const val coil = "jp.wasabeef.transformers:coil:$transformersVersion"
+    const val coilGpu = "jp.wasabeef.transformers:coil-gpu:$transformersVersion"
+    const val fresco = "jp.wasabeef.transformers:fresco:$transformersVersion"
+    const val frescoGpu = "jp.wasabeef.transformers:fresco-gpu:$transformersVersion"
+  }
 }
 
 object Ktlint {
