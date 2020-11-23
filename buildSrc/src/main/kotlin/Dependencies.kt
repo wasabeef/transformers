@@ -5,7 +5,7 @@ object BuildConfig {
   const val minSdk = 21
   const val targetSdk = 30
   const val appVersionCode = 1
-  const val appVersionName = "1.0.2"
+  const val appVersionName = "1.0.3"
 
   const val testRunner = "androidx.test.runner.AndroidJUnitRunner"
 }
@@ -24,7 +24,7 @@ object Projects {
   const val frescoGpu = ":transformers:fresco-gpu"
 
   object FromBintray {
-    const val transformersVersion = "1.0.2"
+    const val transformersVersion = "1.0.3"
     const val glide = "jp.wasabeef.transformers:glide:$transformersVersion"
     const val glideGpu = "jp.wasabeef.transformers:glide-gpu:$transformersVersion"
     const val picasso = "jp.wasabeef.transformers:picasso:$transformersVersion"
