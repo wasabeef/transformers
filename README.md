@@ -6,8 +6,8 @@
   <a href="https://www.apache.org/licenses/LICENSE-2.0">
     <img src="https://img.shields.io/badge/license-Apache%202-blue.svg" />
   </a>
-  <a href="https://bintray.com/wasabeef/maven/transformers/_latestVersion">
-    <img src="https://api.bintray.com/packages/wasabeef/maven/transformers/images/download.svg" />
+  <a href="https://search.maven.org/artifact/jp.wasabeef/transformers">
+    <img src="https://maven-badges.herokuapp.com/maven-central/jp.co.cyberagent.android/transformers/badge.svg" />
   </a>
   <a href="https://github.com/wasabeef/transformers/actions">
     <img src="https://github.com/wasabeef/transformers/workflows/Android%20CI/badge.svg" />
@@ -55,7 +55,7 @@ An Android transformation library providing a variety of image transformations f
 ### Gradle settings
 ```gradle
 repositories {
-  jcenter()
+  mavenCentral()
 }
 ```
 
@@ -64,9 +64,9 @@ repositories {
 #### For [Coil] <a href="https://github.com/coil-kt/coil"><img src="https://github.com/wasabeef/transformers/raw/main/art/coil.png" width="12px"/></a>
 ```gradle
 dependencies {
-  implementation 'jp.wasabeef.transformers:coil:1.x.x'
+  implementation 'jp.wasabeef.transformers:coil:1.0.3'
   // Use the GPU Filters 
-  implementation 'jp.wasabeef.transformers:coil-gpu:1.x.x'
+  implementation 'jp.wasabeef.transformers:coil-gpu:1.0.3'
 }
 ```
 ```kotlin
@@ -81,9 +81,9 @@ imageView.load(IMAGE_URL) {
 #### For [Glide] <a href="https://github.com/bumptech/glide"><img src="https://github.com/wasabeef/transformers/raw/main/art/glide.png" width="12px"/></a>
 ```gradle
 dependencies {
-  implementation 'jp.wasabeef.transformers:glide:1.x.x'
+  implementation 'jp.wasabeef.transformers:glide:1.0.3'
   // Use the GPU Filters 
-  implementation 'jp.wasabeef.transformers:glide-gpu:1.x.x'
+  implementation 'jp.wasabeef.transformers:glide-gpu:1.0.3'
 }
 ```
 ```kotlin
@@ -102,9 +102,9 @@ Glide.with(context)
 #### For [Picasso] <a href="https://github.com/square/picasso"><img src="https://github.com/wasabeef/transformers/raw/main/art/picasso.jpg" width="12px"/></a>
 ```gradle
 dependencies {
-  implementation 'jp.wasabeef.transformers:picasso:1.x.x'
+  implementation 'jp.wasabeef.transformers:picasso:1.0.3'
   // Use the GPU Filters 
-  implementation 'jp.wasabeef.transformers:picasso-gpu:1.x.x'
+  implementation 'jp.wasabeef.transformers:picasso-gpu:1.0.3'
 }
 ```
 ```kotlin
@@ -122,9 +122,9 @@ Picasso.get()
 #### For [Fresco] <a href="https://github.com/facebook/fresco"><img src="https://github.com/wasabeef/transformers/raw/main/art/fresco.png" width="12px"/></a>
 ```gradle
 dependencies {
-  implementation 'jp.wasabeef.transformers:fresco:1.x.x'
+  implementation 'jp.wasabeef.transformers:fresco:1.0.3'
   // Use the GPU Filters 
-  implementation 'jp.wasabeef.transformers:fresco-gpu:1.x.x'
+  implementation 'jp.wasabeef.transformers:fresco-gpu:1.0.3'
 }
 ```
 ```kotlin
@@ -266,11 +266,10 @@ $ ./gradlew assemble
 $ ./gradlew ktlint
 ```
 
-### Publishing to [Bintray](https://bintray.com/bintray/jcenter)
+### Publishing to [Maven Central](https://search.maven.org/)
 
 ```
-$ ./gradlew clean install build
-$ ./gradlew bintrayUpload -PbintrayUser=******** -PbintrayKey=***************
+$ ./gradlew clean build publish
 ```
 
 

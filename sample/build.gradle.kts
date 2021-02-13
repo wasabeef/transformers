@@ -35,7 +35,8 @@ android {
 }
 
 repositories {
-  maven(url = "https://dl.bintray.com/wasabeef/maven/")
+  // maven(url = "https://dl.bintray.com/wasabeef/maven/")
+  // maven(url = "https://oss.sonatype.org/content/repositories/snapshots")
 }
 
 dependencies {
