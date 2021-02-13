@@ -6,8 +6,8 @@
   <a href="https://www.apache.org/licenses/LICENSE-2.0">
     <img src="https://img.shields.io/badge/license-Apache%202-blue.svg" />
   </a>
-  <a href="https://search.maven.org/artifact/jp.wasabeef/transformers">
-    <img src="https://maven-badges.herokuapp.com/maven-central/jp.co.cyberagent.android/transformers/badge.svg" />
+  <a href="https://search.maven.org/search?q=jp.wasabeef.transformers">
+    <img src="https://maven-badges.herokuapp.com/maven-central/jp.wasabeef.transformers/core/badge.svg" />
   </a>
   <a href="https://github.com/wasabeef/transformers/actions">
     <img src="https://github.com/wasabeef/transformers/workflows/Android%20CI/badge.svg" />
