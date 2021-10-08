@@ -6,14 +6,14 @@ plugins {
 }
 
 android {
-  compileSdkVersion(BuildConfig.compileSdk)
+  setCompileSdkVersion(BuildConfig.compileSdk)
 
   defaultConfig {
-    applicationId(BuildConfig.appId)
-    minSdkVersion(BuildConfig.minSdk)
-    targetSdkVersion(BuildConfig.targetSdk)
-    versionCode(BuildConfig.appVersionCode)
-    versionName(BuildConfig.appVersionName)
+    applicationId = BuildConfig.appId
+    minSdk = BuildConfig.minSdk
+    targetSdk = BuildConfig.targetSdk
+    versionCode = BuildConfig.appVersionCode
+    versionName = BuildConfig.appVersionName
 
     testInstrumentationRunner = BuildConfig.testRunner
   }

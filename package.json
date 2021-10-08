@@ -1,6 +1,7 @@
 {
   "name": "transformers",
   "author": "wasabeef",
+  "private": true,
   "husky": {
     "hooks": {
       "pre-push": "./gradlew ktlint"
