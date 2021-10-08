@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-  compileSdkVersion(BuildConfig.compileSdk)
+  setCompileSdkVersion(BuildConfig.compileSdk)
 
   defaultConfig {
-    minSdkVersion(BuildConfig.minSdk)
-    targetSdkVersion(BuildConfig.targetSdk)
+    minSdk = BuildConfig.minSdk
+    targetSdk = BuildConfig.targetSdk
 
     buildConfigField("String", "Version", "\"${BuildConfig.appVersionName}\"")
 

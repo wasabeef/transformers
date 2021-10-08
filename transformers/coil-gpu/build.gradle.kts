@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-  compileSdkVersion(BuildConfig.compileSdk)
+  setCompileSdkVersion(BuildConfig.compileSdk)
 
   defaultConfig {
-    minSdkVersion(BuildConfig.minSdk)
-    targetSdkVersion(BuildConfig.targetSdk)
+    minSdk = BuildConfig.minSdk
+    targetSdk = BuildConfig.targetSdk
 
     buildConfigField("String", "Version", "\"${BuildConfig.appVersionName}\"")
 
@@ -30,7 +30,7 @@ dependencies {
   implementation(Libraries.kotlin)
   implementation(Libraries.coil)
   implementation(Libraries.gpuImage)
-  implementation(Libraries.annontation)
+  implementation(Libraries.annotation)
 }
 
 extra.apply {
