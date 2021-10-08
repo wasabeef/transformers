@@ -37,7 +37,7 @@ object Projects {
 }
 
 object Ktlint {
-  const val plugin = "com.pinterest:ktlint:0.39.0"
+  const val plugin = "com.pinterest:ktlint:0.42.1"
 }
 
 object Libraries {
