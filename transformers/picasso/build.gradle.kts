@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-  compileSdkVersion(BuildConfig.compileSdk)
+  setCompileSdkVersion(BuildConfig.compileSdk)
 
   defaultConfig {
-    minSdkVersion(BuildConfig.minSdk)
-    targetSdkVersion(BuildConfig.targetSdk)
+    minSdk = BuildConfig.minSdk
+    targetSdk = BuildConfig.targetSdk
 
     buildConfigField("String", "Version", "\"${BuildConfig.appVersionName}\"")
 
@@ -29,7 +29,7 @@ dependencies {
 
   implementation(Libraries.kotlin)
   implementation(Libraries.picasso)
-  implementation(Libraries.annontation)
+  implementation(Libraries.annotation)
 }
 
 extra.apply {
