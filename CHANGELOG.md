@@ -1,14 +1,24 @@
 Change Log
 ==========
 
-Version 1.0.3 *(20120-11-24)*
+Version 1.0.4 *(2021-10-08)*
+----------------------------
+
+Updates:
+- Kotlin to 1.5.31
+- AppCompat to 1.3.1
+- KTX to 1.6.0
+- Glide to 4.12.0
+- Coil to 1.4.0
+- Fresco to 2.5.0
+
+Version 1.0.3 *(2020-11-24)*
 ----------------------------
 
 Bug fix:
 - Mistake sync setting for jcenter.
 
-
-Version 1.0.2 *(20120-09-27)*
+Version 1.0.2 *(2020-09-27)*
 ----------------------------
 
 Update:
