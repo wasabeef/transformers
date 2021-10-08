@@ -24,7 +24,7 @@ object Projects {
   const val frescoGpu = ":transformers:fresco-gpu"
 
   object FromRepo {
-    const val transformersVersion = "1.0.4-SNAPSHOT"
+    const val transformersVersion = "1.0.4"
     const val glide = "jp.wasabeef.transformers:glide:$transformersVersion"
     const val glideGpu = "jp.wasabeef.transformers:glide-gpu:$transformersVersion"
     const val picasso = "jp.wasabeef.transformers:picasso:$transformersVersion"
