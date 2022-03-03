@@ -269,7 +269,9 @@ $ ./gradlew ktlint
 ### Publishing to [Maven Central](https://search.maven.org/)
 
 ```
-$ ./gradlew clean build publish
+$ ./gradlew :core:clean :core:build :core:publish
+....
+....
 ```
 
 
