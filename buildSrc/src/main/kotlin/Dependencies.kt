@@ -4,8 +4,8 @@ object BuildConfig {
   const val appId = "jp.wasabeef.transformers"
   const val minSdk = 21
   const val targetSdk = 30
-  const val appVersionCode = 2
-  const val appVersionName = "1.0.4"
+  const val appVersionCode = 3
+  const val appVersionName = "1.0.5"
 
   const val testRunner = "androidx.test.runner.AndroidJUnitRunner"
 }
@@ -24,7 +24,7 @@ object Projects {
   const val frescoGpu = ":transformers:fresco-gpu"
 
   object FromRepo {
-    const val transformersVersion = "1.0.4"
+    const val transformersVersion = "1.0.5"
     const val glide = "jp.wasabeef.transformers:glide:$transformersVersion"
     const val glideGpu = "jp.wasabeef.transformers:glide-gpu:$transformersVersion"
     const val picasso = "jp.wasabeef.transformers:picasso:$transformersVersion"

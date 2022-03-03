@@ -64,9 +64,9 @@ repositories {
 #### For [Coil] <a href="https://github.com/coil-kt/coil"><img src="https://github.com/wasabeef/transformers/raw/main/art/coil.png" width="12px"/></a>
 ```gradle
 dependencies {
-  implementation 'jp.wasabeef.transformers:coil:1.0.4'
+  implementation 'jp.wasabeef.transformers:coil:1.0.5'
   // Use the GPU Filters 
-  implementation 'jp.wasabeef.transformers:coil-gpu:1.0.4'
+  implementation 'jp.wasabeef.transformers:coil-gpu:1.0.5'
 }
 ```
 ```kotlin
@@ -81,9 +81,9 @@ imageView.load(IMAGE_URL) {
 #### For [Glide] <a href="https://github.com/bumptech/glide"><img src="https://github.com/wasabeef/transformers/raw/main/art/glide.png" width="12px"/></a>
 ```gradle
 dependencies {
-  implementation 'jp.wasabeef.transformers:glide:1.0.4'
+  implementation 'jp.wasabeef.transformers:glide:1.0.5'
   // Use the GPU Filters 
-  implementation 'jp.wasabeef.transformers:glide-gpu:1.0.4'
+  implementation 'jp.wasabeef.transformers:glide-gpu:1.0.5'
 }
 ```
 ```kotlin
@@ -102,9 +102,9 @@ Glide.with(context)
 #### For [Picasso] <a href="https://github.com/square/picasso"><img src="https://github.com/wasabeef/transformers/raw/main/art/picasso.jpg" width="12px"/></a>
 ```gradle
 dependencies {
-  implementation 'jp.wasabeef.transformers:picasso:1.0.4'
+  implementation 'jp.wasabeef.transformers:picasso:1.0.5'
   // Use the GPU Filters 
-  implementation 'jp.wasabeef.transformers:picasso-gpu:1.0.4'
+  implementation 'jp.wasabeef.transformers:picasso-gpu:1.0.5'
 }
 ```
 ```kotlin
@@ -122,9 +122,9 @@ Picasso.get()
 #### For [Fresco] <a href="https://github.com/facebook/fresco"><img src="https://github.com/wasabeef/transformers/raw/main/art/fresco.png" width="12px"/></a>
 ```gradle
 dependencies {
-  implementation 'jp.wasabeef.transformers:fresco:1.0.4'
+  implementation 'jp.wasabeef.transformers:fresco:1.0.5'
   // Use the GPU Filters 
-  implementation 'jp.wasabeef.transformers:fresco-gpu:1.0.4'
+  implementation 'jp.wasabeef.transformers:fresco-gpu:1.0.5'
 }
 ```
 ```kotlin
