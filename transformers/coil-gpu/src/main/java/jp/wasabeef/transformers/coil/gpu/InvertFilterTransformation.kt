@@ -26,5 +26,5 @@ class InvertFilterTransformation constructor(
   context: Context
 ) : GPUFilterTransformation(context, GPUImageColorInvertFilter()) {
 
-  override fun key(): String = "$id()"
+  override val cacheKey: String get() = "$id()"
 }

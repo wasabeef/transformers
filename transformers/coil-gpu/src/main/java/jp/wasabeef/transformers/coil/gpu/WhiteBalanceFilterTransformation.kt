@@ -37,5 +37,5 @@ class WhiteBalanceFilterTransformation @JvmOverloads constructor(
   }
 ) {
 
-  override fun key(): String = "$id(temperature=$temperature, tint=$tint)"
+  override val cacheKey: String get() = "$id(temperature=$temperature, tint=$tint)"
 }

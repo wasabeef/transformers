@@ -36,5 +36,5 @@ class ZoomBlurFilterTransformation @JvmOverloads constructor(
   }
 ) {
 
-  override fun key(): String = "$id(blurCenter=$blurCenter, blurSize=$blurSize)"
+  override val cacheKey: String get() = "$id(blurCenter=$blurCenter, blurSize=$blurSize)"
 }

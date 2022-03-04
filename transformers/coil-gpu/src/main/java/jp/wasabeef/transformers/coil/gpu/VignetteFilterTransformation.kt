@@ -41,8 +41,8 @@ class VignetteFilterTransformation @JvmOverloads constructor(
   }
 ) {
 
-  override fun key(): String =
-    "$id(center=$center," +
+  override val cacheKey: String
+    get() = "$id(center=$center," +
       " vignetteColor=${vignetteColor.contentToString()}, vignetteStart=$vignetteStart," +
       " vignetteEnd=$vignetteEnd)"
 }

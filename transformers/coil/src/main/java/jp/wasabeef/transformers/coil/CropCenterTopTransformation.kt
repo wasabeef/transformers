@@ -1,7 +1,7 @@
 package jp.wasabeef.transformers.coil
 
 import android.graphics.Bitmap
-import coil.bitmap.BitmapPool
+import android.graphics.Bitmap.createBitmap
 import coil.size.Size
 import jp.wasabeef.transformers.core.Crop
 import jp.wasabeef.transformers.core.bitmapConfig
@@ -34,9 +34,9 @@ class CropCenterTopTransformation : BaseTransformation(
   )
 ) {
 
-  override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
+  override suspend fun transform(input: Bitmap, size: Size): Bitmap {
     val calcSize = (transformer as Crop).calculateSize(input)
-    val output = pool.get(calcSize.width, calcSize.height, bitmapConfig(input))
+    val output = createBitmap(calcSize.width, calcSize.height, bitmapConfig(input))
     return transformer.transform(input, output)
   }
 }

@@ -34,5 +34,5 @@ class SepiaFilterTransformation @JvmOverloads constructor(
   }
 ) {
 
-  override fun key(): String = "$id(intensity=$intensity)"
+  override val cacheKey: String get() = "$id(intensity=$intensity)"
 }

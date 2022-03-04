@@ -56,7 +56,7 @@ object Libraries {
   private const val glideVersion = "4.12.0"
   const val glide = "com.github.bumptech.glide:glide:$glideVersion"
   const val glideCompiler = "com.github.bumptech.glide:compiler:$glideVersion"
-  const val coil = "io.coil-kt:coil:1.4.0"
+  const val coil = "io.coil-kt:coil:2.0.0-rc01"
   const val fresco = "com.facebook.fresco:fresco:2.5.0"
   const val gpuImage = "jp.co.cyberagent.android:gpuimage:2.1.0"
 }

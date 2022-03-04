@@ -35,5 +35,5 @@ class KuwaharaFilterTransformation @JvmOverloads constructor(
   }
 ) {
 
-  override fun key(): String = "$id(radius=$radius)"
+  override val cacheKey: String get() = "$id(radius=$radius)"
 }

@@ -1,9 +1,9 @@
 package jp.wasabeef.transformers.coil
 
 import android.graphics.Bitmap
+import android.graphics.Bitmap.createBitmap
 import android.graphics.Color
 import androidx.annotation.ColorInt
-import coil.bitmap.BitmapPool
 import coil.size.Size
 import jp.wasabeef.transformers.core.CropCircleWithBorder
 import jp.wasabeef.transformers.core.bitmapConfig
@@ -31,9 +31,9 @@ class CropCircleWithBorderTransformation @JvmOverloads constructor(
   @ColorInt borderColor: Int = Color.BLACK
 ) : BaseTransformation(CropCircleWithBorder(borderSize, borderColor)) {
 
-  override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
+  override suspend fun transform(input: Bitmap, size: Size): Bitmap {
     val minSize = min(input.width, input.height)
-    val output = pool.get(minSize, minSize, bitmapConfig(input))
+    val output = createBitmap(minSize, minSize, bitmapConfig(input))
     return transformer.transform(input, output)
   }
 }

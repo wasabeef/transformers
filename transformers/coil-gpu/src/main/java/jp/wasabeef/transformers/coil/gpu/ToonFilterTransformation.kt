@@ -36,5 +36,6 @@ class ToonFilterTransformation @JvmOverloads constructor(
   }
 ) {
 
-  override fun key(): String = "$id(threshold=$threshold, quantizationLevels=$quantizationLevels)"
+  override val cacheKey: String
+    get() = "$id(threshold=$threshold, quantizationLevels=$quantizationLevels)"
 }

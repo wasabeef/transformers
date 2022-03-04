@@ -1,7 +1,7 @@
 package jp.wasabeef.transformers.coil
 
 import android.graphics.Bitmap
-import coil.bitmap.BitmapPool
+import android.graphics.Bitmap.createBitmap
 import coil.size.Size
 import jp.wasabeef.transformers.core.Grayscale
 import jp.wasabeef.transformers.core.bitmapConfig
@@ -24,8 +24,8 @@ import jp.wasabeef.transformers.core.bitmapConfig
 
 class GrayscaleTransformation : BaseTransformation(Grayscale()) {
 
-  override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
-    val output = pool.get(input.width, input.height, bitmapConfig(input))
+  override suspend fun transform(input: Bitmap, size: Size): Bitmap {
+    val output = createBitmap(input.width, input.height, bitmapConfig(input))
     return transformer.transform(input, output)
   }
 }

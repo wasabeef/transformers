@@ -33,5 +33,5 @@ class ToneCurveFilterTransformation constructor(
   }
 ) {
 
-  override fun key(): String = "$id(toneCurveId=$toneCurveId)"
+  override val cacheKey: String get() = "$id(toneCurveId=$toneCurveId)"
 }

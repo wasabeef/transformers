@@ -22,6 +22,6 @@ import jp.wasabeef.transformers.core.Transformer
 abstract class BaseTransformation(
   val transformer: Transformer
 ) : Transformation {
-
-  override fun key() = transformer.key()
+  override val cacheKey: String
+    get() = transformer.key()
 }
