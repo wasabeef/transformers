@@ -1,9 +1,9 @@
 object BuildConfig {
-  const val compileSdk = 30
+  const val compileSdk = 31
 
   const val appId = "jp.wasabeef.transformers"
   const val minSdk = 21
-  const val targetSdk = 30
+  const val targetSdk = 31
   const val appVersionCode = 3
   const val appVersionName = "1.0.5"
 

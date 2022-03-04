@@ -22,7 +22,7 @@ allprojects {
   }
   tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class).configureEach {
     kotlinOptions {
-      allWarningsAsErrors = true
+      // allWarningsAsErrors = true
       jvmTarget = "1.8"
     }
   }
