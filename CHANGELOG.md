@@ -1,6 +1,14 @@
 Change Log
 ==========
 
+Version 1.0.6 *(2022-03-10)*
+----------------------------
+
+Updates:
+- Coil to 2.0.0-rc01
+- compileSdkVersion to 31 
+- targetSdkVersion to 31
+
 Version 1.0.5 *(2021-10-08)*
 ----------------------------
 
