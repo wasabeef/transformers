@@ -34,5 +34,5 @@ class SharpenFilterTransformation @JvmOverloads constructor(
   }
 ) {
 
-  override fun key(): String = "$id(sharpness=$sharpness)"
+  override val cacheKey: String get() = "$id(sharpness=$sharpness)"
 }

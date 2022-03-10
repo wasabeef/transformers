@@ -23,5 +23,5 @@ class HalftoneFilterTransformation constructor(
   context: Context
 ) : GPUFilterTransformation(context, GPUImageHalftoneFilter()) {
 
-  override fun key(): String = "$id()"
+  override val cacheKey: String get() = "$id()"
 }

@@ -31,6 +31,5 @@ class ContrastFilterTransformation @JvmOverloads constructor(
     setContrast(contrast)
   }
 ) {
-
-  override fun key(): String = "$id(contrast=$contrast)"
+  override val cacheKey: String get() = "$id(contrast=$contrast)"
 }

@@ -26,5 +26,5 @@ class SketchFilterTransformation constructor(
   context: Context
 ) : GPUFilterTransformation(context, GPUImageSketchFilter()) {
 
-  override fun key(): String = "$id()"
+  override val cacheKey: String get() = "$id()"
 }

@@ -40,5 +40,5 @@ class SwirlFilterTransformation @JvmOverloads constructor(
   }
 ) {
 
-  override fun key(): String = "$id(radius=$radius, angle=$angle, center=$center)"
+  override val cacheKey: String get() = "$id(radius=$radius, angle=$angle, center=$center)"
 }

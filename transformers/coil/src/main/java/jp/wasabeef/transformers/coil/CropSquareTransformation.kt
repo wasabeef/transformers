@@ -1,7 +1,7 @@
 package jp.wasabeef.transformers.coil
 
 import android.graphics.Bitmap
-import coil.bitmap.BitmapPool
+import android.graphics.Bitmap.createBitmap
 import coil.size.Size
 import jp.wasabeef.transformers.core.CropSquare
 import jp.wasabeef.transformers.core.bitmapConfig
@@ -25,9 +25,9 @@ import kotlin.math.min
 
 class CropSquareTransformation : BaseTransformation(CropSquare()) {
 
-  override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
+  override suspend fun transform(input: Bitmap, size: Size): Bitmap {
     val minSize = min(input.width, input.height)
-    val output = pool.get(minSize, minSize, bitmapConfig(input))
+    val output = createBitmap(minSize, minSize, bitmapConfig(input))
     return transformer.transform(input, output)
   }
 }

@@ -1,9 +1,9 @@
 object BuildConfig {
-  const val compileSdk = 30
+  const val compileSdk = 31
 
   const val appId = "jp.wasabeef.transformers"
   const val minSdk = 21
-  const val targetSdk = 30
+  const val targetSdk = 31
   const val appVersionCode = 3
   const val appVersionName = "1.0.5"
 
@@ -56,7 +56,7 @@ object Libraries {
   private const val glideVersion = "4.12.0"
   const val glide = "com.github.bumptech.glide:glide:$glideVersion"
   const val glideCompiler = "com.github.bumptech.glide:compiler:$glideVersion"
-  const val coil = "io.coil-kt:coil:1.4.0"
+  const val coil = "io.coil-kt:coil:2.0.0-rc01"
   const val fresco = "com.facebook.fresco:fresco:2.5.0"
   const val gpuImage = "jp.co.cyberagent.android:gpuimage:2.1.0"
 }

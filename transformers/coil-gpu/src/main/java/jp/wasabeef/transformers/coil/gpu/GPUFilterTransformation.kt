@@ -2,7 +2,6 @@ package jp.wasabeef.transformers.coil.gpu
 
 import android.content.Context
 import android.graphics.Bitmap
-import coil.bitmap.BitmapPool
 import coil.size.Size
 import coil.transform.Transformation
 import jp.co.cyberagent.android.gpuimage.GPUImage
@@ -35,7 +34,7 @@ abstract class GPUFilterTransformation(
   protected val id: String
     get() = "${this::class.java.name}-$version"
 
-  override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
+  override suspend fun transform(input: Bitmap, size: Size): Bitmap {
     val gpuImage = GPUImage(context)
     gpuImage.setImage(input)
     gpuImage.setFilter(filter)

@@ -34,5 +34,5 @@ class PixelationFilterTransformation @JvmOverloads constructor(
   }
 ) {
 
-  override fun key(): String = "$id(pixel=$pixel)"
+  override val cacheKey: String get() = "$id(pixel=$pixel)"
 }

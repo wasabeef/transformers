@@ -32,5 +32,5 @@ class BrightnessFilterTransformation @JvmOverloads constructor(
   }
 ) {
 
-  override fun key(): String = "$id(brightness=$brightness)"
+  override val cacheKey: String get() = "$id(brightness=$brightness)"
 }
